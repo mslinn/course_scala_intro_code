@@ -1,0 +1,13 @@
+.classpath
+.DS_Store
+desktop.ini
+*~
+.cache
+.idea/
+.idea_modules/
+.project
+.settings/
+*.iml
+*.stackdump
+project/target/
+target/
