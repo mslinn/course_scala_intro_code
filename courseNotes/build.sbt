@@ -1,19 +1,19 @@
 organization := "com.micronautics"
 
-name := "Java Scala Interop Course Notes"
+name := "scalaJavaOOCompat"
 
-version := "0.1"
+description := "Scala/Java Interoperability: Object Oriented Compatibility Course Notes"
 
-scalaVersion := "2.9.2"
+version := "0.1.0"
 
-scalaVersion in update := "2.9.2"
+scalaVersion := "2.10.0-RC5"
 
-scalacOptions ++= Seq("-deprecation", "-unchecked")
+scalacOptions ++= Seq("-deprecation", "-encoding", "UTF-8", "-feature", "-target:jvm-1.6", "-unchecked", "-Ywarn-adapted-args")
 
 scalacOptions in (Compile, doc) <++= baseDirectory.map {
   (bd: File) => Seq[String](
      "-sourcepath", bd.getAbsolutePath,
-     "-doc-source-url", "https://bitbucket.org/mslinn/javaScalaInterop/src/master€{FILE_PATH}.scala"
+     "-doc-source-url", "https://bitbucket.org/mslinn/udemy_scalajavainterop_oocompat_code/src/master/courseNotes€{FILE_PATH}.scala"
   )
 }
 
@@ -22,7 +22,7 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "org.scalatest" % "scalatest_2.9.1" % "1.8" % "test" withSources()
+  "org.scalatest" % "scalatest_2.10.0-RC5" % "2.0.M5-B1" % "test" withSources()
 )
 
 logLevel := Level.Error

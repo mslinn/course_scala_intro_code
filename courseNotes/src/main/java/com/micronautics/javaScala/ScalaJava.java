@@ -2,9 +2,14 @@ package com.micronautics.javaScala;
 
 import com.micronautics.scalaJava.Container;
 import com.micronautics.scalaJava.Container$;
-import scala.*;
+import scala.Function0;
+import scala.Option;
+import scala.Tuple2;
 import scala.runtime.AbstractFunction0;
 import scala.sys.SystemProperties;
+import scala.util.Either;
+import scala.util.Left;
+import scala.util.Right;
 
 public class ScalaJava {
 
