@@ -1,36 +1,29 @@
 organization := "com.micronautics"
 
-name := "Java Scala Interop Assignment"
+name := "scalaIntroCourse1Assignment"
 
-version := "0.1"
+description := "Scala Introduction - Course1 Assignment"
 
-scalaVersion := "2.9.2"
+version := "0.1.0"
 
-scalaVersion in update := "2.9.2"
-
-scalacOptions ++= Seq("-deprecation", "-unchecked")
+scalaVersion := "2.10.0-RC5"
 
 scalacOptions in (Compile, doc) <++= baseDirectory.map {
   (bd: File) => Seq[String](
+     "-deprecation", 
+	 "-encoding", "UTF-8", 
+	 "-unchecked",
+     "-feature", 
+	 "-target:jvm-1.6", 
      "-sourcepath", bd.getAbsolutePath,
-     "-doc-source-url", "https://bitbucket.org/mslinn/javaScalaInterop/src/master€{FILE_PATH}.scala"
+	 "-Ywarn-adapted-args",
+     "-doc-source-url", "https://bitbucket.org/mslinn/udemy_scalaintro_couse1_code/src/master/assignment€{FILE_PATH}.scala"
   )
 }
-
-resolvers ++= Seq(
-  "Typesafe Releases" at "http://repo.typesafe.com/typesafe/releases"
-)
-
-libraryDependencies ++= Seq(
-  "junit"         % "junit"           % "4.10" % "test",
-  "org.scalatest" % "scalatest_2.9.1" % "1.8"  % "test"
-)
 
 logLevel := Level.Error
 
 // Optional settings from https://github.com/harrah/xsbt/wiki/Quick-Configuration-Examples follow
-
-// define the statements initially evaluated when entering 'console', 'console-quick', or 'console-project'
 initialCommands := """
 """
 
