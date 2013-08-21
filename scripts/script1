@@ -1,0 +1,22 @@
+abstract class Animal(numLegs: Int, breathesAir: Boolean) {
+  private val breatheMsg = if (breathesAir) "" else " do not"
+  val msg = s"I have $numLegs legs and I $breatheMsg breathe air" 
+}
+class Frog1(val canSwim: Boolean, numLegs: Int, breathesAir: Boolean) extends Animal(numLegs, breathesAir)]
+val frog1 = new Frog1(true, 4, true)
+class Frog2(val canSwim: Boolean, val numLegs: Int, val breathesAir: Boolean) extends Animal(numLegs, breathesAir)
+val tadpole = new Frog2(true, 0, false)
+tadpole.numLegs
+tadpole.breathesAir
+val frog3 = new Frog3(breathesAir=true, numLegs=4, canSwim=true)
+val frog3b = new Frog3(breathesAir=true, numLegs=4)
+tagpole.canSwim
+val frog4 = new Frog4(true, 4, true)
+frog4.numLegs=4
+val frog5 = new Frog5(true, 4, true) { override def toString() = s"$canSwim; $numLegs legs; $breathesAir" }
+val frog6 = new Frog6(true, 4, true) { override def toString() = s"$canSwim; $numLegs legs" }
+class Frog7(val canSwim: Boolean, var numLegs: Int, breathesAir: Boolean) extends Animal(numLegs, breathesAir) { override def toString() = s"$canSwim; $numLegs legs" }
+val frog7 = new Frog7(true, 4, true)
+class Frog8(val canSwim: Boolean=true, var numLegs: Int=4, breathesAir: Boolean=true) extends Animal(numLegs, breathesAir) { override def toString() = s"$canSwim; $numLegs legs" }
+val frog8 = new Frog8
+
