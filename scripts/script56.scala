@@ -1,5 +1,5 @@
 abstract class Animal(numLegs: Int, breathesAir: Boolean) {
-  private val breatheMsg = if (breathesAir) "" else " do not"
+  private val breatheMsg = if (breathesAir) "" else "do not"
   val msg = s"I have $numLegs legs and I $breatheMsg breathe air" 
 }
 class Frog1(val canSwim: Boolean, numLegs: Int, breathesAir: Boolean) extends Animal(numLegs, breathesAir)
