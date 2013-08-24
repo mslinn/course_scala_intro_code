@@ -1,12 +1,12 @@
 organization := "com.micronautics"
 
-name := "scalaIntroCourse1Course"
+name := "scalaIntroCourse"
 
-description := "Scala Introduction - Course1 Course Notes"
+description := "Scala Introduction - Course Notes"
 
 version := "0.1.0"
 
-scalaVersion := "2.10.0-RC5"
+scalaVersion := "2.10.2"
 
 scalacOptions in (Compile, doc) <++= baseDirectory.map {
   (bd: File) => Seq[String](
