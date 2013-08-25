@@ -1,3 +1,5 @@
+// Notice that the package name does not correspond to the directory structure. This is allowed in Scala.
+
 package com.micronautics.scalaIntro
 
 class Public {
@@ -134,7 +136,7 @@ private[this] class PrivateThis {
 
 sealed class Sealed
 
-object Main extends App {
+object VisibleMain extends App {
   val publicInstance = new Public
   val publicInPublicInstance = new publicInstance.PublicInPublicClass
   println("All done!")
