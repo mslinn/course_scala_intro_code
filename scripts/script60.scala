@@ -15,7 +15,7 @@ class Frog4(val canSwim: Boolean, numLegs: Int, breathesAir: Boolean) {
 object Frog4 {
   def apply(canSwim: Boolean=true, numLegs: Int=4, breathesAir: Boolean=true) = new Frog4(canSwim, numLegs, breathesAir)
 
-  def croak(times: Int): String = "Croak " * times
+  def croak(times: Int): (String = "Croak " * times).trim
 }
 ^D
 Frog4(canSwim=true, 4, breathesAir=true).makeNoise
