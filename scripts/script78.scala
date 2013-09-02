@@ -15,7 +15,6 @@ object Animal2 {
 abstract class Animal2(val msg: String) {
   def this(numLegs: Int, breathesAir: Boolean) = this(Animal2.shazam(numLegs, breathesAir))
 }
-:paste
 object Animal2 {
   def shazam(numLegs: Int, breathesAir: Boolean) = {
     val breatheMsg = if (breathesAir) "" else "do not"
@@ -25,7 +24,6 @@ object Animal2 {
 abstract class Animal2(val msg: String) {
   def this(numLegs: Int, breathesAir: Boolean) = this(Animal2.shazam(numLegs, breathesAir))
 }
-^D
 val animal2 = new Animal2("asdf"){}
 animal2.msg
 

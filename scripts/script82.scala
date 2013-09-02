@@ -1,4 +1,4 @@
-object Thing {
+object Thing1 {
   type Closeable = { def close(): Unit }
 
   def using[A <: Closeable, B](closeable: A)(f: A => B): B = {
@@ -17,7 +17,7 @@ object Thing {
     println(s"$str has ${str.length} characters")
   }
 }
-object Thing {
+object Thing2 {
   type Closeable = { def close(): Unit }
 
   def using[A <: Closeable, B](closeable: => A)(f: A => B): B = {
