@@ -42,3 +42,14 @@ def extract(animal: Animal): Unit = animal match {
 extract(tadpole)
 extract(bigDog)
 extract(yapper)
+case class Address(street: String, street2: String, city: String, country: String)
+val addresses = List(
+  Address("123 Main St", "Apt 3", "Yourtown", "MD"),
+  Address("234 Rue Blue", "Apt 5", "Fontaineblue", "France"),
+  Address("543 Toulouse", "Apt 6", "Paris", "France")
+)
+addresses foreach { _ match {
+    case address @ Address(_, _, "Paris", "France") => println(address.street)
+    case _ =>
+  }
+}
