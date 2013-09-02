@@ -52,4 +52,11 @@ addresses foreach { _ match {
     case address @ Address(_, _, "Paris", "France") => println(address.street)
     case _ =>
   }
+def isReadme(string: String): Boolean = string.toLowerCase.startsWith("readme")
+val mergeStrategy = List("a", "b", "README.md")
+mergeStrategy match { 
+  case List("reference.conf") => "MergeStrategy.concat"
+  case List(ps @ _*) if isReadme(ps.last) => "MergeStrategy.rename"
+  case _ => ""
+}
 }
