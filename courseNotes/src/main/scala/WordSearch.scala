@@ -15,10 +15,9 @@ object WordSearch extends App {
 
   /** Efficient, simple, elegant */
   def search2(list: List[String], word: String): FunnyReturnType =
-    MyObject(3) match {
-      case Fred(x) => Left(word)
-      case George(x) => Left(word)
-      case _ => Right(9)
+    list.indexOf(word) match {
+      case -1 => Left(word)
+      case index => Right(index)
   }
 
   /** Overly complex, but shows some Scala constructs. Finds all matches and returns the first */
