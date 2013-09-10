@@ -7,7 +7,7 @@ object WordSearch extends App {
   /** Efficient but clumsy */
   def search(list: List[String], word: String): FunnyReturnType = {
     val index = list.indexOf(word)
-    if (index<0)
+    if (index == -1)
       Left(word)
     else
       Right(index)
@@ -15,9 +15,10 @@ object WordSearch extends App {
 
   /** Efficient, simple, elegant */
   def search2(list: List[String], word: String): FunnyReturnType =
-    list.indexOf(word) match {
-      case -1 => Left(word)
-      case index => Right(index)
+    MyObject(3) match {
+      case Fred(x) => Left(word)
+      case George(x) => Left(word)
+      case _ => Right(9)
   }
 
   /** Overly complex, but shows some Scala constructs. Finds all matches and returns the first */
