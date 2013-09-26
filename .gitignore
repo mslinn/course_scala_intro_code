@@ -1,5 +1,6 @@
 logs
 out/
+Notepad++/
 /doc
 bin/*.class
 *.out
