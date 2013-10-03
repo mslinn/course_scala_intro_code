@@ -4,9 +4,9 @@ name := "scalaIntroCourse1Assignment"
 
 description := "Scala Introduction - Course1 Assignment"
 
-version := "0.1.0"
+version := "0.1.1"
 
-scalaVersion := "2.10.0-RC5"
+scalaVersion := "2.10.3"
 
 scalacOptions in (Compile, doc) <++= baseDirectory.map {
   (bd: File) => Seq[String](
