@@ -2,9 +2,9 @@ organization := "com.micronautics"
 
 name := "scalaIntroCourse"
 
-description := "Scala Introduction - Course Notes"
+description := "Core Scala - Introduction to Scala Course Notes"
 
-version := "0.1.1"
+version := "0.1.2"
 
 scalaVersion := "2.10.3"
 
@@ -16,8 +16,7 @@ scalacOptions in (Compile, doc) <++= baseDirectory.map {
      "-feature", 
 	 "-target:jvm-1.6", 
      "-sourcepath", bd.getAbsolutePath,
-	 "-Ywarn-adapted-args",
-     "-doc-source-url", "https://bitbucket.org/mslinn/course_scala_intro_code/src/master/courseNotes€{FILE_PATH}.scala"
+	 "-Ywarn-adapted-args"
   )
 }
 
