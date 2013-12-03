@@ -1,6 +1,6 @@
 // Notice that the package name does not correspond to the directory structure. This is allowed in Scala.
 
-package com.micronautics.scalaJava
+package com.micronautics.scalaIntro
 
 class ScalaClass3(val prop1: Int, var prop2: Double=0.0) {
   val prop3: Int = prop1 * 2;
