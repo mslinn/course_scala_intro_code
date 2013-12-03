@@ -1,8 +1,8 @@
 organization := "com.micronautics"
 
-name := "scalaIntroCourse1Assignment"
+name := "scalaIntroAssignment"
 
-description := "Scala Introduction - Course1 Assignment"
+description := "Core Scala - Introduction to Scala Assignment"
 
 version := "0.1.1"
 
@@ -16,8 +16,7 @@ scalacOptions in (Compile, doc) <++= baseDirectory.map {
      "-feature", 
 	 "-target:jvm-1.6", 
      "-sourcepath", bd.getAbsolutePath,
-	 "-Ywarn-adapted-args",
-     "-doc-source-url", "https://bitbucket.org/mslinn/udemy_scalaintro_couse1_code/src/master/assignment€{FILE_PATH}.scala"
+	 "-Ywarn-adapted-args"
   )
 }
 

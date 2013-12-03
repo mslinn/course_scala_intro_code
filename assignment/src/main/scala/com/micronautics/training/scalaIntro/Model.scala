@@ -1,4 +1,4 @@
-package com.micronautics.training.javaScalaInterop.assignment
+package com.micronautics.training.scalaIntro
 
 object Model {
     val people = Array(
