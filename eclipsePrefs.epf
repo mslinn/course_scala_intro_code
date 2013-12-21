@@ -1,0 +1,94 @@
+#Wed Mar 05 16:10:54 PST 2008
+/instance/com.adobe.flexbuilder.editors.mxml/compViewSize=400 x 300;300 x 200
+@org.eclipse.debug.ui=3.3.2.v20080117_r332
+/instance/org.eclipse.jdt.launching/org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1204051565000">\r\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n<vm id\="1204051565000" javadocURL\="http\://java.sun.com/j2se/1.5.0/docs/api/" name\="Flex Builder 3" path\="C\:\\Program Files\\Adobe\\Flex Builder 3"/>\r\n</vmType>\r\n</vmSettings>\r\n
+/instance/org.eclipse.debug.ui/StringVariablePreferencePage=141,117,116,93,
+/instance/com.adobe.flexbuilder.project/flexBuilderVersion=3.0.194161
+/instance/org.eclipse.debug.ui/Console.highWaterMark=88000
+/instance/org.eclipse.debug.ui/pref_state_memento.org.eclipse.debug.ui.ExpressionView=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<VariablesViewMemento org.eclipse.debug.ui.SASH_DETAILS_PART\="315" org.eclipse.debug.ui.SASH_VIEW_PART\="684"/>
+@org.eclipse.ui.browser=3.2.100.v20070524A
+/instance/org.eclipse.debug.ui/Console.console_tab_width=4
+/instance/org.eclipse.ui.editors/overviewRuler_migration=migrated_3.1
+/instance/org.eclipse.core.resources/version=1
+@org.eclipse.core.resources=3.3.1.R33x_v20080205
+@org.eclipse.update.scheduler=3.2.100.v20070615
+/instance/org.eclipse.help.ui/browser.y=168
+/instance/org.eclipse.help.ui/browser.x=575
+/instance/org.eclipse.help.ui/browser.maximized=false
+/instance/com.interaktonline.jseclipse/spaces4tab=true
+/instance/org.eclipse.help.ui/browser.w=1024
+@org.eclipse.team.cvs.ui=3.3.1.r33x_20070807
+@org.eclipse.debug.core=3.3.2.v20080117_r332
+/instance/com.adobe.flexbuilder.editors.common/activeViewIDs4=com.adobe.flexbuilder.navigator,org.eclipse.ui.console.ConsoleView,org.eclipse.debug.ui.DebugView,org.eclipse.debug.ui.VariableView
+/instance/com.adobe.flexbuilder.editors.common/activeViewIDs3=com.adobe.flexbuilder.navigator,org.eclipse.ui.console.ConsoleView,org.eclipse.debug.ui.DebugView,org.eclipse.debug.ui.VariableView
+/instance/org.eclipse.debug.ui/org.eclipse.debug.ui.switch_to_perspective=always
+/instance/com.adobe.flexbuilder.editors.common/activeViewIDs2=com.adobe.flexbuilder.navigator,org.eclipse.ui.console.ConsoleView,org.eclipse.debug.ui.DebugView,org.eclipse.debug.ui.BreakpointView
+/instance/com.adobe.flexbuilder.editors.mxml/expandState=controls\:layout\:navigators\:
+/configuration/org.eclipse.ui.ide/MAX_RECENT_WORKSPACES=5
+@org.eclipse.ui.workbench=3.3.2.M20080207-0800
+file_export_version=3.0
+@org.eclipse.jdt.launching=3.3.1.v20070808_r331
+/instance/com.adobe.flash.profiler/com.adobe.flash.profiler.Excludes=,.svn,flash.*.*,mx.*.*,
+/instance/org.eclipse.help.ui/browser.h=967
+/instance/org.eclipse.core.net/org.eclipse.core.net.hasMigrated=true
+/instance/org.eclipse.team.ui/org.eclipse.team.ui.first_time=false
+/instance/com.adobe.flexbuilder.editors.mxml/lastEditorView=Source
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.enumIdentifier=error
+/instance/org.eclipse.update.core/org.eclipse.update.core.automaticallyChooseMirror=true
+/instance/com.adobe.flexbuilder.project/playerTrustFileCleaned30=true
+@com.adobe.flexbuilder.editors.css=3.0.194161
+/instance/org.eclipse.debug.ui/Console.limitConsoleOutput=false
+@org.eclipse.core.net=1.0.1.r33x_20070709
+\!/=
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.compliance=1.5
+/instance/com.adobe.flexbuilder.editors.common/hyperlinkColor=RGB {49, 106, 197}
+/instance/org.eclipse.ui.workbench/RUN_IN_BACKGROUND=true
+/instance/org.eclipse.debug.ui/pref_state_memento.org.eclipse.debug.ui.VariableView=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<VariablesViewMemento org.eclipse.debug.ui.SASH_DETAILS_PART\="315" org.eclipse.debug.ui.SASH_VIEW_PART\="684"/>
+/instance/org.eclipse.update.scheduler/day=Every day
+/instance/com.adobe.flexbuilder.standalone/flexbuilder.afterFirstLaunch=true
+/instance/org.eclipse.ui.browser/internalWebBrowserHistory=file\:/C\:/Program Files/Adobe/Flex Builder 3/plugins/com.adobe.flexbuilder.ui_3.0.194161/welcome/welcome.html|*|http\://127.0.0.1\:51075/help/nftopic/com.adobe.flexbuilder.help/langref/mx/controls/HSlider.html|*|
+@org.eclipse.ui.editors=3.3.2.r332_20080109-0800
+/instance/com.adobe.flexbuilder.editors.css/LastCSSEditorView=Source
+/configuration/org.eclipse.ui.ide/RECENT_WORKSPACES=C\:\\Documents and Settings\\Mike Slinn.BEAR\\My Documents\\Flex Builder 3
+/instance/com.adobe.flexbuilder.editors.common/defaultCurrentLineColor=RGB {157, 185, 235}
+/instance/org.eclipse.team.cvs.ui/pref_first_startup=false
+/instance/org.eclipse.ui/CURRENT_THEME_ID=org.eclipse.ui.ide.systemDefault
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.5
+/instance/org.eclipse.update.scheduler/hour=1\:00 AM
+/instance/org.eclipse.debug.ui/org.eclipse.debug.ui.PREF_LAUNCH_PERSPECTIVES=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<launchPerspectives/>\r\n
+@com.adobe.flexbuilder.editors.common=3.0.194161
+/instance/org.eclipse.ui.workbench/ENABLED_DECORATORS=com.adobe.flexbuilder.editors.common.ui.project.applicationDecorator\:true,com.adobe.flexbuilder.editors.common.ui.project.classpathDecorator\:true,org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.DependencyDecoration\:true,org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.ColumnDecoration\:true,org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.ForeignKeyDecoration\:true,org.eclipse.datatools.connectivity.sqm.internal.core.ui.bookmarkDecoration\:true,org.eclipse.datatools.connectivity.ui.decorator.contentextension\:false,org.eclipse.team.cvs.ui.decorator\:true,org.eclipse.ui.LinkedResourceDecorator\:true,
+@com.adobe.flexbuilder.editors.mxml=3.0.194161
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
+@org.eclipse.jdt.core=3.3.1.v_780_R33x
+@org.eclipse.update.core=3.2.101.R33x_v20070911
+/instance/org.eclipse.debug.ui/org.eclipse.debug.ui.manage_view_perspectives=org.eclipse.debug.ui.DebugPerspective,
+@org.eclipse.search=3.3.1.r331_v20070831-0800
+/instance/org.eclipse.debug.ui/preferredDetailPanes=DefaultDetailPane\:DefaultDetailPane|
+/instance/org.eclipse.debug.ui/org.eclipse.debug.ui.switch_perspective_on_suspend=always
+/instance/org.eclipse.debug.core/prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<watchExpressions>\r\n<expression enabled\="true" text\="ewXmlLoader.data"/>\r\n</watchExpressions>\r\n
+/instance/org.eclipse.debug.ui/org.eclipse.debug.ui.skip_breakpoints_during_run_to_line=true
+/instance/org.eclipse.ui.browser/browsers=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<web-browsers current\="0">\r\n<system/>\r\n<external location\="C\:\\Program Files\\Mozilla Firefox\\firefox.exe" name\="Firefox"/>\r\n<external location\="C\:\\Program Files\\Internet Explorer\\iexplore.exe" name\="Internet Explorer"/>\r\n</web-browsers>
+/instance/org.eclipse.team.cvs.ui/pref_team_update_handling=performUpdate
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.source=1.5
+@com.interaktonline.jseclipse=1.5.5
+@org.eclipse.team.ui=3.3.2.r33x_20080128
+/instance/org.eclipse.core.resources/pathvariable.DOCUMENTS=C\:/Documents and Settings/Mike Slinn.BEAR/My Documents/Flex Builder 3
+/instance/com.adobe.flexbuilder.project/indentType=2
+/instance/org.eclipse.search/org.eclipse.search.defaultPerspective=org.eclipse.search.defaultPerspective.none
+/instance/com.adobe.flexbuilder.editors.common/autoViewIDs=com.adobe.flexbuilder.editors.mxml.states.StatesView\=design-mxml,com.adobe.flexbuilder.editors.mxml.inspector.view.PropertiesView\=design-mxml;design-css,com.adobe.flexbuilder.editors.mxml.components.ComponentsView\=design-mxml
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.builder.resourceCopyExclusionFilter=*.launch
+/configuration/org.eclipse.ui.ide/RECENT_WORKSPACES_PROTOCOL=3
+/instance/org.eclipse.ui/SHOW_MEMORY_MONITOR=true
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.assertIdentifier=error
+@com.adobe.flexbuilder.project=3.0.194161
+@org.eclipse.help.ui=3.3.2.v20071126_33x
+/instance/org.eclipse.debug.ui/org.eclipse.debug.ui.relaunch_in_debug_mode=always
+/instance/com.adobe.flash.profiler/com.adobe.flash.profiler.Includes=,
+/instance/com.adobe.flexbuilder.editors.mxml/appViewSizes=1024 x 768;800 x 600
+/instance/org.eclipse.debug.ui/org.eclipse.debug.ui.save_dirty_editors_before_launch=always
+@org.eclipse.ui=3.3.1.M20071128-0800
+/instance/org.eclipse.update.scheduler/enabled=true
+@com.adobe.flexbuilder.standalone=3.0.194161
+/configuration/org.eclipse.ui.ide/SHOW_WORKSPACE_SELECTION_DIALOG=false
+@com.adobe.flash.profiler=3.0.194161
