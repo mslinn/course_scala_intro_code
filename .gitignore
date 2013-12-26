@@ -1,7 +1,9 @@
 logs
+*/*.sublime*
 out/
 Notepad++/
 /doc
+WeatherEclipse/bin/
 bin/*.class
 *.out
 conf/evolutions/backup/slinnbooks_*.sql
