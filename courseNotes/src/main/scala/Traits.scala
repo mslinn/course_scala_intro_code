@@ -1,9 +1,6 @@
 abstract class Spacecraft { def engage: Unit }
 
 trait Bridge {
-  object Y {
-    def blah = "x"
-  }
   def speedUp: Unit
   def engage: Unit = 1 to 3 foreach { _ => speedUp }
 }
@@ -60,7 +57,7 @@ object BoldlyGo extends App {
   println (x)
 }
 
-object Test extends App {
+object ExtendJavaSet extends App {
   trait IgnoredCaseSet extends java.util.Set[String] {
     abstract override def add(str: String) = super.add(str.toLowerCase)
 
@@ -75,7 +72,10 @@ object Test extends App {
   }
 
   class XX extends java.util.HashSet[String] with IgnoredCaseSet
-  val x = new XX
+  val x = new XX() // Java sets are mutable, only the reference is immutable
+  x.add("One")
+  x.add("Two")
+  x.add("Three")
   println(s"x=$x")
 }
 
