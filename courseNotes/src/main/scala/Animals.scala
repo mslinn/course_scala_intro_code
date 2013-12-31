@@ -28,7 +28,9 @@ object Animals1 extends App {
 
 
 
-class Frog2(val canSwim: Boolean, val numLegs: Int, val breathesAir: Boolean) extends Animal(numLegs, breathesAir)
+class Frog2(val canSwim: Boolean, val numLegs: Int, val breathesAir: Boolean) extends Animal(numLegs, breathesAir) {
+  override def toString = s"Frog2 canSwim=$canSwim, numLegs=$numLegs, breathesAir=$breathesAir"
+}
 
 object Animals2 extends App {
   val tadpole = new Frog2(true, 0, false)
@@ -38,9 +40,13 @@ object Animals2 extends App {
 
 
 object Animals3 extends App {
-  val frog2b = new Frog2(breathesAir=true, numLegs=4, canSwim=true)
-  //val frog2c = new Frog2(breathesAir=true, numLegs=4)
-  println(s"frog2b.canSwim=${frog2b.canSwim}")
+  val frog2b = new Frog2(true, 4, breathesAir=true)
+  val frog2c = new Frog2(true, breathesAir=true, numLegs=4)
+  val frog2d = new Frog2(breathesAir=true, numLegs=4, canSwim=true)
+  //val frog2e = new Frog2(breathesAir=true, numLegs=4)
+  println(s"frog2b=$frog2b")
+  println(s"frog2c=$frog2c")
+  println(s"frog2d=$frog2d")
 }
 
 
