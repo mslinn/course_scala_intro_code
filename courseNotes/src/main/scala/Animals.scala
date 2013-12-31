@@ -1,3 +1,5 @@
+class UselessAnimal(numLegs: Int, breathesAir: Boolean)
+
 abstract class BadAnimal(numLegs: Int, breathesAir: Boolean) {
   val x = 3 // part of primary constructor
   println(breathesAir) // part of primary constructor
