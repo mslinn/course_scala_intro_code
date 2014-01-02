@@ -1,11 +1,11 @@
 package solutions
 
-abstract class Animal(numLegs: Int, breathesAir: Boolean) {
+abstract class Animal2(numLegs: Int, breathesAir: Boolean) {
   private val breatheMsg = if (breathesAir) "" else " do not"
   val msg = s"I have $numLegs legs and I $breatheMsg breathe air"
 }
 
-class Bird(val canFly: Boolean, val topSpeed: Double) extends Animal(2, true) {
+class Bird(val canFly: Boolean, val topSpeed: Double) extends Animal2(2, true) {
   override def toString = s"canFly=$canFly; topSpeed=$topSpeed"
 }
 
