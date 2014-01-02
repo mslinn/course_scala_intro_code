@@ -4,9 +4,7 @@ object Extractor extends App {
   type FrogTuple = (Boolean, Int, Boolean) // same as Tuple3[Boolean, Int, Boolean]
   type MaybeFrogTuple = Option[FrogTuple]  // same as Option[Tuple3[Boolean, Int, Boolean]]
 
-  case class Frog9(canSwim: Boolean, numLegs: Int, breathesAir: Boolean) {
-    override def toString() = s"canSwim=$canSwim, numLegs=$numLegs, breathesAir=$breathesAir"
-  }
+  case class Frog9(canSwim: Boolean, numLegs: Int, breathesAir: Boolean)
 
   object Frog9 {
     private def parse(input: Array[String]): MaybeFrogTuple =
