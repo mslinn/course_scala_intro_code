@@ -1,17 +1,17 @@
 object Auxilary extends App {
-  object Animal3 {
-    def apply(numLegs: Int, breathesAir: Boolean): Animal3 = new Animal3(numLegs, breathesAir)
-
-    def apply(): Animal3 = new Animal3 // method definition must have parentheses!
-  }
-
   class Animal3(numLegs: Int, breathesAir: Boolean) {
     private val breatheMsg = if (breathesAir) "" else " do not"
     val msg = s"I have $numLegs legs and I$breatheMsg breathe air"
 
-    def this() = this(numLegs=2, breathesAir=true) // you cannot define the return type
+    def this() = this(numLegs=2, breathesAir=true) // specifying return type is not allowed
 
-    override def toString() = s"numLegs$numLegs, breathesAir=$breathesAir, msg=$msg"
+    override def toString() = s"numLegs: $numLegs, breathesAir: $breathesAir, msg: $msg"
+  }
+
+  object Animal3 {
+    def apply(numLegs: Int, breathesAir: Boolean): Animal3 = new Animal3(numLegs, breathesAir)
+
+    def apply(): Animal3 = new Animal3 // method definition must have parentheses!
   }
 
   val animal3a = new Animal3(4, true)
