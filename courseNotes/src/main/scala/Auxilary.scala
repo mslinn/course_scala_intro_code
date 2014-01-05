@@ -1,11 +1,11 @@
-object Auxilary extends App {
+object Auxiliary extends App {
   class Animal3(numLegs: Int, breathesAir: Boolean) {
     private val breatheMsg = if (breathesAir) "" else " do not"
     val msg = s"I have $numLegs legs and I$breatheMsg breathe air"
 
     def this() = this(numLegs=2, breathesAir=true) // specifying return type is not allowed
 
-    override def toString() = s"numLegs: $numLegs, breathesAir: $breathesAir, msg: $msg"
+    override def toString = s"numLegs: $numLegs, breathesAir: $breathesAir, msg: $msg"
   }
 
   object Animal3 {

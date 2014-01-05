@@ -3,23 +3,23 @@ object CaseClasses1 extends App {
 
   case class Frog9b(val canSwim: Boolean, val numLegs: Int, val breathesAir: Boolean)
 
-  case class Frog10(canSwim: Boolean, var numLegs: Int, breathesAir: Boolean)
+  case class Frog9c(canSwim: Boolean, var numLegs: Int, breathesAir: Boolean)
 
   val frog9a = Frog9a(canSwim=true, 4, breathesAir=true)
   val frog9b = Frog9b(canSwim=true, 4, breathesAir=true)
-  val frog10 = Frog10(canSwim=true, 4, breathesAir=true)
+  val frog9c = Frog9c(canSwim=true, 4, breathesAir=true)
   println(s"frog9a=$frog9a")
   println(s"frog9b=$frog9b")
-  println(s"frog10=$frog10")
-  frog10.numLegs = 2
-  println(s"frog10=$frog10")
+  println(s"frog9c=$frog9c")
+  frog9c.numLegs = 2
+  println(s"frog9c=$frog9c")
 }
 
 
 object CaseClasses2 extends App {
-  case class Dog(val name: String)
+  case class Dog(name: String)
 
-  case class Hog(val name: String)
+  case class Hog(name: String)
 
   val dog1 = Dog("Fido")
   val dog2 = Dog("Fifi")
@@ -35,7 +35,7 @@ object CaseClasses2 extends App {
 
 object CaseClasses3 extends App {
   abstract class AbstractFrog(canSwim: Boolean, numLegs: Int, breathesAir: Boolean) {
-    override def toString(): String = s"canSwim: $canSwim, numLegs=$numLegs, breathesAir=$breathesAir"
+    override def toString: String = s"canSwim: $canSwim, numLegs=$numLegs, breathesAir=$breathesAir"
   }
 
   case class Frog11(canSwim: Boolean, numLegs: Int, breathesAir: Boolean)
@@ -52,7 +52,7 @@ object ComplexCase extends App {
 
     def unary_- = Complex(-re, -im)
 
-    override def toString = s"${re} + ${im}i"
+    override def toString = s"${re}+${im}i"
   }
 
   println(s"Complex(2, 5) + Complex(1, -2) = ${Complex(2, 5) + Complex(1, -2)}")
