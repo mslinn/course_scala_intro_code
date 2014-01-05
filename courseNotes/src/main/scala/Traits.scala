@@ -51,63 +51,52 @@ object ImplementedTrait extends App {
 
 
 object BoldlyGo extends App {
-  val x = new Explorer
-  println (x)
+  val explorer = new Explorer
+  println(explorer)
 
-  abstract class Spacecraft { def engage: Unit }
+  abstract class Spacecraft { def engage(): Unit }
 
   trait Bridge {
-    def speedUp: Unit
-    def engage: Unit = 1 to 3 foreach { _ => speedUp }
+    def speedUp(): Unit
+    def engage(): Unit = { speedUp(); speedUp(); speedUp() }
   }
 
-  trait Engine { def speedUp }
+  trait Engine { def speedUp() }
 
   trait PulseEngine extends Engine {
-    var currentPulse = 0;
+    var currentPulse = 0
     def maxPulse: Int
-
-    def speedUp: Unit = if (currentPulse < maxPulse) currentPulse += 1
+    def speedUp(): Unit = if (currentPulse < maxPulse) currentPulse += 1
   }
 
   trait ControlCabin {
-    def increaseSpeed
-    def engage = increaseSpeed
+    def increaseSpeed()
+    def engage() = increaseSpeed()
   }
 
   class Shuttle extends Spacecraft with ControlCabin with PulseEngine {
     val maxPulse = 10
-    def increaseSpeed = speedUp
+    def increaseSpeed() = speedUp()
   }
 
   trait WarpEngine extends Engine {
-    object X {
-      def blah = "x"
-    }
     def maxWarp: Int
     var currentWarp: Int = 0
-
-    def toWarp( x: Int ): Unit = if (x < maxWarp) currentWarp = x
+    def toWarp(x: Int): Unit = if (x < maxWarp) currentWarp = x
   }
 
   class Explorer extends Spacecraft with Bridge with WarpEngine {
     val maxWarp = 10
-
-    def blah = "haha"
-
-    def speedUp: Unit = toWarp(currentWarp + 1)
+    def speedUp(): Unit = toWarp(currentWarp + 1)
   }
 
   object Defiant extends Spacecraft with ControlCabin with WarpEngine {
     val maxWarp = 20
-
-    def blah = "haha"
-
-    def increaseSpeed = toWarp(10)
-
-    def speedUp: Unit = toWarp(currentWarp + 2)
+    def increaseSpeed() = toWarp(10)
+    def speedUp(): Unit = toWarp(currentWarp + 2)
   }
 }
+
 
 object ExtendJavaSet extends App {
   trait IgnoredCaseSet extends java.util.Set[String] {
@@ -123,35 +112,36 @@ object ExtendJavaSet extends App {
       }
   }
 
-  class XX extends java.util.HashSet[String] with IgnoredCaseSet
-  val xx = new XX() // Java sets are mutable, only the reference is immutable
-  xx.add("One")
-  xx.add("Two")
-  xx.add("Three")
-  println(s"xx=$xx")
+  class MySet extends java.util.HashSet[String] with IgnoredCaseSet
+
+  val mySet = new MySet() // Java sets are mutable, only the reference is immutable
+  mySet.add("One")
+  mySet.add("Two")
+  mySet.add("Three")
+  println(s"mySet=$mySet")
 }
 
+
 object Tweeters extends App {
-  trait User{ def name:String }
+  trait User { def name: String }
 
   trait Tweeter extends User {
-    def tweet(msg:String)=println(s"$name:$msg")
-    name
+    def tweet(msg: String) = println(s"$name: $msg")
   }
 
   trait Tweeter2 { self: User =>
-    def tweet(msg:String)=println(s"${self.name}:$msg")
-    def tweet2(msg:String)=println(s"$name:$msg")
+    def tweet(msg: String) = println(s"${self.name}: $msg")
+    def tweet2(msg: String) = println(s"$name:$msg")
   }
 
-  case class Blabber(name:String) extends Tweeter
+  class Blabber(val name: String) extends Tweeter
 
-  val blabber = Blabber("qwer")
-  blabber.tweet("asdf")
+  val blabber = new Blabber("Mr. Itoktumuch")
+  blabber.tweet("tweet tweet tweet")
 
-  case class Blabber2(name:String) extends Tweeter2 with User
+  class Blabber2(override val name: String) extends Tweeter2 with User
 
-  val blabber2 = Blabber2("kdkdk")
-  blabber2.tweet2("ieie")
-  blabber2.tweet("ueueu")
+  val blabber2 = new Blabber2("Ms. Nufsaid")
+  blabber2.tweet2("Le tweet")
+  blabber2.tweet("Une autre tweet")
 }
