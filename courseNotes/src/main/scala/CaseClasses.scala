@@ -38,11 +38,11 @@ object CaseClasses3 extends App {
     override def toString: String = s"canSwim: $canSwim, numLegs=$numLegs, breathesAir=$breathesAir"
   }
 
-  case class Frog11(canSwim: Boolean, numLegs: Int, breathesAir: Boolean)
+  case class Frog10(canSwim: Boolean, numLegs: Int, breathesAir: Boolean)
     extends AbstractFrog(canSwim, numLegs, breathesAir)
 
-  val frog11 = Frog11(canSwim=true, 4, breathesAir=true)
-  println(s"frog11=$frog11")
+  val frog10 = Frog10(canSwim=true, 4, breathesAir=true)
+  println(s"frog10=$frog10")
 }
 
 
