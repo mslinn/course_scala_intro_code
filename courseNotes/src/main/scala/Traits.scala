@@ -27,10 +27,10 @@ object ImplementedTrait extends App {
 
   trait Checkable { def preFlight: Boolean }
 
-  trait HasId { def id: Option[Long] = None }
+  trait HasId { def id: Long = 0L }
 
   class Lecture(
-    override val id: Option[Long] = None,
+    override val id: Long = 0L,
     startDate: Date = Date.valueOf("2014-01-01"),
     override val preFlight: Boolean = false
   ) extends Checkable with HasId {
@@ -40,7 +40,7 @@ object ImplementedTrait extends App {
 
   def isReady(checkable: Checkable): Boolean = checkable.preFlight
 
-  val lecture1 = new Lecture(Some(1), preFlight=true)
+  val lecture1 = new Lecture(1L, preFlight=true)
   val lecture2 = new Lecture()
   println(s"lecture1: $lecture1")
   println(s"isReady(lecture1): ${isReady(lecture1)}")
