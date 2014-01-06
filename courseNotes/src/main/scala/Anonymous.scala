@@ -10,7 +10,7 @@ object Anonymous1 extends App {
 object Anonymous2 extends App {
   import java.util.Date
 
-  val myDate = new java.util.Date { def dayAfter = new Date(getTime + 1000L*60L*60L*24L) }
+  val myDate = new Date { def dayAfter = new Date(getTime + 1000L*60L*60L*24L) }
   println(s"myDate.dayAfter=${myDate.dayAfter}")
 }
 
