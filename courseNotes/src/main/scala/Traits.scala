@@ -5,7 +5,7 @@ object PureTrait extends App {
 
   class Course(
     startDate: Date = new Date(System.currentTimeMillis),
-    override val preFlight: Boolean = false
+    val preFlight: Boolean = false
   ) extends Checkable {
     override val toString = s"startDate=$startDate, preFlight=$preFlight"
   }
@@ -32,7 +32,7 @@ object ImplementedTrait extends App {
   class Lecture(
     override val id: Long = 0L,
     startDate: Date = Date.valueOf("2014-01-01"),
-    override val preFlight: Boolean = false
+    val preFlight: Boolean = false
   ) extends Checkable with HasId {
       override val toString = s"id=$id, startDate=$startDate, preFlight=$preFlight"
     }
