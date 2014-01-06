@@ -61,13 +61,13 @@ object Animals4 extends App {
 
   // frog3.canSwim=false
 
-  val frog3b = new Frog3(canSwim=true, 4, breathesAir=true) { override def toString() = s"$canSwim; $numLegs legs" }
+  val frog3b = new Frog3(canSwim=true, 4, breathesAir=true) { override def toString = s"$canSwim; $numLegs legs" }
   println(s"frog3b=$frog3b")
 }
 
 
 class Frog4(val canSwim: Boolean=true, var numLegs: Int=4, breathesAir: Boolean=true) extends Animal(numLegs, breathesAir) {
-  override def toString() = s"canSwim: $canSwim; $numLegs legs; breathesAir:$breathesAir"
+  override def toString = s"canSwim: $canSwim; $numLegs legs; breathesAir:$breathesAir"
 }
 
 object Animals5 extends App {

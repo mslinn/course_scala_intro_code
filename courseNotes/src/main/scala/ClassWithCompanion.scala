@@ -7,7 +7,7 @@ object ClassWithCompanion {
 
 object Animals7 extends App {
   class Frog6(val canSwim: Boolean, numLegs: Int, breathesAir: Boolean) {
-    override def toString() = s"canSwim: $canSwim; $numLegs legs; breathesAir: $breathesAir"
+    override def toString = s"canSwim: $canSwim; $numLegs legs; breathesAir: $breathesAir"
   }
 
   object Frog6 {
@@ -27,7 +27,7 @@ object Animals8 extends App {
 
     def makeNoise = croak(3)
 
-    override def toString() = s"canSwim: $canSwim; $numLegs legs; breathesAir: $breathesAir"
+    override def toString = s"canSwim: $canSwim; $numLegs legs; breathesAir: $breathesAir"
   }
 
   object Frog7 {
