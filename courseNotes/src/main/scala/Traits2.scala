@@ -35,22 +35,24 @@ object WhichTrait extends App {
 
 
 object ExtendJavaSet extends App {
-  import java.util.{HashSet, Set}
 
-  trait IgnoredCaseSet extends Set[String] {
-    abstract override def add(str: String): Boolean = super.add(str.toLowerCase)
+  trait IgnoredCaseSet extends java.util.Set[Object] {
+    abstract override def add(obj: Object): Boolean =
+      if (obj.isInstanceOf[String]) super.add(obj.asInstanceOf[String].toLowerCase) else super.add(obj)
+
 
     abstract override def contains(obj: Object): Boolean =
       if (obj.isInstanceOf[String]) super.contains(obj.asInstanceOf[String].toLowerCase) else super.contains(obj)
   }
 
-  class MySet extends HashSet[String] with IgnoredCaseSet
+  class MySet extends java.util.HashSet[Object] with IgnoredCaseSet
 
   val mySet = new MySet() // Java sets are mutable, only the reference is immutable
   mySet.add("One")
   mySet.add("Two")
   mySet.add("Three")
   println(s"mySet=$mySet")
+  println(s"""mySet.contains("two")=${mySet.contains("two")}""")
 }
 
 
