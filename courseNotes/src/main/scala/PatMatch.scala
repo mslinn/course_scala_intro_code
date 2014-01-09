@@ -2,26 +2,59 @@ object PatMatch1 extends App {
   def matchOnValue(x: String): Int =
     x match {
       case "a" => 1
-      case "b" => 2
-      case "c" => 3
       case _ => 0
     }
 
   println(s"""matchOnValue("a")=${matchOnValue("a")}""")
-  println(s"""matchOnValue("b")=${matchOnValue("b")}""")
   println(s"""matchOnValue("q")=${matchOnValue("q")}""")
 
+  def matchOnValue2(x: String): Int =
+    x match {
+      case "a" => 1
+      case y => if (y.isEmpty) 0 else y.charAt(0)
+    }
 
+  println(s"""matchOnValue2("a")=${matchOnValue2("a")}""")
+  println(s"""matchOnValue2("q")=${matchOnValue2("q")}""")
+}
+
+
+object PatMatch2 extends App {
+  def matchOnValue3(x: String): Int =
+    x match {
+      case "a" => 1
+      case y if y.isEmpty => 0
+      case y => y.charAt(0).toInt // if the guard fails then this is the catch-all case
+    }
+
+  println(s"""matchOnValue3("a")=${matchOnValue3("a")}""")
+  println(s"""matchOnValue3("q")=${matchOnValue3("q")}""")
+
+  def guardedMatch(value: Any): String = value match {
+    case x: Int if x<3 => s"$x is an integer less than 3"
+    case x: Int => s"$x is an integer greater or equal to 3"
+    case _ => "Did not get an integer" // catch-all case
+  }
+
+  println(s"""guardedMatch(0)=${guardedMatch(0)}""")
+  println(s"""guardedMatch(99)=${guardedMatch(99)}""")
+  println(s"""guardedMatch("blah")=${guardedMatch("blah")}""")
+}
+
+
+object PatMatch3 extends App {
   def maybeSystemProperty(name: String): String =
     Option(System.getProperty(name)) match {
       case Some(value) => s"Property $name value=$value" // value is extracted from the Option
-      case None    => "Property blah is not defined"
+      case None    => "Property $name is not defined"
     }
 
   println(s"""maybeSystemProperty("os.name")=${maybeSystemProperty("os.name")}""")
   println(s"""maybeSystemProperty("a")=${maybeSystemProperty("a")}""")
+}
 
 
+object PatMatch4 extends App {
   def whatever: Any = if (System.currentTimeMillis % 2 == 0) 1 else "blah"
 
   whatever match {
@@ -37,7 +70,7 @@ object PatMatch1 extends App {
 }
 
 
-object PatMatch2 extends App {
+object PatMatch5 extends App {
   abstract class Animal(numLegs: Int, breathesAir: Boolean) {
     private val breatheMsg = if (breathesAir) "" else " do not"
     val msg = s"I have $numLegs legs and I $breatheMsg breathe air"
