@@ -38,5 +38,41 @@ object PatMatch1 extends App {
 
 
 object PatMatch2 extends App {
+  abstract class Animal(numLegs: Int, breathesAir: Boolean) {
+    private val breatheMsg = if (breathesAir) "" else " do not"
+    val msg = s"I have $numLegs legs and I $breatheMsg breathe air"
+  }
 
+  case class Frog(canSwim: Boolean, numLegs: Int, breathesAir: Boolean) extends Animal(numLegs, breathesAir)
+
+  case class Dog(barksTooMuch: Boolean) extends Animal(4, true)
+
+  def classify(animal: Animal): String = animal match {
+    case frog: Frog if frog.numLegs>0 =>
+      s"Got a Frog with ${frog.numLegs} legs; canSwim=${frog.canSwim} and breathesAir=${frog.breathesAir}"
+
+    case tadpole: Frog =>
+      s"Got a tadpole without legs; breathesAir=${tadpole.breathesAir}"
+
+    case dog: Dog if dog.barksTooMuch =>
+      s"Got a Dog that barks too much"
+
+    case dog: Dog =>
+      s"Got a quiet Dog"
+
+    case x =>
+      s"Got an unexpected animal $x"
+  }
+
+  val frog1 = Frog(canSwim=true, 4, breathesAir=true)
+  println(s"""classify(frog1)=${classify(frog1)}""")
+
+  val tadpole = Frog(canSwim=true, 0, breathesAir=false)
+  println(s"""classify(tadpole)=${classify(tadpole)}""")
+
+  val bigDog = Dog(barksTooMuch=false)
+  println(s"""classify(bigDog)=${classify(bigDog)}""")
+
+  val yapper = Dog(barksTooMuch=true)
+  println(s"""classify(yapper)=${classify(yapper)}""")
 }
