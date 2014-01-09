@@ -29,32 +29,10 @@ object PatMatch2 extends App {
 
   println(s"""matchOnValue3("a")=${matchOnValue3("a")}""")
   println(s"""matchOnValue3("q")=${matchOnValue3("q")}""")
-
-  def guardedMatch(value: Any): String = value match {
-    case x: Int if x<3 => s"$x is an integer less than 3"
-    case x: Int => s"$x is an integer greater or equal to 3"
-    case _ => "Did not get an integer" // catch-all case
-  }
-
-  println(s"""guardedMatch(0)=${guardedMatch(0)}""")
-  println(s"""guardedMatch(99)=${guardedMatch(99)}""")
-  println(s"""guardedMatch("blah")=${guardedMatch("blah")}""")
 }
 
 
 object PatMatch3 extends App {
-  def maybeSystemProperty(name: String): String =
-    Option(System.getProperty(name)) match {
-      case Some(value) => s"Property $name value=$value" // value is extracted from the Option
-      case None    => "Property $name is not defined"
-    }
-
-  println(s"""maybeSystemProperty("os.name")=${maybeSystemProperty("os.name")}""")
-  println(s"""maybeSystemProperty("a")=${maybeSystemProperty("a")}""")
-}
-
-
-object PatMatch4 extends App {
   def whatever: Any = if (System.currentTimeMillis % 2 == 0) 1 else "blah"
 
   whatever match {
@@ -67,6 +45,29 @@ object PatMatch4 extends App {
     case x: Int        => println("X is an integer greater or equal to 3")
     case _             => println("X is not an integer")
   }
+
+
+  def guardedTypeMatch(value: Any): String = value match {
+    case x: Int if x<3 => s"$x is an integer less than 3"
+    case x: Int        => s"$x is an integer greater or equal to 3"
+    case _             => "Did not get an integer" // catch-all case
+  }
+
+  println(s"""guardedTypeMatch(0)=${guardedTypeMatch(0)}""")
+  println(s"""guardedTypeMatch(99)=${guardedTypeMatch(99)}""")
+  println(s"""guardedTypeMatch("blah")=${guardedTypeMatch("blah")}""")
+}
+
+
+object PatMatch4 extends App {
+  def maybeSystemProperty(name: String): String =
+    Option(System.getProperty(name)) match {
+      case Some(value) => s"Property $name value=$value" // value is extracted from the Option
+      case None        => "Property $name is not defined"
+    }
+
+  println(s"""maybeSystemProperty("os.name")=${maybeSystemProperty("os.name")}""")
+  println(s"""maybeSystemProperty("a")=${maybeSystemProperty("a")}""")
 }
 
 
