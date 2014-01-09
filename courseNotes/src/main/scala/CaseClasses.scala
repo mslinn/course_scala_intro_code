@@ -69,8 +69,8 @@ object StdMethods extends App {
   println(s"frog9a=$frog9a")
   println(s"frog9c=$frog9c")
 
-  val frog9a2 = frog9a.copy(canSwim=false)
-  val frog9a3 = frog9a.copy(canSwim=false, numLegs=15)
+  val frog9a2 = frog9a.copy(canSwim=true)
+  val frog9a3 = frog9a.copy(canSwim=true, numLegs=2)
   println(s"frog9a.copy(canSwim=false)=$frog9a2")
   println(s"frog9a.copy(canSwim=false, numLegs=15)=$frog9a3")
 
