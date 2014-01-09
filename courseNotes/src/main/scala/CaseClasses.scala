@@ -58,3 +58,40 @@ object ComplexCase extends App {
   println(s"Complex(2, 5) + Complex(1, -2) = ${Complex(2, 5) + Complex(1, -2)}")
   println(s"-Complex(1, -2) = ${-Complex(1, -2)}")
 }
+
+object StdMethods extends App {
+  case class Frog9a(canSwim: Boolean, numLegs: Int, breathesAir: Boolean)
+  case class Frog9c(canSwim: Boolean, var numLegs: Int, breathesAir: Boolean)
+
+  val frog9a = Frog9a(canSwim=false, numLegs=4, breathesAir=true)
+  val frog9c = Frog9c(canSwim=true, numLegs=4, breathesAir=true)
+
+  println(s"frog9a=$frog9a")
+  println(s"frog9c=$frog9c")
+
+  val frog9a2 = frog9a.copy(canSwim=false)
+  val frog9a3 = frog9a.copy(canSwim=false, numLegs=15)
+  println(s"frog9a.copy(canSwim=false)=$frog9a2")
+  println(s"frog9a.copy(canSwim=false, numLegs=15)=$frog9a3")
+
+  println(s"Frog9a(true, 4, true).canEqual(Frog9c(true,4,true))=${Frog9a(true, 4, true).canEqual(Frog9c(true, 4, true))}")
+  println(s"frog9a2 canEqual frog9a3=${frog9a2 canEqual frog9a3}")
+
+  println(s"frog9a.equals(frog9c)=${frog9a.equals(frog9c)}")
+  println(s"frog9a equals frog9c=${frog9a equals frog9c}")
+  println(s"frog9a == frog9c=${frog9a == frog9c}")
+
+  println(s"frog9a.hashCode=${frog9a.hashCode}")
+
+  println(s"frog9a.productArity=${frog9a.productArity}")
+
+  println(s"frog9a.productElement(0)=${frog9a.productElement(0)}")
+  println(s"frog9a.productElement(1)=${frog9a.productElement(1)}")
+  println(s"frog9.productElement(2)=${frog9a.productElement(2)}")
+
+  frog9a.productIterator.foreach(println)
+
+  println(s"frog9a.productPrefix=${frog9a.productPrefix}")
+
+  println(s"frog9a.toString=${frog9a.toString}")
+}
