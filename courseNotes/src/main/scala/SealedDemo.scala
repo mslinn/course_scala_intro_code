@@ -20,7 +20,9 @@ object SealedDemo extends App {
 
 object Extractor extends App {
   case class Frog11(canSwim: Boolean, numLegs: Int, breathesAir: Boolean)
+
   case class Dog3(name: String, barksTooMuch: Boolean)
+
   case class Horse(name: String)
 
   def extract(animal: Any): String = animal match {
@@ -59,5 +61,24 @@ object Aliases extends App {
       case address @ Address(_, _, "Paris", "France") => println(address.street)
       case _ =>
     }
+  }
+}
+
+
+object PMQuiz {
+  case class Frog12(canSwim: Boolean, numLegs: Int, breathesAir: Boolean)
+
+  val frog12 = Frog12(canSwim=true, numLegs=4, breathesAir=true)
+
+  frog12 match { // match by type only, unapply is not invoked
+    case kermit: Frog12 => println(s"kermit=$kermit")
+
+    case other => println(other)
+  }
+
+  frog12 match { // match by type and invoke unapply implicitly to extract properties as separate variables
+    case Frog12(a, b, c) => println(s"Extracted properties are: canSwim=$a, kermit.numLegs=$b, kermit.breathesAir=$c")
+
+    case other => println(other)
   }
 }
