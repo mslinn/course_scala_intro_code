@@ -61,6 +61,7 @@ object Unapply2 extends App {
   }
 }
 
+
 object Unapply3 {
   class Frog8(val canSwim: Boolean, val numLegs: Int, val breathesAir: Boolean) {
     override def toString = s"canSwim: $canSwim; $numLegs legs; breathesAir: $breathesAir"

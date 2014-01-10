@@ -7,6 +7,10 @@ object Extractor extends App {
   case class Frog9(canSwim: Boolean, numLegs: Int, breathesAir: Boolean)
 
   object Frog9 {
+    def unapply(input: String): MaybeFrogTuple = parse(input.split(" "))
+
+    def unapply(input: Array[String]): MaybeFrogTuple = parse(input)
+
     private def parse(input: Array[String]): MaybeFrogTuple =
       if (input.size!=3)
          None
@@ -16,13 +20,9 @@ object Extractor extends App {
         } catch {
           case e: Exception => None
         }
-
-    def unapply(input: String): MaybeFrogTuple = parse(input.split(" "))
-
-    def unapply(input: Array[String]): MaybeFrogTuple = parse(input)
   }
 
-  def test {
+  def test(): Unit {
     val Frog9(swimmer1, legCount1, airBreather1) = "true 4 true"
     val Frog9(swimmer2, legCount2, airBreather2) = "true 0 false"
 
@@ -30,7 +30,7 @@ object Extractor extends App {
     val Frog9(swimmer4, legCount4, airBreather4) = Array("true", "0", "false")
   }
 
-  // test
+  // test()
 
   val Frog9(swimmer, legCount, airBreather) = args
   println(s"swimmer = $swimmer")
