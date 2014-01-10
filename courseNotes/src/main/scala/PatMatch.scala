@@ -2,7 +2,7 @@ object PatMatch1 extends App {
   def matchOnValue(x: String): Int =
     x match {
       case "a" => 1
-      case _ => 0
+      case _   => 0
     }
 
   println(s"""matchOnValue("a")=${matchOnValue("a")}""")
@@ -11,7 +11,7 @@ object PatMatch1 extends App {
   def matchOnValue2(x: String): Int =
     x match {
       case "a" => 1
-      case y => if (y.isEmpty) 0 else y.charAt(0)
+      case y   => if (y.isEmpty) 0 else y.charAt(0)
     }
 
   println(s"""matchOnValue2("a")=${matchOnValue2("a")}""")
@@ -24,7 +24,7 @@ object PatMatch2 extends App {
     x match {
       case "a" => 1
       case y if y.isEmpty => 0
-      case y => y.charAt(0).toInt // if the guard fails then this is the catch-all case
+      case y              => y.charAt(0).toInt // if the guard fails then this is the catch-all case
     }
 
   println(s"""matchOnValue3("a")=${matchOnValue3("a")}""")
@@ -36,14 +36,14 @@ object PatMatch3 extends App {
   def whatever: Any = if (System.currentTimeMillis % 2 == 0) 1 else "blah"
 
   whatever match {
-    case a: Int    => println("Whatever: no")
-    case b: String => println(s"Whatever: $b")
+    case a: Int    => println("Whatever: Int with value $a")
+    case b: String => println(s"Whatever: String with value '$b'")
   }
 
   whatever match {
-    case x: Int if x<3 => println("X is an integer less than 3")
-    case x: Int        => println("X is an integer greater or equal to 3")
-    case _             => println("X is not an integer")
+    case x: Int if x<3 => println("x is an integer less than 3")
+    case x: Int        => println("x is an integer greater or equal to 3")
+    case _             => println("x is not an integer")
   }
 
 
