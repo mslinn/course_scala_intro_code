@@ -1,25 +1,5 @@
 package solutions
 
-object Unapply0 {
-  class Frog8(val canSwim: Boolean, val numLegs: Int, val breathesAir: Boolean) {
-    override def toString = s"canSwim: $canSwim; $numLegs legs; breathesAir: $breathesAir"
-  }
-
-  object Frog8 {
-    def apply(canSwim: Boolean=true, numLegs: Int=4, breathesAir: Boolean=true) = new Frog8(canSwim, numLegs, breathesAir)
-
-    def unapply(frog: Frog8):Option[(Boolean, Int, Boolean)] = Some((frog.canSwim, frog.numLegs, frog.breathesAir))
-
-    def unapply(string: String): Option[(Boolean, Int, Boolean)] = {
-      val tokens = string.split(" ")
-      if (tokens.length>=3)
-        Some((tokens(0).toBoolean, tokens(1).toInt, tokens(2).toBoolean))
-      else
-        None
-    }
-  }
-}
-
 object Unapply extends App {
   class Name(val first: String, val last: String)
 
@@ -78,5 +58,25 @@ object Unapply2 extends App {
     case Name(fName, "Flintstone") => println(fName)
 
     case name: Name => println(name.first)
+  }
+}
+
+object Unapply3 {
+  class Frog8(val canSwim: Boolean, val numLegs: Int, val breathesAir: Boolean) {
+    override def toString = s"canSwim: $canSwim; $numLegs legs; breathesAir: $breathesAir"
+  }
+
+  object Frog8 {
+    def apply(canSwim: Boolean=true, numLegs: Int=4, breathesAir: Boolean=true) = new Frog8(canSwim, numLegs, breathesAir)
+
+    def unapply(frog: Frog8):Option[(Boolean, Int, Boolean)] = Some((frog.canSwim, frog.numLegs, frog.breathesAir))
+
+    def unapply(string: String): Option[(Boolean, Int, Boolean)] = {
+      val tokens = string.split(" ")
+      if (tokens.length>=3)
+        Some((tokens(0).toBoolean, tokens(1).toInt, tokens(2).toBoolean))
+      else
+        None
+    }
   }
 }
