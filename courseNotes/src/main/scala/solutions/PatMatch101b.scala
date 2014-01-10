@@ -1,47 +1,47 @@
 package solutions
 
-class Name2(val first:String, val last:String)
-
-object Name2 {
-  def apply(a: String, b: String): Name2 = new Name2(a, b)
-
-  def unapply(input: String): Option[Tuple2[String, String]] = {
-    val stringArray = input.split(" ")
-    if (stringArray.length>=2)
-      Some(stringArray(0), stringArray(1))
-    else
-      None
-  }
-}
-
 object PatMatch101b extends App {
+  class Name(val first:String, val last:String)
+
+  object Name {
+    def apply(a: String, b: String): Name = new Name(a, b)
+
+    def unapply(input: String): Option[(String, String)] = {
+      val stringArray = input.split(" ")
+      if (stringArray.length>=2)
+        Some(stringArray(0), stringArray(1))
+      else
+        None
+    }
+  }
+
   val x = try {
     val Name(firstName, lastName) = "Fred Flintstone"
     println(s"$firstName $lastName")
-    Name2(firstName, lastName)
+    Name(firstName, lastName)
   } catch {
     case me: MatchError =>
       println(s"Failed parse: ${me.getMessage}")
-      Name2("nobody", "nowhere")
+      Name("nobody", "atAll")
 
     case huh: Throwable =>
       println(huh.getMessage)
-      Name2("Uno", "Who")
+      Name("Uno", "Who")
   } finally {
-    Name2("Wilma", "Flintsone")
+    Name("Wilma", "Flintstone")
   }
   println(x.getClass.getName)
 
 /*
   x match {
-    case Name2(a, _) if a != "Fred" =>
+    case Name(a, _) if a != "Fred" =>
       println(s"Got one: $a")
       val z = "asdf"
 
-    case Name2a, "Flintstone") =>
+    case Name(a, "Flintstone") =>
       println(a)
 
-    case name: Name2 =>
+    case name: Name =>
       println(name.first)
 
     case _: Any => println("Nope")

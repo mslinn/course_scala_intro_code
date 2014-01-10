@@ -1,6 +1,6 @@
 package solutions
 
-object PatMatch101 extends App {
+object PatMatch101a extends App {
   Array("blah", 1, 1.0) foreach { valueToMatch =>
     val matchResult = valueToMatch match {
       case string: String =>
