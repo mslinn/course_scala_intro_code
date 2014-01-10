@@ -17,6 +17,7 @@ object SealedDemo extends App {
   println(colorSwatch(new Blue))
 }
 
+
 object Extractor extends App {
   case class Frog11(canSwim: Boolean, numLegs: Int, breathesAir: Boolean)
   case class Dog3(name: String, barksTooMuch: Boolean)
@@ -42,4 +43,21 @@ object Extractor extends App {
   println(extract(new Frog11(canSwim=true, 0, breathesAir=false)))
   println(extract(new Frog11(canSwim=true, 4, breathesAir=true)))
   println(extract(new Horse("Silver")))
+}
+
+
+object Aliases extends App {
+  case class Address(street: String, street2: String, city: String, country: String)
+
+  val addresses = List(
+    Address("840 Main St", "Suite B2", "Half Moon Bay", "CA"),
+    Address("234 Rue Blue", "Apt 5", "Fontaineblue", "France"),
+    Address("543 Toulouse", "Apt 6", "Paris", "France")
+  )
+
+  addresses foreach { _ match {
+      case address @ Address(_, _, "Paris", "France") => println(address.street)
+      case _ =>
+    }
+  }
 }
