@@ -77,7 +77,7 @@ object PMQuiz extends App {
   }
 
   frog12 match { // match by type and invoke unapply implicitly to extract properties as separate variables
-    case Frog12(a, b, c) => println(s"Extracted properties are: canSwim=$a, kermit.numLegs=$b, kermit.breathesAir=$c")
+    case Frog12(a, b, c) => println(s"Extracted properties are: canSwim=$a, numLegs=$b, breathesAir=$c")
 
     case other => println(other)
   }
