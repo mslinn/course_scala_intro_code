@@ -65,7 +65,7 @@ object Aliases extends App {
 }
 
 
-object PMQuiz {
+object PMQuiz extends App {
   case class Frog12(canSwim: Boolean, numLegs: Int, breathesAir: Boolean)
 
   val frog12 = Frog12(canSwim=true, numLegs=4, breathesAir=true)

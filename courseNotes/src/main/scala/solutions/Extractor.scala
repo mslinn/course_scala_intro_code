@@ -22,7 +22,7 @@ object Extractor extends App {
         }
   }
 
-  def test(): Unit {
+  def test(): Unit = {
     val Frog9(swimmer1, legCount1, airBreather1) = "true 4 true"
     val Frog9(swimmer2, legCount2, airBreather2) = "true 0 false"
 
