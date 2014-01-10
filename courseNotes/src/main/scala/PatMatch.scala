@@ -36,16 +36,33 @@ object PatMatch3 extends App {
   def whatever: Any = if (System.currentTimeMillis % 2 == 0) 1 else "blah"
 
   whatever match {
-    case a: Int    => println("Whatever: Int with value $a")
+    case a: Int    => println(s"Whatever: Int with value $a")
     case b: String => println(s"Whatever: String with value '$b'")
   }
 
-  whatever match {
-    case x: Int if x<3 => println("x is an integer less than 3")
-    case x: Int        => println("x is an integer greater or equal to 3")
-    case _             => println("x is not an integer")
+  /* Compiler complains "scrutinee is incompatible with pattern type"
+  false match {
+    case a: Int    => println("Whatever: Int with value $a")
+    case b: String => println(s"Whatever: String with value '$b'")
+  } */
+
+  /* Runtime error: "scala.MatchError: false (of class java.lang.Boolean)"
+  (false: Any) match {
+    case x: Int if x<3 => println(s"$x is an integer less than 3")
+    case x: Int        => println(s"$x is an integer greater or equal to 3")
+  } */
+
+  (false: Any) match {
+    case x: Int if x<3 => println(s"$x is an integer less than 3")
+    case x: Int        => println(s"$x is an integer greater or equal to 3")
+    case x             => println(s"$x is not an integer")
   }
 
+  whatever match {
+    case x: Int if x<3 => println(s"$x is an integer less than 3")
+    case x: Int        => println(s"$x is an integer greater or equal to 3")
+    case x             => println(s"$x is not an integer")
+  }
 
   def guardedTypeMatch(value: Any): String = value match {
     case x: Int if x<3 => s"$x is an integer less than 3"
@@ -60,18 +77,6 @@ object PatMatch3 extends App {
 
 
 object PatMatch4 extends App {
-  def maybeSystemProperty(name: String): String =
-    Option(System.getProperty(name)) match {
-      case Some(value) => s"Property $name value=$value" // value is extracted from the Option
-      case None        => "Property $name is not defined"
-    }
-
-  println(s"""maybeSystemProperty("os.name")=${maybeSystemProperty("os.name")}""")
-  println(s"""maybeSystemProperty("a")=${maybeSystemProperty("a")}""")
-}
-
-
-object PatMatch5 extends App {
   abstract class Animal(numLegs: Int, breathesAir: Boolean) {
     private val breatheMsg = if (breathesAir) "" else " do not"
     val msg = s"I have $numLegs legs and I $breatheMsg breathe air"
@@ -109,4 +114,16 @@ object PatMatch5 extends App {
 
   val yapper = Dog(barksTooMuch=true)
   println(s"""classify(yapper)=${classify(yapper)}""")
+}
+
+
+object PatMatch5 extends App {
+  def maybeSystemProperty(name: String): String =
+    Option(System.getProperty(name)) match {
+      case Some(value) => s"Property '$name' value='$value'" // value is extracted from the Option
+      case None        => "Property '$name' is not defined"
+    }
+
+  println(s"""maybeSystemProperty("os.name")=${maybeSystemProperty("os.name")}""")
+  println(s"""maybeSystemProperty("a")=${maybeSystemProperty("a")}""")
 }

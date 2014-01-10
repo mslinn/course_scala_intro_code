@@ -9,8 +9,15 @@ object Extractors1 extends App {
     def unapply(frog: Frog8):Option[(Boolean, Int, Boolean)] = Some((frog.canSwim, frog.numLegs, frog.breathesAir))
   }
 
-  val Frog8(a, b, c) = Frog8(canSwim=true, 4, breathesAir=false)
-  println(s"a=$a, b=$b, c=$c")
+  val frog8 = Frog8(canSwim=true, 4, breathesAir=false)
+  val Frog8(a1, b1, c1) = frog8  // implicitly calls unapply
+  println(s"a1=$a1, b1=$b1, c1=$c1")
+
+  val Frog8(a2, b2, c2) = Frog8(canSwim=false, 2, breathesAir=false)  // implicitly calls unapply
+  println(s"a2=$a2, b2=$b2, c2=$c2")
+
+  val Frog8(a3, _, c3) = frog8 // implicitly calls unapply
+  println(s"a3=$a3, c3=$c3")
 }
 
 
@@ -30,7 +37,7 @@ object Extractors3 extends App {
     override def toString = s"$numerator/$denominator"
   }
 
-  object Fraction {
+  object Fraction { // this augments the automatically generated companion object instead of replacing it
     def apply(numerator: Int, denominator: Int) = new Fraction(numerator, denominator)
 
     def unapply(fraction: Fraction) = if (fraction==null) None else Some(fraction.numerator, fraction.denominator)
@@ -38,6 +45,6 @@ object Extractors3 extends App {
 
   val fraction = Fraction(3,4) * Fraction(2,4)
   println(s"fraction=$fraction")
-  val Fraction(numer, denom) = Fraction(1, 4) * Fraction(4, 5)
+  val Fraction(numer, denom) = fraction // implicitly calls unapply
   println(s"numer=$numer, denom=$denom")
 }
