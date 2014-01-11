@@ -31,20 +31,25 @@ object Extractors2 extends App {
 
 
 object Extractors3 extends App {
-  class Fraction(var numerator:Int, var denominator:Int) {
+  case class Fraction(var numerator: Int, var denominator: Int) {
     def *(fraction: Fraction) = Fraction(numerator*fraction.numerator, denominator*fraction.denominator)
 
     override def toString = s"$numerator/$denominator"
   }
 
   object Fraction { // this augments the automatically generated companion object instead of replacing it
-    def apply(numerator: Int, denominator: Int) = new Fraction(numerator, denominator)
-
-    def unapply(fraction: Fraction) = if (fraction==null) None else Some(fraction.numerator, fraction.denominator)
+    def unapply(string: String): Option[(Int, Int)] = {
+      val tokens = string.split("/")
+      if (tokens.length!=2)
+        None
+      else
+        Some(tokens(0).toInt, tokens(1).toInt)
+    }
   }
 
   val fraction = Fraction(3,4) * Fraction(2,4)
   println(s"fraction=$fraction")
-  val Fraction(numer, denom) = fraction // implicitly calls unapply
+
+  val Fraction(numer, denom) = "3/4" // implicitly calls unapply
   println(s"numer=$numer, denom=$denom")
 }
