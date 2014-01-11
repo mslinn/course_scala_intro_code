@@ -14,7 +14,7 @@ object SealedDemo extends App {
     case color: Black => println("Black")
   } // If one of the cases is commented out, the compiler will complain that the color was not tested for
 
-  println(colorSwatch(new Blue))
+  colorSwatch(new Blue)
 }
 
 
