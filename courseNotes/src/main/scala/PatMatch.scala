@@ -70,7 +70,7 @@ object PatMatch4 extends App {
   def maybeSystemProperty(name: String): String =
     Option(System.getProperty(name)) match {
       case Some(value) => s"Property '$name' value='$value'" // value is extracted from the Option
-      case None        => "Property '$name' is not defined"
+      case None        => s"Property '$name' is not defined"
     }
 
   println(s"""maybeSystemProperty("os.name")=${maybeSystemProperty("os.name")}""")
