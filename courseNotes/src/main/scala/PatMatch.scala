@@ -63,7 +63,22 @@ object PatMatch3 extends App {
     case b: Int        => println(s"$b is an integer greater or equal to 3")
     case x             => println(s"$x is not an integer")
   }
+}
 
+
+object PatMatch4 extends App {
+  def maybeSystemProperty(name: String): String =
+    Option(System.getProperty(name)) match {
+      case Some(value) => s"Property '$name' value='$value'" // value is extracted from the Option
+      case None        => "Property '$name' is not defined"
+    }
+
+  println(s"""maybeSystemProperty("os.name")=${maybeSystemProperty("os.name")}""")
+  println(s"""maybeSystemProperty("a")=${maybeSystemProperty("a")}""")
+}
+
+
+object PatMatch5 extends App {
   def guardedTypeMatch(value: Any): String = value match {
     case a: Int if a<3 => s"$a is an integer less than 3"
     case b: Int        => s"$b is an integer greater or equal to 3"
@@ -76,7 +91,7 @@ object PatMatch3 extends App {
 }
 
 
-object PatMatch4 extends App {
+object PatMatch6 extends App {
   abstract class Animal(numLegs: Int, breathesAir: Boolean) {
     private val breatheMsg = if (breathesAir) "" else " do not"
     val msg = s"I have $numLegs legs and I $breatheMsg breathe air"
@@ -114,16 +129,4 @@ object PatMatch4 extends App {
 
   val yapper = Dog(barksTooMuch=true)
   println(s"""classify(yapper)=${classify(yapper)}""")
-}
-
-
-object PatMatch5 extends App {
-  def maybeSystemProperty(name: String): String =
-    Option(System.getProperty(name)) match {
-      case Some(value) => s"Property '$name' value='$value'" // value is extracted from the Option
-      case None        => "Property '$name' is not defined"
-    }
-
-  println(s"""maybeSystemProperty("os.name")=${maybeSystemProperty("os.name")}""")
-  println(s"""maybeSystemProperty("a")=${maybeSystemProperty("a")}""")
 }
