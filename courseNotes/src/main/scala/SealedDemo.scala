@@ -48,23 +48,6 @@ object Extractor extends App {
 }
 
 
-object Aliases extends App {
-  case class Address(street: String, street2: String, city: String, country: String)
-
-  val addresses = List(
-    Address("840 Main St", "Suite B2", "Half Moon Bay", "CA"),
-    Address("234 Rue Blue", "Apt 5", "Fontaineblue", "France"),
-    Address("543 Toulouse", "Apt 6", "Paris", "France")
-  )
-
-  addresses foreach { _ match {
-      case address @ Address(_, _, "Paris", "France") => println(address.street)
-      case _ =>
-    }
-  }
-}
-
-
 object PMQuiz extends App {
   case class Frog12(canSwim: Boolean, numLegs: Int, breathesAir: Boolean)
 
@@ -80,5 +63,22 @@ object PMQuiz extends App {
     case Frog12(a, b, c) => println(s"Extracted properties are: canSwim=$a, numLegs=$b, breathesAir=$c")
 
     case other => println(other)
+  }
+}
+
+
+object Aliases extends App {
+  case class Address(street: String, street2: String, city: String, country: String)
+
+  val addresses = List(
+    Address("840 Main St", "Suite B2", "Half Moon Bay", "CA"),
+    Address("234 Rue Blue", "Apt 5", "Fontaineblue", "France"),
+    Address("543 Toulouse", "Apt 6", "Paris", "France")
+  )
+
+  addresses foreach { _ match {
+      case address @ Address(_, _, "Paris", "France") => println(address.street)
+      case _ =>
+    }
   }
 }
