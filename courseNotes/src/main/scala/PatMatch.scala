@@ -48,25 +48,25 @@ object PatMatch3 extends App {
 
   /* Runtime error: "scala.MatchError: false (of class java.lang.Boolean)"
   (false: Any) match {
-    case x: Int if x<3 => println(s"$x is an integer less than 3")
-    case x: Int        => println(s"$x is an integer greater or equal to 3")
+    case a: Int if x<3 => println(s"$a is an integer less than 3")
+    case b: Int        => println(s"$b is an integer greater or equal to 3")
   } */
 
   (false: Any) match {
-    case x: Int if x<3 => println(s"$x is an integer less than 3")
-    case x: Int        => println(s"$x is an integer greater or equal to 3")
+    case a: Int if a<3 => println(s"$a is an integer less than 3")
+    case b: Int        => println(s"$b is an integer greater or equal to 3")
     case x             => println(s"$x is not an integer")
   }
 
   whatever match {
-    case x: Int if x<3 => println(s"$x is an integer less than 3")
-    case x: Int        => println(s"$x is an integer greater or equal to 3")
+    case a: Int if a<3 => println(s"$a is an integer less than 3")
+    case b: Int        => println(s"$b is an integer greater or equal to 3")
     case x             => println(s"$x is not an integer")
   }
 
   def guardedTypeMatch(value: Any): String = value match {
-    case x: Int if x<3 => s"$x is an integer less than 3"
-    case x: Int        => s"$x is an integer greater or equal to 3"
+    case a: Int if a<3 => s"$a is an integer less than 3"
+    case b: Int        => s"$b is an integer greater or equal to 3"
     case _             => "Did not get an integer" // catch-all case
   }
 
