@@ -1,13 +1,13 @@
 package solutions
 
-/** Three solutions are shown. Solution 2 is best. */
+/** Two solutions are shown. Solution 2 is best. */
 object WordSearch extends App {
   val list = List("word", "another", "yet another")
 
-  type FunnyReturnType = Either[String, Int]
+  type StringOrInt = Either[String, Int]
 
   /** Efficient but clumsy */
-  def search(list: List[String], word: String): FunnyReturnType = {
+  def search(list: List[String], word: String): StringOrInt = {
     val index = list.indexOf(word)
     if (index == -1)
       Left(word)
@@ -19,7 +19,7 @@ object WordSearch extends App {
     * Here we see Scala's match keyword used as a multi-way branch.
     * Each match is tried in order until one succeeds.
     * In the second case, notice that the variable index is defined. It will match every value. */
-  def search2(list: List[String], word: String): FunnyReturnType =
+  def search2(list: List[String], word: String): StringOrInt =
     list.indexOf(word) match {
       case -1 => Left(word)
       case index => Right(index)
