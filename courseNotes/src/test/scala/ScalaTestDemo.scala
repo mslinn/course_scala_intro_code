@@ -1,5 +1,8 @@
+import org.junit.runner.RunWith
+import org.scalatest.junit.JUnitRunner
 import org.scalatest._
 
+@RunWith(classOf[JUnitRunner])
 class ScalaTestDemo extends WordSpec {
 
   "The 'Hello world' string" should {
