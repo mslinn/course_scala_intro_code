@@ -57,6 +57,6 @@ object Fun3 extends App {
 
   val compute = multiplyTwo andThen addOne
   println(s"compute(2)=${compute(2)}")
-  
+
   println(s"(addOne ~ multiplyTwo)(6)=${(addOne ~ multiplyTwo)(6)}")
 }
