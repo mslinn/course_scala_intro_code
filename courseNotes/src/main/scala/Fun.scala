@@ -60,3 +60,13 @@ object Fun3 extends App {
 
   println(s"(addOne ~ multiplyTwo)(6)=${(addOne ~ multiplyTwo)(6)}")
 }
+
+object WithFun extends App {
+  case class Blarg(i: Int, s: String)
+
+  def withBlarg(blarg: Blarg)(operation: Blarg => Unit): Unit = operation(blarg)
+
+  withBlarg(Blarg(1, "asdf")) { blarg =>
+    println(blarg)
+  }
+}
