@@ -69,4 +69,8 @@ object WithFun extends App {
   withBlarg(Blarg(1, "asdf")) { blarg =>
     println(blarg)
   }
+
+  withBlarg(Blarg(2, "qwerty")) { println(_) }
+
+  withBlarg(Blarg(3, "zxcv")) { println }
 }
