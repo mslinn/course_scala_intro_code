@@ -5,18 +5,18 @@ object WhichTrait extends App {
   }
 
   trait Red extends Color {
-    abstract override val color: String = "red"
-    abstract override def paint(highlight: String): String = super.paint(s"pink and $highlight")
+    override val color: String = "red"
+    override def paint(highlight: String): String = super.paint(s"pink and $highlight")
   }
 
   trait White extends Color {
-    abstract override val color: String = "white"
-    abstract override def paint(highlight: String): String = super.paint(s"light yellow and $highlight")
+    override val color: String = "white"
+    override def paint(highlight: String): String = super.paint(s"light yellow and $highlight")
   }
 
   trait Blue extends Color {
-    abstract override val color: String = "blue"
-    abstract override def paint(highlight: String): String = super.paint(s"bluegreen and $highlight")
+    override val color: String = "blue"
+    override def paint(highlight: String): String = super.paint(s"bluegreen and $highlight")
   }
 
   val red = new Red{}

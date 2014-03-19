@@ -2,16 +2,16 @@ package solutions
 
 object PatMatch101a extends App {
   Array("blah", 1, 1.0) foreach { valueToMatch =>
-    val matchResult = valueToMatch match {
+    val matchResult: (Any, String) = valueToMatch match {
       case string: String =>
-        s"Got a String: $string"
+        (string, s"Got a String: $string")
 
       case int: Int =>
-        s"Got an Int: $int"
+        (int, s"Got an Int: $int")
 
       case double: Double =>
-        s"Got a Double: $double"
+        (double, s"Got a Double: $double")
     }
-    println(s"matchResult=$matchResult and is of type ${matchResult.getClass.getName}")
+    println(s"matchResult=${matchResult._2} and is of type ${matchResult._1.getClass.getName}")
   }
 }
