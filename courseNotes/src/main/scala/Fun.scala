@@ -11,13 +11,13 @@ object LazyEval extends App {
   val isWitchingHour: Boolean = Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == 0
   val scaredMsg = "I am too scared to compute"
 
-  def blah1(value: Double      ): String = if (!isWitchingHour) s"Eager evaluation yields $value"        else scaredMsg
-  def blah2(value: () => Double): String = if (!isWitchingHour) s"Evaluating function yields ${value()}" else scaredMsg
-  def blah3(value:    => Double): String = if (!isWitchingHour) s"Lazy evaluation yields $value"         else scaredMsg
+  def timidPi1(value: Double      ): String = if (!isWitchingHour) s"Eager evaluation yields $value"        else scaredMsg
+  def timidPi2(value: () => Double): String = if (!isWitchingHour) s"Evaluating function yields ${value()}" else scaredMsg
+  def timidPi3(value:    => Double): String = if (!isWitchingHour) s"Lazy evaluation yields $value"         else scaredMsg
 
-  println(blah1(calculatePiFor(999)))
-  println(blah2(() => calculatePiFor(999)))
-  println(blah3(calculatePiFor(999)))
+  println(timidPi1(calculatePiFor(999)))        // eager evaluation
+  println(timidPi2(() => calculatePiFor(999)))  // no-arg function
+  println(timidPi3(calculatePiFor(999)))        // lazy evaluation
 }
 
 object Fun extends App {
