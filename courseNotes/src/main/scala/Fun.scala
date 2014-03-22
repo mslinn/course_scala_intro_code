@@ -1,3 +1,25 @@
+object LazyEval extends App {
+  import java.util.Calendar
+
+  def calculatePiFor(decimalPlaces: Int): Double = {
+     var acc = 0.0
+     for (i <- 0 until decimalPlaces)
+       acc += 4.0 * (1 - (i % 2) * 2) / (2 * i + 1)
+     acc
+   }
+
+  val isWitchingHour: Boolean = Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == 0
+  val scaredMsg = "I am too scared to compute"
+
+  def blah1(value: Double      ): String = if (!isWitchingHour) s"Eager evaluation yields $value"        else scaredMsg
+  def blah2(value: () => Double): String = if (!isWitchingHour) s"Evaluating function yields ${value()}" else scaredMsg
+  def blah3(value:    => Double): String = if (!isWitchingHour) s"Lazy evaluation yields $value"         else scaredMsg
+
+  println(blah1(calculatePiFor(999)))
+  println(blah2(() => calculatePiFor(999)))
+  println(blah3(calculatePiFor(999)))
+}
+
 object Fun extends App {
   type IntDblToStr = (Int, Double) => String
 
