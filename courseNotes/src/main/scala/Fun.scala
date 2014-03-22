@@ -4,7 +4,7 @@ object LazyEval extends App {
   /** The Leibniz series algorithm converges slowly to Pi. About 5 billion iterations are required to yield accuracy to 10 decimal places.
     * Pi is the limit of this series: 4/1 - 4/3 + 4/5 - 4/7 + 4/9 ...
     * @see http://en.wikipedia.org/wiki/Leibniz_formula_for_%CF%80 */
-  def leibnizPi(iterationCount: BigDecimal=5000000000L, digits: Int=10): BigDecimal = {
+  def leibnizPi(iterationCount: Long=5000000000L, digits: Int=10): BigDecimal = {
     val numerator: BigDecimal = 4.0
     var denominator: BigDecimal = 1
     var plus = true
