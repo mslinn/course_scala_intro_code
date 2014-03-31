@@ -6,7 +6,7 @@ description := "Core Scala - Introduction to Scala Course Notes"
 
 version := "0.1.2"
 
-scalaVersion := "2.10.3"
+scalaVersion := "2.10.4"
 
 scalacOptions in (Compile, doc) <++= baseDirectory.map {
   (bd: File) => Seq[String](
