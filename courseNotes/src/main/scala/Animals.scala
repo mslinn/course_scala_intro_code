@@ -50,7 +50,9 @@ object Animals3 extends App {
 }
 
 
-class Frog3(val canSwim: Boolean, var numLegs: Int, breathesAir: Boolean) extends Animal(numLegs, breathesAir)
+class Frog3(val canSwim: Boolean, var numLegs: Int, breathesAir: Boolean) extends Animal(numLegs, breathesAir) {
+  override def toString = s"Frog3 canSwim=$canSwim, numLegs=$numLegs, breathesAir=$breathesAir"
+}
 
 object Animals4 extends App {
   val frog3 = new Frog3(canSwim=true, 4, breathesAir=true)
