@@ -106,3 +106,9 @@ object TryCatch4 extends App {
   println(s"divide(4, 2)=${divide(4, 2)}")
   println(s"divide(2, 0)=${divide(2, 0)}")
 }
+
+
+object TryCatch5 extends App {
+  import util.Try
+  Try(4/0).map( x => x * 2).recover()
+}
