@@ -110,5 +110,5 @@ object TryCatch4 extends App {
 
 object TryCatch5 extends App {
   import util.Try
-  Try(4/0).map( x => x * 2).recover()
+  Try(4/0).map( x => x * 2 ).recover { case _ => 42 }
 }
