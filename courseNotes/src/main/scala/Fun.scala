@@ -97,17 +97,18 @@ object Fun3 extends App {
 }
 
 object Closures extends App {
-  val blah = "Blah " * (_: Int)
-  val times = 3
-  println(blah(times))
+  val msg = "Blah. "
+  val repeat: Int => String = msg * (_: Int)
+  println(repeat(3))
 
   object Outer {
-    val count = 4
+    val msg2 = "One more time! "
     object Inner {
-      def goAhead: Unit = println(blah(count))
+      val repeat2: Int => String = msg2 * (_: Int)
+      println(repeat2(3))
     }
   }
-  println(Outer.Inner.goAhead)
+  Outer.Inner
 }
 
 object WithFun extends App {
