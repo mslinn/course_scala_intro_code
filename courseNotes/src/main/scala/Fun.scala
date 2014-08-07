@@ -76,7 +76,6 @@ object Fun2 extends App {
   println(s"""f3("a", 4)=${f3("a", 4)}""")
 }
 
-
 object Fun3 extends App {
   trait Fn extends (Int => Int) {
       def apply(x: Int): Int
@@ -95,6 +94,20 @@ object Fun3 extends App {
   println(s"compute(2)=${compute(2)}")
 
   println(s"(addOne ~ multiplyTwo)(6)=${(addOne ~ multiplyTwo)(6)}")
+}
+
+object Closures extends App {
+  val blah = "Blah " * (_: Int)
+  val times = 3
+  println(blah(times))
+
+  object Outer {
+    val count = 4
+    object Inner {
+      def goAhead: Unit = println(blah(count))
+    }
+  }
+  println(Outer.Inner.goAhead)
 }
 
 object WithFun extends App {
