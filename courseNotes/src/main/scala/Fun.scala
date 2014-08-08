@@ -1,7 +1,8 @@
 object LazyEval extends App {
   import java.util.Calendar
 
-  /** The Leibniz series algorithm converges slowly to Pi. About 5 billion iterations are required to yield accuracy to 10 decimal places.
+  /** The Leibniz series algorithm converges slowly to Pi.
+    * About 5 billion iterations are required to yield accuracy to 10 decimal places.
     * Pi is the limit of this series: 4/1 - 4/3 + 4/5 - 4/7 + 4/9 ...
     * @see http://en.wikipedia.org/wiki/Leibniz_formula_for_%CF%80 */
   def leibnizPi(iterationCount: Long=5000000000L, digits: Int=10): BigDecimal = {
@@ -25,9 +26,14 @@ object LazyEval extends App {
   val isWitchingHour: Boolean = Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == 0
   val scaredMsg = "I am too scared to compute"
 
-  def timidPi1(value: BigDecimal): String       = if (!isWitchingHour) s"Eager evaluation yields $value"        else scaredMsg
-  def timidPi2(value: => BigDecimal): String    = if (!isWitchingHour) s"Lazy evaluation yields $value"         else scaredMsg
-  def timidPi3(value: () => BigDecimal): String = if (!isWitchingHour) s"Evaluating function yields ${value()}" else scaredMsg
+  def timidPi1(value: BigDecimal): String       =
+    if (!isWitchingHour) s"Eager evaluation yields $value"        else scaredMsg
+
+  def timidPi2(value: => BigDecimal): String    =
+    if (!isWitchingHour) s"Lazy evaluation yields $value"         else scaredMsg
+
+  def timidPi3(value: () => BigDecimal): String =
+    if (!isWitchingHour) s"Evaluating function yields ${value()}" else scaredMsg
 
   println(timidPi1(leibnizPi()))        // eager evaluation
   println(timidPi2(leibnizPi()))        // lazy evaluation

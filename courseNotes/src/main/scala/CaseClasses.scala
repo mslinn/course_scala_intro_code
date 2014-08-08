@@ -55,6 +55,8 @@ object ComplexCase extends App {
     override def toString = s"${re}+${im}i"
   }
 
+  Complex(4, 6).copy(re=5) + Complex(4, 2).copy(im=66)
+
   println(s"Complex(2, 5) + Complex(1, -2) = ${Complex(2, 5) + Complex(1, -2)}")
   println(s"-Complex(1, -2) = ${-Complex(1, -2)}")
 }
