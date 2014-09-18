@@ -49,6 +49,15 @@ object ScalaEnum extends App {
   tellItLikeItIs(Tuesday)
   tellItLikeItIs(Wednesday)
   tellItLikeItIs(Sunday)
+  
+  object Colors extends Enumeration {
+   val Red, Blue, Green = Value
+  }
+ 
+  object Methods {
+    //def myMethod(x: Colors.Value)  = "That's a color"
+    //def myMethod(x: ScalaDay.Value) = "That's a weekday"
+  }
 }
 
 object ScalaEnumCase extends App {
