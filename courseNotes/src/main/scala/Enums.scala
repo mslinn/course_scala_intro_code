@@ -89,7 +89,7 @@ object ScalaEnumCase extends App {
   tellItLikeItIs(Sunday)
 }
 
-object BlendedEnum extends App {
+object BlendedEnums extends App {
   import Day._
 
   trait EnumLike[T] {
