@@ -92,39 +92,29 @@ object ScalaEnumCase extends App {
 object BlendedEnums extends App {
   import Day._
 
-  trait EnumLike[T] {
+  trait EnumLike[T] extends Ordered[T] {
     def name: String
 
-    def compareTo(other: Day): Int
-
-    override def equals(other: Object): Boolean = other.equals()
-
-    def hashCode: Int
+    def compare(other: T): Int
 
     def ordinal: Int
 
     def toString: String
-
-    def values: Array[T]
   }
 
-  sealed class CaseDay(val day: Day) extends EnumLike[CaseDay] {
-    import CaseDay._
-
+  sealed class CaseDay(val day: Day) extends EnumLike[Day] {
     lazy val name: String = day.name
 
-    def compareTo(other: Day): Int = day.compareTo(other)
-
-    override lazy val hashCode: Int = day.hashCode
+    def compare(other: Day): Int = day.compareTo(other)
 
     lazy val ordinal: Int = day.ordinal
 
     override lazy val toString = day.toString
-
-    lazy val values: Array[CaseDay] = Array(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
   }
 
   object CaseDay {
+    import scala.collection.immutable.{SortedSet, TreeSet}
+
     case object Monday extends CaseDay(MONDAY)
     case object Tuesday extends CaseDay(TUESDAY)
     case object Wednesday extends CaseDay(WEDNESDAY)
@@ -134,15 +124,21 @@ object BlendedEnums extends App {
     case object Sunday extends CaseDay(SUNDAY)
 
     def valueOf(name: String) = Day.valueOf(name)
+
+    type CaseDayObject = CaseDay with Product with Serializable
+    lazy val values: SortedSet[CaseDayObject] = {
+      val ordering = Ordering.by { caseDayObject: CaseDayObject ⇒ caseDayObject.ordinal }
+      TreeSet(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)(ordering)
+    }
   }
 
   import CaseDay._
   def tellItLikeItIs(theDay: CaseDay): Unit = {
-    val msg = theDay.ordinal match {
-      case Monday.ordinal => "Mondays are bad."
-      case Friday.ordinal => "Fridays are better."
-      case Saturday.ordinal => "Weekends are best."
-      case Sunday.ordinal => "Weekends are best."
+    val msg = theDay match {
+      case Monday => "Mondays are bad."
+      case Friday => "Fridays are better."
+      case Saturday => "Weekends are best."
+      case Sunday => "Weekends are best."
       case _ => "Midweek days are so-so."
     }
     println(msg)
