@@ -1,10 +1,13 @@
 object JavaEnum extends App {
   import Day._
+  import scala.math.Ordering.Implicits._
+
   val day = Day.MONDAY
   if (day==Day.TUESDAY) println("Wimpy wants a hamburger")
   Day.valueOf("MONDAY")
   val valueSet = Day.values.toSet
   println(s"valueSet=$valueSet")
+  println(s"Day.MONDAY < Day.FRIDAY: ${Day.MONDAY < Day.FRIDAY}")
 
   def tellItLikeItIs(theDay: Day): Unit = {
     val msg = theDay match {
