@@ -4,10 +4,12 @@ object JavaEnum extends App {
 
   val day = Day.MONDAY
   if (day==Day.TUESDAY) println("Wimpy wants a hamburger")
+
   Day.valueOf("MONDAY")
-  val valueSet = Day.values.toSet
-  println(s"valueSet=$valueSet")
   println(s"Day.MONDAY < Day.FRIDAY: ${Day.MONDAY < Day.FRIDAY}")
+
+  val valueSet = collection.immutable.TreeSet(Day.values:_*)
+  println(s"valueSet=$valueSet")
 
   def tellItLikeItIs(theDay: Day): Unit = {
     val msg = theDay match {
