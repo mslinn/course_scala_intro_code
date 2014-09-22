@@ -1,8 +1,15 @@
 object JavaEnum extends App {
   import Day._
+  import scala.math.Ordering.Implicits._
+
   val day = Day.MONDAY
   if (day==Day.TUESDAY) println("Wimpy wants a hamburger")
+
   Day.valueOf("MONDAY")
+  println(s"Day.MONDAY < Day.FRIDAY: ${Day.MONDAY < Day.FRIDAY}")
+
+  val valueSet = collection.immutable.TreeSet(Day.values:_*)
+  println(s"valueSet=$valueSet")
 
   def tellItLikeItIs(theDay: Day): Unit = {
     val msg = theDay match {
@@ -18,6 +25,15 @@ object JavaEnum extends App {
   tellItLikeItIs(TUESDAY)
   tellItLikeItIs(FRIDAY)
   tellItLikeItIs(SUNDAY)
+
+  //def whichDay(day: Day): String = day match {
+  //  case Day.MONDAY => "Monday"
+  //}
+
+  def whichDay(day: Day): String = day match {
+    case Day.MONDAY => "Monday"
+    case _ => "Every Day"
+  }
 }
 
 object ScalaEnum extends App {
