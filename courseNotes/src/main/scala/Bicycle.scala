@@ -37,6 +37,7 @@ object Bicycle extends App {
       if (gear > rearTeeth.size) rearTeeth.last
       else if (gear < 1) rearTeeth.head
       else rearTeeth(gear - 1)
+    
     def numGears = self.rearTeeth.size
   }
 
