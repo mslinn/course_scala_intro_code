@@ -27,8 +27,8 @@ object Bicycle extends App {
 
   /** A wheel requires a tire and a cassette */
   trait Wheel { self: Tire with Cassette =>
-    /** @param numTurns a number of turns of the bicycle wheel as a double
-      * @return total distance travelled for the given number of turns, in meters  */
+    /** @param numTurns a number of turns of the bicycle wheel as a real number
+      * @return the total distance travelled for the given number of turns, in meters  */
     def turn(numTurns: Double): Double = self.tireSize * numTurns
 
     /** @param gear is the gear number, with the lowest number being the outside gear
@@ -53,6 +53,10 @@ object Bicycle extends App {
     val frontTeeth = 50
   }
 
+  class ChainRing48 extends ChainRing {
+    val frontTeeth = 48
+  }
+
   /** A bike has a chainring and rear wheel components */
   case class Bike(chainRing: ChainRing, wheel: Wheel) {
     def gearRatio(gear: Int): Double = chainRing.frontTeeth.toDouble / wheel.gearTeeth(gear).toDouble
@@ -70,7 +74,7 @@ object Bicycle extends App {
   println(f"racingBike.distancePerRevolution(1) = ${racingBike.distancePerRevolution(1)}%2.1f meters")
   println(f"racingBike.rpmToKph(95, 1) = ${racingBike.rpmToKph(95, 1)}%2.1f KpH")
 
-  val touringBike = Bike(new ChainRing50, new TrainingWheel)
+  val touringBike = Bike(new ChainRing48, new TrainingWheel)
   println(f"touringBike.distancePerRevolution(5) = ${touringBike.distancePerRevolution(5)}%2.1f meters")
   println(f"touringBike.rpmToKph(95, 5) = ${touringBike.rpmToKph(95, 5)}%2.1f KpH")
 
@@ -85,16 +89,16 @@ object FormattedStringSamples extends App {
   val int = 123
   val double = 123.4567
   val string = "Hello"
-  println(f"Signed Integer right-justified at least 6 wide                                                    : $int%6d")
-  println(f"Signed Integer left-justified at least 6 wide                                                     : $int%-6d")
-  println(f"Integer right-justified at least 6 wide, zero filled                                              : $int%06d")
-  println(f"Integer right-justified at least 6 wide, leading +                                                : $int%+6d")
-  println(f"Floating point right-justified at least 9 wide, 2 positions after the decimal                     : $double%9.2f")
-  println(f"Floating point left-justified at least 9 wide, 2 positions after the decimal                      : $double%-9.2f")
-  println(f"Floating point scientific notation right-justified at least 10 wide, 2 positions after the decimal: $double%10.2E")
-  println(f"Floating point scientific notation left-justified at least 10 wide, 2 positions after the decimal : $double%-10.2E")
-  println(f"String minimum length 10, right-justified                                                         : $string%10s")
-  println(f"String minimum length 10, left-justified                                                          : $string%-10s")
-  println(f"Computation minimum length 9, right-justified                                                     : ${int * double}%-9.2f")
-  println(f"Computation minimum length 9, left-justified                                                      : ${int * double}%9.2f")
+  println(f"Signed Integer right-justified at least 6 wide                                                     |$int%6d|")
+  println(f"Signed Integer left-justified at least 6 wide                                                      |$int%-6d|")
+  println(f"Integer right-justified at least 6 wide, zero filled                                               |$int%06d|")
+  println(f"Integer right-justified at least 6 wide, leading +                                                 |$int%+6d|")
+  println(f"Floating point right-justified at least 9 wide, 2 positions after the decimal                      |$double%10.2f|")
+  println(f"Floating point left-justified at least 9 wide, 2 positions after the decimal                       |$double%-10.2f|")
+  println(f"Floating point scientific notation right-justified at least 10 wide, 2 positions after the decimal |$double%10.2E|")
+  println(f"Floating point scientific notation left-justified at least 10 wide, 2 positions after the decimal  |$double%-10.2E|")
+  println(f"String minimum length 10, right-justified                                                          |$string%10s|")
+  println(f"String minimum length 10, left-justified                                                           |$string%-10s|")
+  println(f"Computation minimum length 9, right-justified                                                      |${int * double}%-10.2f|")
+  println(f"Computation minimum length 9, left-justified                                                       |${int * double}%10.2f|")
 }
