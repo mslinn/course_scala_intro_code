@@ -27,8 +27,8 @@ object Bicycle extends App {
 
   /** A wheel requires a tire and a cassette */
   trait Wheel { self: Tire with Cassette =>
-    /** @param numTurns a number of turns of the bicycle wheel as a real number
-      * @return the total distance travelled for the given number of turns, in meters  */
+    /** @param numTurns a number of turns of the bicycle wheel as a double
+      * @return total distance travelled for the given number of turns, in meters  */
     def turn(numTurns: Double): Double = self.tireSize * numTurns
 
     /** @param gear is the gear number, with the lowest number being the outside gear
@@ -37,7 +37,6 @@ object Bicycle extends App {
       if (gear > rearTeeth.size) rearTeeth.last
       else if (gear < 1) rearTeeth.head
       else rearTeeth(gear - 1)
-    
     def numGears = self.rearTeeth.size
   }
 
@@ -80,4 +79,17 @@ object Bicycle extends App {
   1 to touringBike.numGears foreach { gear =>
     println(f"Gear $gear: Speed is ${touringBike.rpmToKph(95, gear)}%2.1f KpH")
   }
+}
+
+object FormattedStringSamples extends App {
+  println(f"Signed Integer right-justified at least 6 wide                                                    : ${123}%6d")
+  println(f"Signed Integer left-justified at least 6 wide                                                     : ${123}%-6d")
+  println(f"Integer right-justified at least 6 wide, zero filled                                              : ${123}%06d")
+  println(f"Integer right-justified at least 6 wide, leading +                                                : ${123}%+6d")
+  println(f"Floating point right-justified at least 9 wide, 2 positions after the decimal                     : ${123.4567}%9.2f")
+  println(f"Floating point left-justified at least 9 wide, 2 positions after the decimal                      : ${123.4567}%-9.2f")
+  println(f"Floating point scientific notation right-justified at least 10 wide, 2 positions after the decimal: ${123.4567}%10.2E")
+  println(f"Floating point scientific notation left-justified at least 10 wide, 2 positions after the decimal : ${123.4567}%-10.2E")
+  println(f"String minimum length 10, right-justified                                                         : ${"Hello"}%10s")
+  println(f"String minimum length 10, left-justified                                                          : ${"Hello"}%-10s")
 }

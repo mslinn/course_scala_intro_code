@@ -1,3 +1,5 @@
+import sbt.Keys._
+
 organization := "com.micronautics"
 
 name := "scalaIntroCourse"
@@ -25,6 +27,8 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.0"  % "test" withSources(),
   "junit"         %  "junit"     % "4.11"   % "test" // Scala IDE requires this; IntelliJ IDEA does not
 )
+
+updateOptions := updateOptions.value.withCachedResolution(true)
 
 logLevel := Level.Error
 
