@@ -82,14 +82,19 @@ object Bicycle extends App {
 }
 
 object FormattedStringSamples extends App {
-  println(f"Signed Integer right-justified at least 6 wide                                                    : ${123}%6d")
-  println(f"Signed Integer left-justified at least 6 wide                                                     : ${123}%-6d")
-  println(f"Integer right-justified at least 6 wide, zero filled                                              : ${123}%06d")
-  println(f"Integer right-justified at least 6 wide, leading +                                                : ${123}%+6d")
-  println(f"Floating point right-justified at least 9 wide, 2 positions after the decimal                     : ${123.4567}%9.2f")
-  println(f"Floating point left-justified at least 9 wide, 2 positions after the decimal                      : ${123.4567}%-9.2f")
-  println(f"Floating point scientific notation right-justified at least 10 wide, 2 positions after the decimal: ${123.4567}%10.2E")
-  println(f"Floating point scientific notation left-justified at least 10 wide, 2 positions after the decimal : ${123.4567}%-10.2E")
-  println(f"String minimum length 10, right-justified                                                         : ${"Hello"}%10s")
-  println(f"String minimum length 10, left-justified                                                          : ${"Hello"}%-10s")
+  val int = 123
+  val double = 123.4567
+  val string = "Hello"
+  println(f"Signed Integer right-justified at least 6 wide                                                    : $int%6d")
+  println(f"Signed Integer left-justified at least 6 wide                                                     : $int%-6d")
+  println(f"Integer right-justified at least 6 wide, zero filled                                              : $int%06d")
+  println(f"Integer right-justified at least 6 wide, leading +                                                : $int%+6d")
+  println(f"Floating point right-justified at least 9 wide, 2 positions after the decimal                     : $double%9.2f")
+  println(f"Floating point left-justified at least 9 wide, 2 positions after the decimal                      : $double%-9.2f")
+  println(f"Floating point scientific notation right-justified at least 10 wide, 2 positions after the decimal: $double%10.2E")
+  println(f"Floating point scientific notation left-justified at least 10 wide, 2 positions after the decimal : $double%-10.2E")
+  println(f"String minimum length 10, right-justified                                                         : $string%10s")
+  println(f"String minimum length 10, left-justified                                                          : $string%-10s")
+  println(f"Computation minimum length 9, right-justified                                                     : ${int * double}%-9.2f")
+  println(f"Computation minimum length 9, left-justified                                                      : ${int * double}%9.2f")
 }
