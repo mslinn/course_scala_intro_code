@@ -99,6 +99,6 @@ object FormattedStringSamples extends App {
   println(f"Floating point scientific notation left-justified at least 10 wide, 2 positions after the decimal  |$double%-10.2E|")
   println(f"String minimum length 10, right-justified                                                          |$string%10s|")
   println(f"String minimum length 10, left-justified                                                           |$string%-10s|")
-  println(f"Computation minimum length 9, right-justified                                                      |${int * double}%-10.2f|")
-  println(f"Computation minimum length 9, left-justified                                                       |${int * double}%10.2f|")
+  println(f"Computation minimum length 10, right-justified                                                     |${int * double}%-10.2f|")
+  println(f"Computation minimum length 10, left-justified                                                      |${int * double}%10.2f|")
 }
