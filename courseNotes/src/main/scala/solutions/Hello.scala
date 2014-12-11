@@ -1,8 +1,5 @@
 package solutions
 
-/**
- *
- */
-class Hello {
-
+object Hello extends App {
+  println("Hello, world!")
 }
