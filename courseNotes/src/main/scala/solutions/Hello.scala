@@ -1,0 +1,8 @@
+package solutions
+
+/**
+ *
+ */
+class Hello {
+
+}

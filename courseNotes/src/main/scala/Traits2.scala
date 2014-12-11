@@ -35,14 +35,19 @@ object WhichTrait extends App {
 
 
 object ExtendJavaSet extends App {
-
   trait IgnoredCaseSet extends java.util.Set[Object] {
     abstract override def add(obj: Object): Boolean =
-      if (obj.isInstanceOf[String]) super.add(obj.asInstanceOf[String].toLowerCase) else super.add(obj)
+      obj match {
+        case s: String => super.add(s.toLowerCase)
+        case _ => super.add(obj)
+      }
 
 
     abstract override def contains(obj: Object): Boolean =
-      if (obj.isInstanceOf[String]) super.contains(obj.asInstanceOf[String].toLowerCase) else super.contains(obj)
+      obj match {
+        case s: String => super.contains(s.toLowerCase)
+        case _ => super.contains(obj)
+      }
   }
 
   class MySet extends java.util.HashSet[Object] with IgnoredCaseSet
