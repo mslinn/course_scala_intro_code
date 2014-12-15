@@ -65,12 +65,12 @@ object Tweeters extends App {
   trait User { def name: String }
 
   trait Tweeter extends User {
-    def tweet(msg: String) = println(s"$name: $msg")
+    def tweet(msg: String): Unit = println(s"$name: $msg")
   }
 
   trait Tweeter2 { self: User =>
-    def tweet(msg: String) = println(s"${self.name}: $msg")
-    def tweet2(msg: String) = println(s"$name:$msg")
+    def tweet(msg: String): Unit = println(s"${self.name}: $msg")
+    def tweet2(msg: String): Unit = println(s"$name: $msg")
   }
 
   class Blabber(val name: String) extends Tweeter
