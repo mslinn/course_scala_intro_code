@@ -1,15 +1,15 @@
 object Bicycle extends App {
   trait Cassette {
     /** The number of cogs on each gear in the cassette */
-    protected def rearTeeth: List[Int]
+    protected def rearTeeth: Vector[Int]
   }
 
   trait TouringCassette extends Cassette {
-    protected val rearTeeth = List(14, 16, 18, 20, 22, 24, 26)
+    protected val rearTeeth = Vector(14, 16, 18, 20, 22, 24, 26)
   }
 
   trait RacingCassette extends Cassette {
-    protected val rearTeeth = List(11, 12, 13, 14, 15, 17, 19, 21, 23, 25)
+    protected val rearTeeth = Vector(11, 12, 13, 14, 15, 17, 19, 21, 23, 25)
   }
 
   trait Tire {
