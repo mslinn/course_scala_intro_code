@@ -1,4 +1,5 @@
 import scala.collection.mutable
+import annotation.tailrec
 
 object Fib1 extends App {
   def fib1(n: Int): Long = if (n<=1) n else fib1(n - 2) + fib1(n - 1)
@@ -10,7 +11,7 @@ object Fib1 extends App {
 
 object Fib2 extends App {
   def fib2(n: Int): Long = {
-    @annotation.tailrec
+    @tailrec
     def fibIter(fibNumM2: Long, fibNumM1: Long, count: Int): Long =
       if (count==0) fibNumM2
       else fibIter(fibNumM1, fibNumM2 + fibNumM1, count - 1)
@@ -27,7 +28,7 @@ object Fib2 extends App {
 
 object Fib3 extends App {
   def fib3(n: Int): BigInt = {
-    @annotation.tailrec
+    @tailrec
     def fibIter(fibNumM2: BigInt, fibNumM1: BigInt, count: Int): BigInt =
       if (count==0) fibNumM2
       else fibIter(fibNumM1, fibNumM2 + fibNumM1, count - 1)
@@ -43,14 +44,37 @@ object Fib3 extends App {
   println(s"Fibonacci of 5000 is: ${fib3(5000)}")
 }
 
+object FibLoop extends App {
+  def fib(n: Int): Long = {
+    var fibn1 = 0L
+    var fibn2 = 1L
+    (0 until n) foreach { _ =>
+      val next = fibn1 + fibn2
+      fibn1 = fibn2
+      fibn2 = next
+    }
+    fibn1
+  }
+
+  println(s"Fibonacci of 10   is: ${fib(10)}")
+  println(s"Fibonacci of 50   is: ${fib(50)}")
+  println(s"Fibonacci of 100  is: ${fib(100)}")
+  println(s"Fibonacci of 500  is: ${fib(500)}")
+  println(s"Fibonacci of 1000 is: ${fib(1000)}")
+  println(s"Fibonacci of 5000 is: ${fib(5000)}")
+}
+
 object Fib4 extends App {
   val defaultMap = collection.immutable.HashMap(0 -> BigInt(0), 1 -> BigInt(1))
   val cache = collection.mutable.WeakHashMap[Int, BigInt]().withDefault(defaultMap)
 
+  @tailrec
   val fn: Int => BigInt = (n: Int) => {
-    val result: BigInt = if (n<=1) n else fib4(n - 2) + fib4(n - 1)
-    cache += (n -> result)
-    result
+    if (n<=1) defaultMap(n) else {
+      val result: BigInt = cache.getOrElse(n - 2, fn(n - 2)) + cache.getOrElse(n - 1, fn(n - 1))
+      cache += (n -> result)
+      result
+    }
   }
 
   def fib4(n: Int): BigInt = try {
