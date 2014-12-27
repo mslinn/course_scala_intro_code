@@ -87,10 +87,24 @@ object Animals5 extends App {
 
 
 class Frog5(val canSwim: Boolean, var numLegs: Int, breathesAir: Boolean) extends Animal(numLegs, breathesAir) {
-  override def toString() = s"canSwim: $canSwim; $numLegs legs; breathesAir: $breathesAir"
+  override def toString = s"canSwim: $canSwim; $numLegs legs; breathesAir: $breathesAir"
 }
 
 object Animals6 extends App {
    val frog5 = new Frog5(canSwim=true, 4, breathesAir=true)
    println(s"frog5=$frog5")
+}
+
+object VarArgsScala extends App {
+  import java.awt.{Polygon, Point}
+
+  /** @return a polygon connecting the given points */
+  def polygonFrom(points: Point*): Polygon = {
+    val polygon = new Polygon()
+    points.foreach { point => polygon.addPoint(point.x, point.y) }
+    polygon
+  }
+
+  val square = polygonFrom(new Point(0, 0), new Point(0, 1), new Point(1, 1), new Point(1, 0))
+  println(s"Bounding box of polygon is: ${square.getBounds2D}")
 }
