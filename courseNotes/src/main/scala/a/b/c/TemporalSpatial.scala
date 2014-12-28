@@ -2,6 +2,7 @@ package com.micronautics
 
 class Temporal
 
+/** This is package-level documentation for the `com.micronautics.alternate` package. */
 package object alternate {
   def doubler(x: Int): Int = x * 2
 }
