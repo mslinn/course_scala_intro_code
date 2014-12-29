@@ -1,5 +1,30 @@
 class UselessAnimal(numLegs: Int, breathesAir: Boolean)
 
+
+object ConcreteClasses extends App {
+  class UsefulAnimal(numLegs: Int, breathesAir: Boolean) {
+    val property1 = s"I have $numLegs legs"
+
+    def walk(n: Int) = (if (numLegs==1) "hop "
+                        else if (numLegs==2) "stomp "
+                        else if (numLegs==4) "gallop "
+                        else "slither ") * n
+
+    def sing = if (breathesAir) "La di da!" else "You must be joking!"
+  }
+
+  val monkey = new UsefulAnimal(2, true)
+  println(s"monkey.property1=${monkey.property1}")
+  println(s"monkey.walk(3)=${monkey.walk(3)}")
+    println(s"monkey.sing=${monkey.sing}")
+
+  val fish = new UsefulAnimal(0, false)
+    println(s"fish.property1=${fish.property1}")
+    println(s"fish.walk(4)=${fish.walk(4)}")
+    println(s"fish.sing=${fish.sing}")
+}
+
+
 abstract class BadAnimal(numLegs: Int, breathesAir: Boolean) {
   val x = 3 // part of primary constructor
   println(breathesAir) // part of primary constructor
@@ -25,7 +50,6 @@ object Animals1 extends App {
   val frog1 = new Frog1(true, 4, true)
   println(s"frog1.canSwim=${frog.canSwim}")
 }
-
 
 
 class Frog2(val canSwim: Boolean, val numLegs: Int, val breathesAir: Boolean) extends Animal(numLegs, breathesAir) {
