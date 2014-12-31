@@ -150,7 +150,7 @@ object Anonymous2 extends App {
 }
 
 object Anonymous3 extends App {
-  val grenouille = new Frog4  {
+  val grenouille = new Frog4 {
     var favoriteFood = "insects"
 
     override def toString = super.toString + s"; favorite food=$favoriteFood"
