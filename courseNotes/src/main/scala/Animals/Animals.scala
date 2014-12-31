@@ -1,3 +1,5 @@
+package Animals
+
 class UselessAnimal(numLegs: Int, breathesAir: Boolean)
 
 
