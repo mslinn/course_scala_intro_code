@@ -111,7 +111,6 @@ object Animals5 extends App {
 }
 
 
-
 class Frog5(val canSwim: Boolean, var numLegs: Int, breathesAir: Boolean) extends Animal(numLegs, breathesAir) {
   override def toString = s"canSwim: $canSwim; $numLegs legs; breathesAir: $breathesAir"
 }
@@ -151,15 +150,11 @@ object Anonymous2 extends App {
 }
 
 object Anonymous3 extends App {
-  abstract class A {
-    val a: Int
-    def doubleA: Int
+  val grenouille = new Frog4  {
+    var favoriteFood = "insects"
+
+    override def toString = super.toString + s"; favorite food=$favoriteFood"
   }
 
-  val a = new A {
-    val a = 3
-    def doubleA = a * 2
-  }
-
-  println(s"a.doubleA=${a.doubleA}")
+  println(s"grenouille-=$grenouille")
 }
