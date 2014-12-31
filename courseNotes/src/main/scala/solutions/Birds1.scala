@@ -1,17 +1,14 @@
 package solutions
 
-abstract class Animal2(numLegs: Int, breathesAir: Boolean) {
-  private val breatheMsg = if (breathesAir) "" else " do not"
-  val msg = s"I have $numLegs legs and I $breatheMsg breathe air"
-}
+import _root_.PatMatch6.Animal
 
-class Bird(val canFly: Boolean, val topSpeed: Double) extends Animal2(2, true) {
+class Bird(val canFly: Boolean, val topSpeed: Double) extends Animal(2, true) {
   override def toString = s"canFly=$canFly; topSpeed=$topSpeed"
 }
 
 object Birds1 extends App {
-  val falcon = new Bird(canFly=true, topSpeed=200)
-  val emu = new Bird(canFly=false, topSpeed=25)
-  println(s"Falcon $falcon")
+  val crane = new Bird(canFly=true, topSpeed=55)
+  val emu   = new Bird(canFly=false, topSpeed=25)
+  println(s"Crane $crane")
   println(s"Emu $emu")
 }
