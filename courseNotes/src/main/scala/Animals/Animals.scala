@@ -7,10 +7,11 @@ object ConcreteClasses extends App {
   class UsefulAnimal(numLegs: Int, breathesAir: Boolean) {
     val property1 = s"I have $numLegs legs"
 
-    def walk(n: Int) = (if (numLegs==1) "hop "
+    def walk(n: Int) = (if (numLegs==0) "slither "
+                        else if (numLegs==1) "hop "
                         else if (numLegs==2) "stomp "
                         else if (numLegs==4) "gallop "
-                        else "slither ") * n
+                        else "crawl ") * n
 
     def sing = if (breathesAir) "La di da!" else "You must be joking!"
   }
