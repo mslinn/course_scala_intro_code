@@ -117,6 +117,38 @@ object Closures extends App {
   Outer.Inner
 }
 
+object MultipleParamLists extends App {
+  import scala.annotation.tailrec
+
+  def unless(cond: => Boolean)(body: => Unit): Unit = {
+    if (!cond) body
+  }
+
+  @tailrec
+  def until(body: => Unit)(cond: => Boolean): Unit = {
+    body
+    if (!cond) until(body)(cond)
+  }
+
+  var x = 1
+  unless(x == 0) {println(s"I can divide by x because x is not zero: ${3 / x}")}
+  x = 0
+  unless(x == 0) {println(s"I can divide by x because x is not zero: ${3 / x}")}
+
+  val guardAgainstZero = unless(x == 0) _
+  x = 1
+  guardAgainstZero {println(s"I can divide by x because I'm guarded: ${3 / x}")}
+  x = 0
+  guardAgainstZero {println(s"I can divide by x because I'm guarded: ${3 / x}")}
+
+
+  var i = 0
+  until {
+    println(s"$i squared = ${i * i}")
+    i += 1
+  } (i == 10)
+}
+
 object WithFun extends App {
   case class Blarg(i: Int, s: String)
 
