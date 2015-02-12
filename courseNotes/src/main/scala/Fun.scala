@@ -75,6 +75,64 @@ object Closures extends App {
   Outer.Inner
 }
 
+object LazyEvalLevel1 extends App {
+  import java.util.Calendar
+
+  object Stateful {
+    var count = 0
+
+    def increment = {
+      count = count + 1
+      count
+    }
+  }
+
+  val isWitchingHour: Boolean = Calendar.getInstance().get(Calendar.HOUR_OF_DAY) == 0
+  val scaredMsg = "I am too scared to compute"
+
+  def timidPi1(value: Int): String =
+    if (!isWitchingHour) s"Eager evaluation yields $value" else scaredMsg
+
+  println(s"timidPi1(3) = ${timidPi1(3)}")
+  println(s"timidPi1(Stateful.increment) = ${timidPi1(Stateful.increment)}")
+  println(s"timidPi1(Stateful.increment) = ${timidPi1(Stateful.increment)}")
+
+  def timidPi1a(value: Int): String =
+     if (!isWitchingHour) s"Eager evaluation yields $value, yes $value" else "I am too scared to compute"
+
+  println(s"timidPi1a(3) = ${timidPi1a(3)}")
+  println(s"timidPi1a(Stateful.increment) = ${timidPi1a(Stateful.increment)}")
+  println(s"timidPi1a(Stateful.increment) = ${timidPi1a(Stateful.increment)}")
+
+  def timidPi2(value: => Int): String    =
+    if (!isWitchingHour) s"Lazy evaluation yields $value" else scaredMsg
+
+  println(s"timidPi2(3) = ${timidPi2(3)}")
+  println(s"timidPi2(Stateful.increment) = ${timidPi2(Stateful.increment)}")
+  println(s"timidPi2(Stateful.increment) = ${timidPi2(Stateful.increment)}")
+
+  def timidPi2a(value: ⇒ Int): String =
+     if (!isWitchingHour) s"Lazy evaluation yields $value, yes $value" else "I am too scared to compute"
+
+  println(s"timidPi2a(3) = ${timidPi2a(3)}")
+  println(s"timidPi2a(Stateful.increment) = ${timidPi2a(Stateful.increment)}")
+  println(s"timidPi2a(Stateful.increment) = ${timidPi2a(Stateful.increment)}")
+
+  def timidPi3(value: () => Int): String =
+    if (!isWitchingHour) s"Evaluating function yields ${value()}" else scaredMsg
+
+  println(s"timidPi3(() => 3) = ${timidPi3(() => 3)}")
+  println(s"timidPi3(() => Stateful.increment) = ${timidPi3(() => Stateful.increment)}")
+  println(s"timidPi3(() => Stateful.increment) = ${timidPi3(() => Stateful.increment)}")
+
+  def timidPi3a(value: () ⇒ Int): String =
+     if (!isWitchingHour) s"Evaluating function yields ${value()}, yes ${value()}" else "I am too scared to compute"
+
+  println(s"timidPi3a(() => 3) = ${timidPi3a(() => 3)}")
+  println(s"timidPi3a(() => Stateful.increment) = ${timidPi3a(() => Stateful.increment)}")
+  println(s"timidPi3a(() => Stateful.increment) = ${timidPi3a(() => Stateful.increment)}")
+}
+
 object LazyEval extends App {
   import java.util.Calendar
 
