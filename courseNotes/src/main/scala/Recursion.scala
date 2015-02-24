@@ -14,9 +14,8 @@ object Time {
     println(f"[It took: ${result._1}%5d ms to run] " + f"$msg $n%6d is: ${result._2}")
   }
 
-  def fibTest(fn: Int => Any, values: List[Int] = List(10, 42, 50, 100, 500, 1000, 1000, 5000, 5000)) = {
+  def fibTest(fn: Int => Any, values: List[Int] = List(10, 42, 50, 100, 500, 1000, 1000, 5000, 5000)) =
     values.map(n => printTiming(n, fn, "Fibonacci of: "))
-  }
 
   def time(f: => Unit) = {
     val s = System.currentTimeMillis
