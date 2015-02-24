@@ -14,12 +14,13 @@ object Time2 {
     println(f"[It took: ${result._1}%5d ms to run] " + f"$msg $n%6d is: ${result._2}")
   }
 
-  def factTest(fn: Int => Any, values: List[Int] = List(0, 1, 2, 3, 10, 42, 50, 100, 500, 1000, 1000, 5000, 5000)) =
-    values.map(n => printTiming(n, fn, "Factorial of: "))
-
+  val intList = List(0, 1, 2, 3, 10, 42, 50, 100, 500, 1000, 1000, 5000, 5000)
+  def factTest(fn: Int => Any, values: List[Int]=intList) =
+    values.foreach(n => printTiming(n, fn, "Factorial of: "))
 }
 
 object Fact1 extends App {
+  /** This will overflow the stack */
   def fact1(n: Int): BigInt = {
     require(n >= 0)
     if (n == 0) 1
@@ -33,9 +34,7 @@ object FactLoop extends App {
   def factLoop(n: Int): BigInt = {
     require(n >= 0)
     var factAccum = BigInt(1)
-    (1 to n) foreach { i =>
-      factAccum *= i
-    }
+    (1 to n) foreach { i => factAccum *= i }
     factAccum
   }
 
@@ -64,13 +63,11 @@ object FactMem extends App {
 
   def factMem(n: Int): BigInt = {
     @tailrec
-    def factIter(counter: Int, factAccum: BigInt): BigInt = {
+    def factIter(counter: Int, factAccum: BigInt): BigInt =
       if (counter >= n) {
         cache += n -> factAccum
         factAccum
-      }
-      else factIter(counter + 1, factAccum * (counter + 1))
-    }
+      } else factIter(counter + 1, factAccum * (counter + 1))
 
     require(n >= 0)
     cache.getOrElse(n, factIter(0, BigInt(1)))

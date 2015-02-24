@@ -15,7 +15,7 @@ object Time {
   }
 
   def fibTest(fn: Int => Any, values: List[Int] = List(10, 42, 50, 100, 500, 1000, 1000, 5000, 5000)) =
-    values.map(n => printTiming(n, fn, "Fibonacci of: "))
+    values.foreach(n => printTiming(n, fn, "Fibonacci of: "))
 
   def time(f: => Unit) = {
     val s = System.currentTimeMillis
