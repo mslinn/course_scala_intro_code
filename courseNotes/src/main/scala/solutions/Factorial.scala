@@ -45,10 +45,9 @@ object FactLoop extends App {
 object Fact extends App {
   def fact(n: Int): BigInt = {
     @tailrec
-    def factIter(counter: Int, factAccum: BigInt): BigInt = {
+    def factIter(counter: Int, factAccum: BigInt): BigInt =
       if (counter >= n) factAccum
       else factIter(counter + 1, factAccum * (counter + 1))
-    }
 
     require(n >= 0)
     factIter(0, BigInt(1))
