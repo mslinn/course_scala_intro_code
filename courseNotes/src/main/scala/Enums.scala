@@ -8,6 +8,10 @@ object JavaEnum extends App {
   Day.valueOf("MONDAY")
   println(s"Day.MONDAY < Day.FRIDAY: ${Day.MONDAY < Day.FRIDAY}")
 
+  def isWeekDay(day: Day) = day>=Day.MONDAY && day<=Day.FRIDAY
+
+  if (isWeekDay(Day.WEDNESDAY)) println("Waiting for weekend")
+
   val valueSet = collection.immutable.TreeSet(Day.values:_*)
   println(s"valueSet=$valueSet")
 
