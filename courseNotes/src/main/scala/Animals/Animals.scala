@@ -133,6 +133,10 @@ object VarArgsScala extends App {
 
   val square = polygonFrom(new Point(0, 0), new Point(0, 1), new Point(1, 1), new Point(1, 0))
   println(s"Bounding box of polygon is: ${square.getBounds2D}")
+
+  val points = List(new Point(0, 0), new Point(0, 1), new Point(1, 1), new Point(1, 0))
+  val square2 = polygonFrom(points: _*)
+  println(s"Bounding box of polygon is: ${square2.getBounds2D}")
 }
 
 object Anonymous1 extends App {
