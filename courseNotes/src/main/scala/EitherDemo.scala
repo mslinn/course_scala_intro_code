@@ -9,6 +9,17 @@ object EitherDemo1 extends App {
   println(s"result2.isLeft=${result2.isLeft}")
   println(s"result2.left.get=${result2.left.get}") // this is not the way to write production code!
 
+  val folded: String = result2.fold(
+    lhs => "Handled left side",
+    rhs => "Handled right side"
+  )
+  println(s"folded=$folded")
+
+  val folded2 = result2.fold[String](
+    (lhs: String) => "Handled left side",
+    (rhs: String) => "Handled right side"
+  )
+  println(s"folded2=$folded2")
 }
 
 
