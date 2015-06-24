@@ -1,9 +1,9 @@
 organization := "com.micronautics"
 name := "IntroScalaCourse"
 description := "Core Scala - Introduction to Scala Course Notes"
-version := "2.11.6"
+version := "2.11.7"
 
-scalaVersion := "2.11.6"
+scalaVersion := "2.11.7"
 autoCompilerPlugins := true
 scalacOptions in (Compile, doc) <++= baseDirectory.map {
   (bd: File) => Seq[String](
@@ -28,6 +28,7 @@ updateOptions := updateOptions.value.withCachedResolution(true)
 
 // set the initial commands when entering 'console' or 'consoleQuick', but not 'consoleProject'
 initialCommands in console := """import java.io.File
+                                |import scala.language.postfixOps
                                 |import java.net.URL
                                 |import scala.util.control.NoStackTrace
                                 |import scala.util.{Try,Success,Failure}
