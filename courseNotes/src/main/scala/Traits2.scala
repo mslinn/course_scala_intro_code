@@ -84,3 +84,16 @@ object Tweeters extends App {
   blabber2.tweet2("Le tweet")
   blabber2.tweet("Une autre tweet")
 }
+
+object HeirGround extends App {
+  trait Base { val param1: Int }
+  abstract class First(val param2: String)
+  case class Holder(override val param1: Int, override val param2: String) extends First(param2) with Base
+
+  val bottles: Holder = new Holder(99, "Bottles of beer")
+  val base: Base = bottles
+  val first: First = bottles
+  println(s"base.param1: ${base.param1}")
+  println(s"first.param2: ${first.param2}")
+  println(s"bottles: $bottles")
+}
