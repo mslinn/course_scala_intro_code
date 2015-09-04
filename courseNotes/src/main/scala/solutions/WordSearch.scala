@@ -21,12 +21,12 @@ object WordSearch extends App {
     * In the second case, notice that the variable index is defined. It will match every value. */
   def search2(list: List[String], word: String): StringOrInt =
     list.indexOf(word) match {
-      case -1 => Left(word)
+      case -1    => Left(word)
       case index => Right(index)
   }
 
   List("word", "oink", "blahbla", "another").foreach { w =>
-    println(s"Method 1 $w: ${search(list, w)}")
-    println(s"Method 2 $w: ${search2(list, w)}")
+    println(s"Method 1 search for '$w': ${search(list, w)}")
+    println(s"Method 2 search for '$w': ${search2(list, w)}")
   }
 }
