@@ -2,7 +2,7 @@ package solutions
 
 /** Two solutions are shown. Solution 2 is best. */
 object WordSearch extends App {
-  val list = List("word", "another", "yet another")
+  val list = List("word", "another", "more")
 
   type StringOrInt = Either[String, Int]
 
