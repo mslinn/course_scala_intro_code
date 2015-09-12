@@ -1,6 +1,6 @@
 package solutions
 
-import Animals.Animal
+import animals.Animal
 
 class Bird2(val canFly: Boolean, val topSpeed: Double) extends Animal(2, true) {
 

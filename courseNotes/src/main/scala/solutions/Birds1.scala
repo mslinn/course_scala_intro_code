@@ -1,6 +1,6 @@
 package solutions
 
-import Animals.Animal
+import animals.Animal
 
 class Bird(val canFly: Boolean, val topSpeed: Double) extends Animal(2, true) {
   override def toString = s"canFly=$canFly; topSpeed=$topSpeed"
