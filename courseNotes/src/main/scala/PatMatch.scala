@@ -36,8 +36,8 @@ object PatMatch3 extends App {
   def whatever: Any = if (System.currentTimeMillis % 2 == 0) 1 else "blah"
 
   whatever match {
-    case a: Int    => println(s"Whatever: Int with value $a")
-    case b: String => println(s"Whatever: String with value '$b'")
+    case a: Int    => println(s"whatever: Int with value $a")
+    case b: String => println(s"whatever: String with value '$b'")
   }
 
   /* Compiler complains "scrutinee is incompatible with pattern type"
