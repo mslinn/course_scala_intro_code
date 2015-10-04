@@ -1,0 +1,51 @@
+```
+import scala.util._
+
+var a = 42
+
+def f(i: Int) = i + 1
+
+sealed trait A
+private object B extends A
+case class Person(name: String)
+
+try { 1 / 0 } catch { case e: Exception => 0 }
+
+if (this == null) true else false
+
+for (i <- 1 to 10) yield i * i
+```
+```
+import scala.util._
+
+var a = 42
+
+def f(i: Int) = i + 1
+
+sealed trait A
+private object B extends A
+case class Person(name: String)
+
+try { 1 / 0 } catch { case e: Exception => 0 }
+
+if (this == null) true else false
+
+for (i <- 1 to 10) yield i * i
+```
+```
+import scala.util._
+
+var a = 42
+
+def f(i: Int) = i + 1
+
+sealed trait A
+private object B extends A
+case class Person(name: String)
+
+try { 1 / 0 } catch { case e: Exception => 0 }
+
+if (this == null) true else false
+
+for (i <- 1 to 10) yield i * i
+```
