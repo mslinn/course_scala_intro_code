@@ -24,6 +24,8 @@ libraryDependencies ++= Seq(
   "junit"         %  "junit"     % "4.12"   % "test" // Scala IDE requires this; IntelliJ IDEA does not
 )
 
+// triggeredMessage in ThisBuild := Watched.clearWhenTriggered
+
 updateOptions := updateOptions.value.withCachedResolution(true)
 
 // set the initial commands when entering 'console' or 'consoleQuick', but not 'consoleProject'
