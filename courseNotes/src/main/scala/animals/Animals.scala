@@ -44,7 +44,7 @@ abstract class Animal(numLegs: Int, breathesAir: Boolean) {
   val msg = s"I have $numLegs legs and I$breatheMsg breathe air"
 }
 
-class Frog1(val canSwim: Boolean, numLegs: Int, breathesAir: Boolean) extends Animal(numLegs, breathesAir)
+class Frog1(var canSwim: Boolean, numLegs: Int, val breathesAir: Boolean) extends Animal(numLegs, breathesAir)
 
 object Animals1 extends App {
   val frog = new Animal(4, true) { val canSwim: Boolean = true }
