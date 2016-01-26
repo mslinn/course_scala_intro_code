@@ -19,7 +19,7 @@ scalacOptions in (Compile, doc) <++= baseDirectory.map {
 scalacOptions in Test ++= Seq("-Yrangepos")
 
 libraryDependencies ++= Seq(
-  "org.specs2"    %% "specs2-core" % "3.7" % "test" withSources(),
+  "org.specs2"    %% "specs2"      % "3.7"    % "test",
   "org.scalatest" %% "scalatest"   % "2.2.6"  % "test" withSources(),
   "junit"         %  "junit"       % "4.12"   % "test" // Scala IDE requires this; IntelliJ IDEA does not
 )
