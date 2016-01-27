@@ -6,6 +6,7 @@ Notepad++/
 /doc
 WeatherEclipse/bin/
 *.class
+.cache*
 *.out
 conf/evolutions/backup/slinnbooks_*.sql
 *.log
