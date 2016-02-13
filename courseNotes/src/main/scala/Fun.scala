@@ -2,7 +2,7 @@ object Fun extends App {
   type IntDblToStr = (Int, Double) => String
 
   val mulStr = (a: Int, b: Double) => (a * b).toString
-  println(s"mulStr(1, 2)=${mulStr(1, 2)}")
+  println(s"mulStr(1, 2)=${mulStr(3, 22)}")
 
   val mulStr2: IntDblToStr = (a: Int, b: Double) => (a * b).toString
   println(s"mulStr2(1, 2)=${mulStr2(1, 2)}")

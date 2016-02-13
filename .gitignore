@@ -8,7 +8,6 @@ WeatherEclipse/bin/
 *.class
 .cache*
 *.out
-conf/evolutions/backup/slinnbooks_*.sql
 *.log
 .idea*
 *.iml
@@ -24,12 +23,7 @@ tmp
 .history
 dist
 *~
-AwsCredentials.properties
-BBCredentials.properties
 logs
-conf/cdnDev.conf
-txLogs/
-txLogs/*
 .DS_Store
 .svn/
 cvs/
