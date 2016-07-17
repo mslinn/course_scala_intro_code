@@ -19,12 +19,12 @@ object ConcreteClasses extends App {
   val monkey = new UsefulAnimal(2, true)
   println(s"monkey.property1=${monkey.property1}")
   println(s"monkey.walk(3)=${monkey.walk(3)}")
-    println(s"monkey.sing=${monkey.sing}")
+  println(s"monkey.sing=${monkey.sing}")
 
   val fish = new UsefulAnimal(0, false)
-    println(s"fish.property1=${fish.property1}")
-    println(s"fish.walk(4)=${fish.walk(4)}")
-    println(s"fish.sing=${fish.sing}")
+  println(s"fish.property1=${fish.property1}")
+  println(s"fish.walk(4)=${fish.walk(4)}")
+  println(s"fish.sing=${fish.sing}")
 }
 
 

@@ -1,4 +1,5 @@
 object Bicycle extends App {
+
   trait Cassette {
     /** The number of cogs on each gear in the cassette */
     protected def rearTeeth: Vector[Int]
@@ -37,6 +38,7 @@ object Bicycle extends App {
       if (gear > rearTeeth.size) rearTeeth.last
       else if (gear < 1) rearTeeth.head
       else rearTeeth(gear - 1)
+
     def numGears = self.rearTeeth.size
   }
 
@@ -63,9 +65,9 @@ object Bicycle extends App {
 
     def distancePerRevolution(gear: Int): Double = gearRatio(gear) * wheel.turn(1)
 
-    /** @param rpm revolutions per minute that the cyclist pedals
+    /** @param rpm  revolutions per minute that the cyclist pedals
       * @param gear gear number that is currently engaged */
-    def rpmToKph(rpm: Int=90, gear: Int=1): Double = distancePerRevolution(gear) * rpm * 60.0 / 1000.0
+    def rpmToKph(rpm: Int = 90, gear: Int = 1): Double = distancePerRevolution(gear) * rpm * 60.0 / 1000.0
 
     val numGears: Int = wheel.numGears
   }
