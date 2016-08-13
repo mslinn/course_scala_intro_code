@@ -7,16 +7,29 @@ scalaVersion := "2.11.8"
 autoCompilerPlugins := true
 scalacOptions in (Compile, doc) <++= baseDirectory.map {
   (bd: File) => Seq[String](
-     "-deprecation",
-	   "-encoding", "UTF-8",
-	   "-unchecked",
-     "-feature",
-	   "-target:jvm-1.6",
-     "-sourcepath", bd.getAbsolutePath,
-	   "-Ywarn-adapted-args"
+    "-deprecation", 
+    "-encoding", "UTF-8", 
+    "-feature", 
+    "-target:jvm-1.7", 
+    "-unchecked",
+    "-Ywarn-adapted-args",
+    "-Ywarn-dead-code",
+    "-Ywarn-numeric-widen",
+    "-Ywarn-unused",
+    "-Ywarn-value-discard",
+    "-Xfuture",
+    "-Xlint"
   )
 }
 scalacOptions in Test ++= Seq("-Yrangepos")
+
+javacOptions ++= Seq(
+  "-Xlint:deprecation", 
+  "-Xlint:unchecked", 
+  "-source", "1.7", 
+  "-target", "1.7", 
+  "-g:vars"
+)
 
 libraryDependencies ++= Seq(
   "org.specs2"    %% "specs2"      % "3.7"    % "test",
