@@ -104,3 +104,15 @@ object FormattedStringSamples extends App {
   println(f"Computation minimum length 10, right-justified                                                     |${int * double}%-10.2f|")
   println(f"Computation minimum length 10, left-justified                                                      |${int * double}%10.2f|")
 }
+
+object Wallflower extends App {
+  trait Lonely { self: Singleton =>
+    override def toString = "I am so shy!"
+  }
+
+  object OneAndOnly extends Lonely
+
+  //class Oops extends Lonely
+
+  println(OneAndOnly.toString)
+}
