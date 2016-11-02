@@ -3,7 +3,7 @@ import org.specs2.runner.JUnitRunner
 import org.junit.runner.RunWith
 
 @RunWith(classOf[JUnitRunner])
-class TestSpecs2Demo extends Specification {
+class Specs2Demo extends Specification {
   "The 'Hello world' string" should {
     "contain 11 characters" in {
       "Hello world" must have size 11
