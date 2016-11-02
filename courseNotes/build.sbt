@@ -7,10 +7,10 @@ scalaVersion := "2.12.0"
 autoCompilerPlugins := true
 scalacOptions in (Compile, doc) ++= baseDirectory.map {
   (bd: File) => Seq[String](
-    "-deprecation", 
-    "-encoding", "UTF-8", 
-    "-feature", 
-    "-target:jvm-1.8", 
+    "-deprecation",
+    "-encoding", "UTF-8",
+    "-feature",
+    "-target:jvm-1.8",
     "-unchecked",
     "-Ywarn-adapted-args",
     "-Ywarn-dead-code",
@@ -24,10 +24,10 @@ scalacOptions in (Compile, doc) ++= baseDirectory.map {
 scalacOptions in Test ++= Seq("-Yrangepos")
 
 javacOptions ++= Seq(
-  "-Xlint:deprecation", 
-  "-Xlint:unchecked", 
-  "-source", "1.8", 
-  "-target", "1.8", 
+  "-Xlint:deprecation",
+  "-Xlint:unchecked",
+  "-source", "1.8",
+  "-target", "1.8",
   "-g:vars"
 )
 

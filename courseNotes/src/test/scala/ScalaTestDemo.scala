@@ -4,7 +4,6 @@ import org.scalatest._
 
 @RunWith(classOf[JUnitRunner])
 class ScalaTestDemo extends WordSpec {
-
   "The 'Hello world' string" should {
     "contain 11 characters" in {
       assert("Hello world".length == 11)

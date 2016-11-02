@@ -17,43 +17,43 @@ object SealedDemo extends App {
   colorSwatch(new Blue)
 }
 
+object EMail {
+  import java.util.regex.Pattern
+  val emailRegex = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE)
+
+  /* Special marker value for invalid emails */
+  val empty = EMail("x@y.com")
+
+  def fromString(value: String) = new EMail(value).validate
+}
+
+case class EMail private (value: String) {
+  import java.net.URLEncoder
+
+  def isValid: Boolean = EMail.emailRegex.matcher(value).find
+
+  def link(asCode: Boolean=true): String =
+    s"${ if (asCode) "<code>" else "" }<a href='mailto:$value'>$value</a>${ if (asCode) "</code>" else "" }"
+
+  /** Generates a mailto: link with the optional subject and/or body. The subject and/or body will be URLEncoded. */
+  def mailTo(subject: String="", body: String=""): String = {
+    import java.nio.charset.StandardCharsets.UTF_8
+    val queryString = if ((subject + body).trim.isEmpty) "" else "?" +
+      (if (subject.trim.isEmpty) "" else "subject=" + URLEncoder.encode(subject.trim, UTF_8.toString)) +
+      (if (subject.nonEmpty && body.nonEmpty) "&" else "") +
+      (if (body.trim.isEmpty) "" else "body=" + URLEncoder.encode(body.trim, UTF_8.toString))
+    s"""mailto:${ link() }$queryString"""
+  }
+
+  def validate: EMail = {
+    assert(isValid)
+    EMail(value.trim.toLowerCase)
+  }
+
+  override def toString = validate.value
+}
+
 object AbstractSealed1 extends App {
-  object EMail {
-    import java.util.regex.Pattern
-    val emailRegex = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE)
-
-    /* Special marker value for invalid emails */
-    val empty = EMail("x@y.com")
-
-    def fromString(value: String) = new EMail(value).validate
-  }
-
-  case class EMail private (value: String) {
-    import java.net.URLEncoder
-
-    def isValid: Boolean = EMail.emailRegex.matcher(value).find
-
-    def link(asCode: Boolean=true): String =
-      s"${ if (asCode) "<code>" else "" }<a href='mailto:$value'>$value</a>${ if (asCode) "</code>" else "" }"
-
-    /** Generates a mailto: link with the optional subject and/or body. The subject and/or body will be URLEncoded. */
-    def mailTo(subject: String="", body: String=""): String = {
-      import java.nio.charset.StandardCharsets.UTF_8
-      val queryString = if ((subject + body).trim.isEmpty) "" else "?" +
-        (if (subject.trim.isEmpty) "" else "subject=" + URLEncoder.encode(subject.trim, UTF_8.toString)) +
-        (if (subject.nonEmpty && body.nonEmpty) "&" else "") +
-        (if (body.trim.isEmpty) "" else "body=" + URLEncoder.encode(body.trim, UTF_8.toString))
-      s"""mailto:${ link() }$queryString"""
-    }
-
-    def validate: EMail = {
-      assert(isValid)
-      EMail(value.trim.toLowerCase)
-    }
-
-    override def toString = validate.value
-  }
-
   val email1 = EMail.fromString("santa@claus.com")
   val email2 = EMail("santa@claus.com")
   val email3 = email1.copy("blah@ick.com")
@@ -114,11 +114,11 @@ object Extractor extends App {
       s"Got an unexpected animal: $x"
   }
 
-  println(extract(new Dog3("Fido", barksTooMuch=false)))
-  println(extract(new Dog3("Fifi", barksTooMuch = true)))
-  println(extract(new Frog11(canSwim=true, 0, breathesAir=false)))
-  println(extract(new Frog11(canSwim=true, 4, breathesAir=true)))
-  println(extract(new Horse("Silver")))
+  println(extract(Dog3("Fido", barksTooMuch=false)))
+  println(extract(Dog3("Fifi", barksTooMuch = true)))
+  println(extract(Frog11(canSwim=true, 0, breathesAir=false)))
+  println(extract(Frog11(canSwim=true, 4, breathesAir=true)))
+  println(extract(Horse("Silver")))
 }
 
 
