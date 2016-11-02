@@ -1,16 +1,16 @@
 organization := "com.micronautics"
 name := "IntroScalaCourse"
 description := "Core Scala - Introduction to Scala Course Notes"
-version := "2.11.8"
+version := "2.12.0"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.12.0"
 autoCompilerPlugins := true
-scalacOptions in (Compile, doc) <++= baseDirectory.map {
+scalacOptions in (Compile, doc) ++= baseDirectory.map {
   (bd: File) => Seq[String](
     "-deprecation", 
     "-encoding", "UTF-8", 
     "-feature", 
-    "-target:jvm-1.7", 
+    "-target:jvm-1.8", 
     "-unchecked",
     "-Ywarn-adapted-args",
     "-Ywarn-dead-code",
@@ -20,20 +20,20 @@ scalacOptions in (Compile, doc) <++= baseDirectory.map {
     "-Xfuture",
     "-Xlint"
   )
-}
+}.value
 scalacOptions in Test ++= Seq("-Yrangepos")
 
 javacOptions ++= Seq(
   "-Xlint:deprecation", 
   "-Xlint:unchecked", 
-  "-source", "1.7", 
-  "-target", "1.7", 
+  "-source", "1.8", 
+  "-target", "1.8", 
   "-g:vars"
 )
 
 libraryDependencies ++= Seq(
-  "org.specs2"    %% "specs2"      % "3.7"    % "test",
-  "org.scalatest" %% "scalatest"   % "2.2.6"  % "test" withSources(),
+  "org.specs2"    %% "specs2-core" % "3.8.6"  % "test",
+  "org.scalatest" %% "scalatest"   % "3.0.0"  % "test" withSources(),
   "junit"         %  "junit"       % "4.12"   % "test" // Scala IDE requires this; IntelliJ IDEA does not
 )
 
