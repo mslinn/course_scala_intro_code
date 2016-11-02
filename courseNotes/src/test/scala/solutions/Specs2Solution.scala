@@ -1,8 +1,11 @@
 package solutions
 
 import org.specs2.mutable._
+import org.specs2.runner.JUnitRunner
+import org.junit.runner.RunWith
 
-class Specs2Solution extends Specification {
+@RunWith(classOf[JUnitRunner])
+class TestSpecs2Solution extends Specification {
   "ScalaCourses.com" should {
     "contain the word scala" in {
       val contents = io.Source.fromURL("http://scalacourses.com").getLines.mkString

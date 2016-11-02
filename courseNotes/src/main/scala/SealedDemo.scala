@@ -55,7 +55,7 @@ case class EMail private (value: String) {
 
 object AbstractSealed1 extends App {
   val email1 = EMail.fromString("santa@claus.com")
-  val email2 = EMail("santa@claus.com")
+  val email2 = EMail.fromString("santa@claus.com")
   val email3 = email1.copy("blah@ick.com")
 }
 

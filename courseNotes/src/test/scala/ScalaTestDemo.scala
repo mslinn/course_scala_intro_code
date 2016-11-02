@@ -1,20 +1,21 @@
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest._
+import org.scalatest.Matchers._
 
 @RunWith(classOf[JUnitRunner])
-class ScalaTestDemo extends WordSpec {
+class TestDemo extends WordSpec {
   "The 'Hello world' string" should {
     "contain 11 characters" in {
-      assert("Hello world".length == 11)
+      "Hello world".length === 11
     }
 
     "start with 'Hello'" in {
-      assert("Hello world".startsWith("Hello"))
+      "Hello world" should startWith("Hello")
     }
 
     "end with 'world'" in {
-      assert("Hello world".endsWith("world"))
+      "Hello world" should endWith("world")
     }
   }
 }
