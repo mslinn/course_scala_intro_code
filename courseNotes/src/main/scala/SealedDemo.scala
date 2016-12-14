@@ -19,12 +19,12 @@ object SealedDemo extends App {
 
 object EMail {
   import java.util.regex.Pattern
-  val emailRegex = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE)
+  val emailRegex: Pattern = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE)
 
   /* Special marker value for invalid emails */
   val empty = EMail("x@y.com")
 
-  def fromString(value: String) = new EMail(value).validate
+  def fromString(value: String): EMail = new EMail(value).validate
 }
 
 case class EMail private (value: String) {
@@ -50,7 +50,7 @@ case class EMail private (value: String) {
     EMail(value.trim.toLowerCase)
   }
 
-  override def toString = validate.value
+  override def toString: String = validate.value
 }
 
 object AbstractSealed1 extends App {
@@ -62,11 +62,11 @@ object AbstractSealed1 extends App {
 object AbstractSealed2 extends App {
   object EMail {
     import java.util.regex.Pattern
-    val emailRegex = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE)
+    val emailRegex: Pattern = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE)
 
     val empty = new EMail("x@y.com"){}
 
-    def apply(value: String) = if (emailRegex.matcher(value).find) new EMail(value) {} else empty
+    def apply(value: String): EMail = if (emailRegex.matcher(value).find) new EMail(value) {} else empty
   }
 
   abstract sealed case class EMail(value: String) {
@@ -85,7 +85,7 @@ object AbstractSealed2 extends App {
       s"""mailto:${ link() }$queryString"""
     }
 
-    override def toString = value
+    override def toString: String = value
   }
 
   val email1 = EMail("santa@claus.com")
@@ -104,7 +104,7 @@ object Extractor extends App {
       s"Got a Frog11 with $numLegs legs; canSwim=$canSwim and breathesAir=$breathesAir"
 
 
-    case Frog11(canSwim, numLegs, breathesAir) =>
+    case Frog11(_, _, breathesAir) =>
       s"Got a tadpole without legs; breathesAir=$breathesAir"
 
     case Dog3(name, barksTooMuch) =>
