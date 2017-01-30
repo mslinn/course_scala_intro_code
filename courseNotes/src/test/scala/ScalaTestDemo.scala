@@ -19,6 +19,36 @@ class ScalaTestDemo extends WordSpec {
     }
   }
 
+  "Strings" should {
+    "work" in {
+      val string = """Thank you for your order.
+                     |You enrolled in the best course ever!
+                     |Go study and become successful.
+                     |""".stripMargin
+      string.length shouldBe 96
+      string should startWith("Thank you for your order")
+      string should include("the best course ever!")
+      string should endWith("successful.\n")
+    }
+  }
+
+  "Multiple predicates" should {
+    "combine" in {
+      val string = """Thank you for your order.
+                     |You enrolled in the best course ever!
+                     |Go study and become successful.
+                     |""".stripMargin
+      string should (
+        include("Thank you for your order") and
+        include("You enrolled in")
+      )
+      string should (
+        include("Thank you for your order") or
+        include("You enrolled in")
+      )
+    }
+  }
+
   "OptionValue" should {
     "work for Some values" in {
       val option = Some(3)
@@ -43,6 +73,7 @@ class ScalaTestDemo extends WordSpec {
   "EitherValue" should {
     import org.scalatest.EitherValues._
     val either: Either[String, Int] = Right(3)
+
     "work for Right values" in {
       either.right.value shouldBe 3
       either shouldBe 'right
