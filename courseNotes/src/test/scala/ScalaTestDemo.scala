@@ -20,7 +20,6 @@ class ScalaTestDemo extends WordSpec {
   }
 
   "OptionValue" should {
-    import org.scalatest.EitherValues._
     "work for Some values" in {
       val option = Some(3)
       option shouldBe defined
