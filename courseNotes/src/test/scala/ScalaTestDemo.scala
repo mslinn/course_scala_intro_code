@@ -29,7 +29,7 @@ class ScalaTestDemo extends WordSpec {
       option should contain oneOf (3, 5, 7, 9)
       List(3, 5, 7, 9) should contain (option.value)
       option should not contain oneOf (7, 8, 9)
-      List(3, 5, 7, 9) should not contain option.value
+      List(5, 7, 9) should not contain option.value
     }
 
     "work for None" in {
@@ -42,13 +42,12 @@ class ScalaTestDemo extends WordSpec {
   }
 
   "EitherValue" should {
+    import org.scalatest.EitherValues._
+    val either: Either[String, Int] = Right(3)
     "work for Right values" in {
-      import org.scalatest.EitherValues._
-      val either: Either[String, Int] = Right(3)
       either.right.value shouldBe 3
-//      either.right.value shouldBe defined
-      either.right should be ('defined)
-      either.left should not be 'defined
+      either shouldBe 'right
+      either should not be 'left
     }
   }
 }
