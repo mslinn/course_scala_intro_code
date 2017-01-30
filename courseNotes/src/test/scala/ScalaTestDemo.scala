@@ -18,4 +18,37 @@ class ScalaTestDemo extends WordSpec {
       "Hello world" should endWith("world")
     }
   }
+
+  "OptionValue" should {
+    import org.scalatest.EitherValues._
+    "work for Some values" in {
+      val option = Some(3)
+      option shouldBe defined
+      option.value shouldBe 3
+      option.value should be < 7
+      option should contain oneOf (3, 5, 7, 9)
+      List(3, 5, 7, 9) should contain (option.value)
+      option should not contain oneOf (7, 8, 9)
+      List(3, 5, 7, 9) should not contain option.value
+    }
+
+    "work for None" in {
+      val option: Option[Int] = None
+      option shouldBe empty // the following are all equivalent:
+      option shouldEqual None
+      option shouldBe None
+      option should === (None)
+    }
+  }
+
+  "EitherValue" should {
+    "work for Right values" in {
+      import org.scalatest.EitherValues._
+      val either: Either[String, Int] = Right(3)
+      either.right.value shouldBe 3
+//      either.right.value shouldBe defined
+      either.right should be ('defined)
+      either.left should not be 'defined
+    }
+  }
 }
