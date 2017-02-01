@@ -38,23 +38,6 @@ class TestScalaTest extends WordSpec {
     }
   }
 
-  "Multiple predicates" should {
-    "combine" in {
-      val string = """Thank you for your order.
-                     |You enrolled in the best course ever!
-                     |Go study and become successful.
-                     |""".stripMargin
-      string should (
-        include("Thank you for your order") and
-        include("You enrolled in")
-      )
-      string should (
-        include("Thank you for your order") or
-        include("You enrolled in")
-      )
-    }
-  }
-
   "OptionValue" should {
     "work for Some values" in {
       val option = Some(3)
@@ -84,6 +67,23 @@ class TestScalaTest extends WordSpec {
       either.right.value shouldBe 3
       either shouldBe 'right
       either should not be 'left
+    }
+  }
+
+  "Multiple predicates" should {
+    "combine" in {
+      val string = """Thank you for your order.
+                     |You enrolled in the best course ever!
+                     |Go study and become successful.
+                     |""".stripMargin
+      string should (
+        include("Thank you for your order") and
+        include("You enrolled in")
+      )
+      string should (
+        include("Thank you for your order") or
+        include("You enrolled in")
+      )
     }
   }
 }
