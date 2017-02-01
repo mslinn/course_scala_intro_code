@@ -32,9 +32,10 @@ javacOptions ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "org.specs2"    %% "specs2-core"  % "3.8.6" % "test" withSources(),
-  "org.specs2"    %% "specs2-junit" % "3.8.6" % "test" withSources(),
-  "org.scalatest" %% "scalatest"    % "3.0.0" % "test" withSources()
+  "org.specs2"    %% "specs2-core"  % "3.8.7" % "test" withSources(),
+  "org.specs2"    %% "specs2-junit" % "3.8.7" % "test" withSources(),
+  "org.scalatest" %% "scalatest"    % "3.0.1" % "test" withSources(),
+  "junit"         %  "junit"        % "4.12"  % "test"
 )
 
 triggeredMessage in ThisBuild := Watched.clearWhenTriggered
