@@ -20,15 +20,21 @@ class TestScalaTest extends WordSpec {
   }
 
   "Strings" should {
-    "work" in {
-      val string = """Thank you for your order.
-                     |You enrolled in the best course ever!
-                     |Go study and become successful.
-                     |""".stripMargin
+    val string = """Thank you for your order.
+                   |You enrolled in the best course ever!
+                   |Go study and become successful.
+                   |""".stripMargin
+    "compare normally" in {
       string.length shouldBe 96
       string should startWith("Thank you for your order")
       string should include("the best course ever!")
       string should endWith("successful.\n")
+    }
+    "compare with regexes" in {
+      string should fullyMatch regex "(?s)Thank .* best .*"
+      string should startWith regex "Thank .*"
+      string should include regex "best course .*"
+      string should endWith regex "successful.\n"
     }
   }
 
