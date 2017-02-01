@@ -4,7 +4,7 @@ import org.scalatest._
 import org.scalatest.Matchers._
 
 @RunWith(classOf[JUnitRunner])
-class ScalaTestDemo extends WordSpec {
+class TestScalaTest extends WordSpec {
   "The 'Hello world' string" should {
     "contain 11 characters" in {
       "Hello world".length === 11
