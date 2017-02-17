@@ -25,6 +25,7 @@ class TestScalaTest extends WordSpec {
                    |Go study and become successful.
                    |""".stripMargin
     "compare normally" in {
+      string === string
       string.length shouldBe 96
       string should startWith("Thank you for your order")
       string should include("the best course ever!")
