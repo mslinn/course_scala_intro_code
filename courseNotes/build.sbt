@@ -1,9 +1,9 @@
 organization := "com.micronautics"
 name := "intro-scala-course"
 description := "Core Scala - Introduction to Scala Course Notes"
-version := "2.12.2"
+version := "2.12.3"
 
-scalaVersion := "2.12.2" // Scala-IDE 4.6.0 will be compatible with Scala 2.12
+scalaVersion := "2.12.3"
 autoCompilerPlugins := true
 scalacOptions in (Compile, doc) ++= baseDirectory.map {
   (bd: File) => Seq[String](
