@@ -14,10 +14,10 @@ object Time {
     println(f"[It took: ${result._1}%5d ms to run] " + f"$msg $n%6d is: ${result._2}")
   }
 
-  def fibTest(fn: Int => Any, values: List[Int] = List(10, 42, 50, 100, 500, 1000, 1000, 5000, 5000)) =
+  def fibTest(fn: Int => Any, values: List[Int] = List(10, 42, 50, 100, 500, 1000, 1000, 5000, 5000)): Unit =
     values.foreach(n => printTiming(n, fn, "Fibonacci of: "))
 
-  def time(f: => Unit) = {
+  def time(f: => Unit): Long = {
     val s = System.currentTimeMillis
     f
     System.currentTimeMillis - s
@@ -25,7 +25,6 @@ object Time {
 }
 
 object FibBad1 extends App {
-
   def fibBad1(n: Int): Long = n match {
     case 0L => 0L
     case 1L => 1L
@@ -40,7 +39,6 @@ object FibBad1 extends App {
 }
 
 object FibBad2 extends App {
-
   def fibBad2(n: Int): Long = if (n <= 1) n else fibBad2(n - 2) + fibBad2(n - 1)
 
   Time.fibTest(fibBad2, List(10, 42, 42))
@@ -50,7 +48,6 @@ object FibBad2 extends App {
 }
 
 object Fib3 extends App {
-
   val defaultMap = immutable.HashMap(0 -> 0L, 1 -> 1L)
   val cache = mutable.WeakHashMap[Int, Long]().withDefault(defaultMap)
 
@@ -138,7 +135,7 @@ object FibCheck extends App {
 
   def fibTry(n: Int) = Try(fibThrow(n))
 
-  def tryHandler(n: Int) =
+  def tryHandler(n: Int): Unit =
     fibTry(n) match {
       case Success(result) =>
         println(s"Fibonacci of $n is: $result [fibTry]")
@@ -158,8 +155,8 @@ object FibCheck extends App {
 }
 
 object FibMem extends App {
-  val defaultMap = immutable.HashMap(0 -> BigInt(0), 1 -> BigInt(1))
-  val cache = mutable.WeakHashMap[Int, BigInt]().withDefault(defaultMap)
+  val defaultMap: Map[Int, BigInt] = immutable.HashMap(0 -> BigInt(0), 1 -> BigInt(1))
+  val cache: mutable.Map[Int, BigInt] = mutable.WeakHashMap[Int, BigInt]().withDefault(defaultMap)
 
   def fn(n: Int): BigInt = {
     @tailrec
