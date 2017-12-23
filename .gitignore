@@ -1,4 +1,5 @@
 logs
+.ensime_cache/
 .ipynb_checkpoints/
 .ensime
 .worksheet/
