@@ -155,8 +155,7 @@ object FibCheck extends App {
 }
 
 object FibMem extends App {
-  val defaultMap: Map[Int, BigInt] = immutable.HashMap(0 -> BigInt(0), 1 -> BigInt(1))
-  val cache: mutable.Map[Int, BigInt] = mutable.WeakHashMap[Int, BigInt]().withDefault(defaultMap)
+  val cache: mutable.Map[Int, BigInt] = mutable.HashMap(0 -> BigInt(0), 1 -> BigInt(1))
 
   def fn(n: Int): BigInt = {
     @tailrec
