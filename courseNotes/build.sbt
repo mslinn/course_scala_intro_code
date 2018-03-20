@@ -1,9 +1,9 @@
 organization := "com.micronautics"
 name := "intro-scala-course"
 description := "Core Scala - Introduction to Scala Course Notes"
-version := "2.12.3"
+version := "2.12.5"
 
-scalaVersion := "2.12.3"
+scalaVersion := "2.12.5"
 autoCompilerPlugins := true
 scalacOptions in (Compile, doc) ++= baseDirectory.map {
   (bd: File) => Seq[String](
@@ -32,9 +32,9 @@ javacOptions ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "org.specs2"    %% "specs2-core"  % "3.8.7" % "test" withSources(),
-  "org.specs2"    %% "specs2-junit" % "3.8.7" % "test" withSources(),
-  "org.scalatest" %% "scalatest"    % "3.0.1" % "test" withSources(),
+  "org.specs2"    %% "specs2-core"  % "4.0.3-83f81a8-20180227163433" % "test" withSources(),
+  "org.specs2"    %% "specs2-junit" % "4.0.3" % "test" withSources(),
+  "org.scalatest" %% "scalatest"    % "3.0.5" % "test" withSources(),
   "junit"         %  "junit"        % "4.12"  % "test"
 )
 
