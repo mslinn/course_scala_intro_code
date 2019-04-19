@@ -23,7 +23,7 @@ class TestScalaTest extends WordSpec {
     val string = """Thank you for your order.
                    |You enrolled in the best course ever!
                    |Go study and become successful.
-                   |""".stripMargin
+                   |""".stripMargin.replace("\r\n", "\n")
     "compare normally" in {
       string === string
       string.length shouldBe 96

@@ -56,7 +56,7 @@ object ScalaEnum extends App {
 
   import ScalaDay._
   def tellItLikeItIs(theDay: ScalaDay): Unit = {
-    val msg = theDay match {
+    val msg: String = theDay match {
       case Monday => "Mondays are bad."
       case Friday => "Fridays are better."
       case Saturday => "Weekends are best."
