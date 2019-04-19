@@ -1,12 +1,12 @@
 organization := "com.micronautics"
 name := "intro-scala-course"
 description := "Core Scala - Introduction to Scala Course Notes"
-version := "2.12.7"
+version := "2.12.7" // "2.13.0-RC1"
 
-scalaVersion := "2.12.7"
+scalaVersion := "2.12.7" // "2.13.0-RC1"
 autoCompilerPlugins := true
 scalacOptions in (Compile, doc) ++= baseDirectory.map {
-  (bd: File) => Seq[String](
+  bd: File => Seq[String](
     "-deprecation",
     "-encoding", "UTF-8",
     "-feature",
@@ -32,10 +32,10 @@ javacOptions ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "org.specs2"    %% "specs2-core"  % "4.0.3-83f81a8-20180227163433" % "test" withSources(),
-  "org.specs2"    %% "specs2-junit" % "4.0.3" % "test" withSources(),
-  "org.scalatest" %% "scalatest"    % "3.0.5" % "test" withSources(),
-  "junit"         %  "junit"        % "4.12"  % "test"
+  "org.specs2"    %% "specs2-core"  % "4.3.4" % Test withSources(),
+  "org.specs2"    %% "specs2-junit" % "4.3.4" % Test withSources(),
+  "org.scalatest" %% "scalatest"    % "3.0.5" % Test withSources(),
+  "junit"         %  "junit"        % "4.12"  % Test
 )
 
 triggeredMessage in ThisBuild := Watched.clearWhenTriggered
