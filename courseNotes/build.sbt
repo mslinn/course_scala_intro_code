@@ -1,9 +1,12 @@
 organization := "com.micronautics"
 name := "intro-scala-course"
 description := "Core Scala - Introduction to Scala Course Notes"
-version := "2.12.7" // "2.13.0-RC1"
 
-scalaVersion := "2.12.7" // "2.13.0-RC1"
+// This project's dependencies are not yet available for Scala 2.13
+scalaVersion := "2.12.7"   // comment this line to use Scala 2.13-RC1
+//scalaVersion := "2.13.0-RC1" // uncomment this line to use Scala 2.13-RC1
+version := scalaVersion.value
+
 autoCompilerPlugins := true
 scalacOptions in (Compile, doc) ++= baseDirectory.map {
   bd: File => Seq[String](
