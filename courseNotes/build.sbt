@@ -3,7 +3,7 @@ name := "intro-scala-course"
 description := "Core Scala - Introduction to Scala Course Notes"
 
 // This project's dependencies are not yet available for Scala 2.13
-scalaVersion := "2.12.7"   // comment this line to use Scala 2.13-RC1
+scalaVersion := "2.12.8"   // comment this line to use Scala 2.13-RC1
 //scalaVersion := "2.13.0-RC1" // uncomment this line to use Scala 2.13-RC1
 version := scalaVersion.value
 
@@ -35,8 +35,8 @@ javacOptions ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "org.specs2"    %% "specs2-core"  % "4.3.4" % Test withSources(),
-  "org.specs2"    %% "specs2-junit" % "4.3.4" % Test withSources(),
+  "org.specs2"    %% "specs2-core"  % "4.5.1" % Test withSources(),
+  "org.specs2"    %% "specs2-junit" % "4.5.1" % Test withSources(),
   "org.scalatest" %% "scalatest"    % "3.0.5" % Test withSources(),
   "junit"         %  "junit"        % "4.12"  % Test
 )
