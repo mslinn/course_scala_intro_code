@@ -36,7 +36,7 @@ javacOptions ++= Seq(
 libraryDependencies ++= Seq(
   "org.specs2"    %% "specs2-core"  % "4.5.1"        % Test withSources(),
   "org.specs2"    %% "specs2-junit" % "4.5.1"        % Test withSources(),
-  "org.scalatest" %% "scalatest"    % "3.1.0-SNAP9" % Test withSources(),
+  "org.scalatest" %% "scalatest"    % "3.1.0-SNAP9"  % Test withSources(),
   "junit"         %  "junit"        % "4.12"         % Test
 )
 
