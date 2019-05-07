@@ -1,4 +1,6 @@
 logs
+.metals/
+.bloop/
 .ensime_cache/
 .ipynb_checkpoints/
 .ensime
