@@ -2,8 +2,8 @@ organization := "com.micronautics"
 name := "intro-scala-course"
 description := "Core Scala - Introduction to Scala Course Notes"
 
-scalaVersion := "2.12.8"     // Comment this line to use Scala 2.12.8
-//scalaVersion := "2.13.0-RC1"   // Uncomment this line to use Scala 2.13-RC1
+//scalaVersion := "2.12.8"     // Comment this line to use Scala 2.12.8
+scalaVersion := "2.13.0"   // Uncomment this line to use Scala 2.13.0
 version := scalaVersion.value
 
 autoCompilerPlugins := true
@@ -36,7 +36,7 @@ javacOptions ++= Seq(
 libraryDependencies ++= Seq(
   "org.specs2"    %% "specs2-core"  % "4.5.1"        % Test withSources(),
   "org.specs2"    %% "specs2-junit" % "4.5.1"        % Test withSources(),
-  "org.scalatest" %% "scalatest"    % "3.1.0-SNAP9"  % Test withSources(),
+  "org.scalatest" %% "scalatest"    % "3.1.0-SNAP13" % Test withSources(),
   "junit"         %  "junit"        % "4.12"         % Test
 )
 
