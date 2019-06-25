@@ -1,6 +1,6 @@
 package com.micronautics
 
-import com.fasterxml.jackson.databind.{JsonNode, ObjectMapper}
+import com.fasterxml.jackson.databind.JsonNode
 import net.thisptr.jackson.jq.{JsonQuery, Scope}
 
 trait JQ {
@@ -12,8 +12,8 @@ trait JQ {
   rootScope.loadFunctions(classOf[Scope].getClassLoader) // load built-in functions.
 
   def jq(json: JsonNode, filter: String): List[JsonNode] = {
-    if (filter.trim.isEmpty) die(88, "jqHome - no filter was provided.")
-    if (json.toString.trim.isEmpty) die(88, "jqHome - no JSON was provided.")
+    if (filter.trim.isEmpty) die(88, "jq - no filter was provided.")
+    if (json.toString.trim.isEmpty) die(88, "jq - no JSON was provided.")
     val q: JsonQuery = JsonQuery.compile(filter)
     q.apply(rootScope, json).asScala.toList
   }

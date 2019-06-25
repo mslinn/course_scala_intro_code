@@ -27,7 +27,8 @@ object WindowsTerminalCursor extends App with JQ with Constants {
   val ubuntuCursorShape: String = jq(json, s""".profiles[] | select(.name=="Ubuntu") | .cursorShape""").mkString(", ")
   println(s"ubuntuCursorShape=$ubuntuCursorShape")
   val cursorShape = "vintage"
-  val query = s""".profiles[] | select(.name=="Ubuntu") | .cursorShape)="$cursorShape""""
+  //val query = s"""(.profiles[] | select(.name=="Ubuntu") | .cursorShape)="$cursorShape""""
+  val query = s""".profiles |= map(if .name == "Ubuntu" then .cursorShape = "$cursorShape" else . end)"""
   val newJson: Seq[JsonNode] = jq(json, query)
   writeTo(file.toPath, newJson.map(_.toString).mkString("\n"))
 }
@@ -38,7 +39,8 @@ object WindowsTerminalColors extends App with JQ with Constants {
   val colorScheme: String = jq(json, s""".profiles[] | select(.name=="Ubuntu") | .colorScheme""").mkString(", ")
   println(s"colorScheme=$colorScheme")
   val newColorScheme = "Solarized Dark"
-  val query = s""".profiles[] | select(.name=="Ubuntu") | .colorScheme)="$newColorScheme""""
+  //val query = s"""(.profiles[] | select(.name=="Ubuntu") | .colorScheme)="$newColorScheme""""
+  val query = s""".profiles |= map(if .name == "Ubuntu" then .colorScheme = "$newColorScheme" else . end)"""
   val newJson = jq(json, query)
   writeTo(file.toPath, newJson.map(_.toString).mkString("\n"))
 }
