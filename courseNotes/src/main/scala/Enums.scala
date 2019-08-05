@@ -6,22 +6,22 @@ object JavaEnum extends App {
   if (day==Day.TUESDAY) println("Wimpy wants a hamburger")
 
   Day.valueOf("MONDAY")
-  println(s"Day.MONDAY < Day.FRIDAY: ${Day.MONDAY < Day.FRIDAY}")
+  println(s"Day.MONDAY < Day.FRIDAY: ${ Day.MONDAY < Day.FRIDAY }")
 
-  def isWeekDay(day: Day) = day>=Day.MONDAY && day<=Day.FRIDAY
+  def isWeekDay(day: Day): Boolean = day>=Day.MONDAY && day<=Day.FRIDAY
 
   if (isWeekDay(Day.WEDNESDAY)) println("Waiting for weekend")
 
-  val valueSet = collection.immutable.TreeSet(Day.values:_*)
+  val valueSet = collection.immutable.TreeSet(Day.values: _*)
   println(s"valueSet=$valueSet")
 
   def tellItLikeItIs(theDay: Day): Unit = {
     val msg = theDay match {
-      case MONDAY => "Mondays are bad."
-      case FRIDAY => "Fridays are better."
+      case MONDAY   => "Mondays are bad."
+      case FRIDAY   => "Fridays are better."
       case SATURDAY => "Weekends are best."
-      case SUNDAY => "Weekends are best."
-      case _ => "Midweek days are so-so."
+      case SUNDAY   => "Weekends are best."
+      case _        => "Midweek days are so-so."
     }
     println(msg)
   }
@@ -43,13 +43,13 @@ object JavaEnum extends App {
 object ScalaEnum extends App {
   object ScalaDay extends Enumeration {
     type ScalaDay = Value
-    val Monday    = Value("MONDAY")
-    val Tuesday   = Value("TUESDAY")
-    val Wednesday = Value("WEDNESDAY")
-    val Thursday  = Value("THURSDAY")
-    val Friday    = Value("FRIDAY")
-    val Saturday  = Value("SATURDAY")
-    val Sunday    = Value("SUNDAY")
+    val Monday: ScalaEnum.ScalaDay.Value    = Value("MONDAY")
+    val Tuesday: ScalaEnum.ScalaDay.Value   = Value("TUESDAY")
+    val Wednesday: ScalaEnum.ScalaDay.Value = Value("WEDNESDAY")
+    val Thursday: ScalaEnum.ScalaDay.Value  = Value("THURSDAY")
+    val Friday: ScalaEnum.ScalaDay.Value    = Value("FRIDAY")
+    val Saturday: ScalaEnum.ScalaDay.Value  = Value("SATURDAY")
+    val Sunday: ScalaEnum.ScalaDay.Value    = Value("SUNDAY")
   }
   val Mon = ScalaDay.withName("WEDNESDAY")
   val label = ScalaDay.Friday.toString
@@ -57,11 +57,11 @@ object ScalaEnum extends App {
   import ScalaDay._
   def tellItLikeItIs(theDay: ScalaDay): Unit = {
     val msg: String = theDay match {
-      case Monday => "Mondays are bad."
-      case Friday => "Fridays are better."
+      case Monday   => "Mondays are bad."
+      case Friday   => "Fridays are better."
       case Saturday => "Weekends are best."
-      case Sunday => "Weekends are best."
-      case _ => "Midweek days are so-so."
+      case Sunday   => "Weekends are best."
+      case _        => "Midweek days are so-so."
     }
     println(msg)
   }
@@ -95,11 +95,11 @@ object ScalaEnumCase extends App {
   import CaseDay._
   def tellItLikeItIs(theDay: CaseDay): Unit = {
     val msg = theDay match {
-      case Monday => "Mondays are bad."
-      case Friday => "Fridays are better."
+      case Monday   => "Mondays are bad."
+      case Friday   => "Fridays are better."
       case Saturday => "Weekends are best."
-      case Sunday => "Weekends are best."
-      case _ => "Midweek days are so-so."
+      case Sunday   => "Weekends are best."
+      case _        => "Midweek days are so-so."
     }
     println(msg)
   }
@@ -129,7 +129,7 @@ object BlendedEnums extends App {
 
     lazy val ordinal: Int = day.ordinal
 
-    override lazy val toString = day.toString
+    override lazy val toString: String = day.toString
   }
 
   object CaseDay {
@@ -143,11 +143,11 @@ object BlendedEnums extends App {
     case object Saturday extends CaseDay(SATURDAY)
     case object Sunday extends CaseDay(SUNDAY)
 
-    def valueOf(name: String) = Day.valueOf(name)
+    def valueOf(name: String): Day = Day.valueOf(name)
 
     type CaseDayObject = CaseDay with Product with Serializable
     lazy val values: SortedSet[CaseDayObject] = {
-      val ordering = Ordering.by { caseDayObject: CaseDayObject ⇒ caseDayObject.ordinal }
+      val ordering = Ordering.by { caseDayObject: CaseDayObject => caseDayObject.ordinal }
       TreeSet(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)(ordering)
     }
   }
@@ -155,11 +155,11 @@ object BlendedEnums extends App {
   import CaseDay._
   def tellItLikeItIs(theDay: CaseDay): Unit = {
     val msg = theDay match {
-      case Monday => "Mondays are bad."
-      case Friday => "Fridays are better."
+      case Monday   => "Mondays are bad."
+      case Friday   => "Fridays are better."
       case Saturday => "Weekends are best."
-      case Sunday => "Weekends are best."
-      case _ => "Midweek days are so-so."
+      case Sunday   => "Weekends are best."
+      case _        => "Midweek days are so-so."
     }
     println(msg)
   }

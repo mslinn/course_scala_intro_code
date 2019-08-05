@@ -2,14 +2,13 @@ organization := "com.micronautics"
 name := "intro-scala-course"
 description := "Core Scala - Introduction to Scala Course Notes"
 
-//scalaVersion := "2.12.8"     // Comment this line to use Scala 2.12.8
-scalaVersion := "2.13.0"   // Uncomment this line to use Scala 2.13.0
+//scalaVersion := "2.12.9"     // Comment this line to use Scala 2.13
+scalaVersion := "2.13.0"   // Uncomment this line to use Scala 2.12
 version := scalaVersion.value
 
 autoCompilerPlugins := true
 scalacOptions in (Compile, doc) ++= baseDirectory.map {
   bd: File => Seq[String](
-    "-deprecation",
     "-encoding", "UTF-8",
     "-feature",
     "-target:jvm-1.8",
@@ -17,13 +16,14 @@ scalacOptions in (Compile, doc) ++= baseDirectory.map {
     "-Ywarn-adapted-args",
     "-Ywarn-dead-code",
     "-Ywarn-numeric-widen",
-    "-Ywarn-unused",
+//    "-Ywarn-unused",
     "-Ywarn-value-discard",
-    "-Xfuture",
+//    "-Xfuture",
     "-Xlint"
   )
 }.value
 scalacOptions in Test ++= Seq("-Yrangepos")
+scalacOptions += "-deprecation"
 
 javacOptions ++= Seq(
   "-Xlint:deprecation",
@@ -33,11 +33,12 @@ javacOptions ++= Seq(
   "-g:vars"
 )
 
+val specsVer = "4.5.1"
 libraryDependencies ++= Seq(
-  "org.specs2"    %% "specs2-core"  % "4.5.1"        % Test withSources(),
-  "org.specs2"    %% "specs2-junit" % "4.5.1"        % Test withSources(),
-  "org.scalatest" %% "scalatest"    % "3.1.0-SNAP13" % Test withSources(),
-  "junit"         %  "junit"        % "4.12"         % Test
+  "org.specs2"    %% "specs2-core"  % specsVer % Test withSources(),
+  "org.specs2"    %% "specs2-junit" % specsVer % Test withSources(),
+  "org.scalatest" %% "scalatest"    % "3.0.8"  % Test withSources(),
+  "junit"         %  "junit"        % "4.12"   % Test
 )
 
 triggeredMessage in ThisBuild := Watched.clearWhenTriggered
