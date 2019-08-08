@@ -37,16 +37,16 @@ object TypeNothing extends App {
 
   println(s"""try1("123") = ${ try1("123") }""")
 
-def try2(string: String): Double =
-  try {
-    string.toInt
-  } catch {
-    case _: NumberFormatException =>
-      42.0
+  def try2(string: String): Double =
+    try {
+      string.toInt
+    } catch {
+      case _: NumberFormatException =>
+        42.0
 
-    case _: Exception =>
-      string.toDouble
-  }
+      case _: Exception =>
+        string.toDouble
+    }
 
   println(s"""try2("12.3") = ${ try2("12.3") }""")
 
@@ -64,6 +64,16 @@ def try2(string: String): Double =
     }
 
   println(s"""try3("12 3") = ${ try3("12 3") }""")
+}
+
+object NothingDoing extends App {
+  def die(message: String): Nothing = {
+    Console.err.println(message)
+    Console.err.flush()
+    sys.exit()
+  }
+
+  val freedom: Int = if (false) 99 else die("Help! I'm trapped in a computer!")
 }
 
 object DogHog extends App {
