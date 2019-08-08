@@ -37,13 +37,16 @@ object TypeNothing extends App {
 
   println(s"""try1("123") = ${ try1("123") }""")
 
-  def try2(string: String): Double =
-    try {
-      string.toInt
-    } catch {
-      case _: Exception =>
-        string.toDouble
-    }
+def try2(string: String): Double =
+  try {
+    string.toInt
+  } catch {
+    case _: NumberFormatException =>
+      42.0
+
+    case _: Exception =>
+      string.toDouble
+  }
 
   println(s"""try2("12.3") = ${ try2("12.3") }""")
 
