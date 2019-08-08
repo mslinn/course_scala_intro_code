@@ -15,7 +15,7 @@ object TypeWidening1 extends App {
 }
 
 object TypeWidening2 extends App {
-  def rightNow = System.currentTimeMillis
+  val rightNow: Long = System.currentTimeMillis
 
   val x: Any = if (rightNow % 2 == 0) true else
     if (new java.util.Date(rightNow).toString.contains("Tue "))
@@ -25,8 +25,8 @@ object TypeWidening2 extends App {
 }
 
 object TypeNothing extends App {
-  val myType: Int = if (true) 42 else sys.error("Oopsie!")
-  println(s"myType = $myType")
+  val meaning: Int = if (true) 42 else sys.error("Oopsie!")
+  println(s"meaning = $meaning")
 
   def try1(string: String): Int =
     try {
