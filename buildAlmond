@@ -1,0 +1,59 @@
+#!/bin/bash
+
+ALMOND_VERSION=0.4.0
+INSTALL_PATH=/tmp
+SCALA_VERSION=2.12.8 
+unset OVERWRITE
+
+function help {
+  echo "${1}$(basename $0) - Build Almond installer and execute it, then deletes installer and lists the Jupyter kernels.
+almond is a Scala kernel for Jupyter. See https://almond.sh/docs
+Options:
+  -a  Specify Almond version (default is Almond $ALMOND_VERSION)
+  -d  Debug mode
+  -f  Force overwrite of previously built kernel of the same name
+  -h  Show help message
+  -s  Specify Scala version (default is Scala $SCALA_VERSION)
+  
+Examples:
+$ buildAlmond -f  # Overwrite any previous version of the same name
+Building Almond 0.4.0 for Scala 2.12.8
+Installed scala kernel under /home/mslinn/.local/share/jupyter/kernels/scala2.12.8
+$ buildAlmond -s 2.11.12 -a 0.4.0    
+Building Almond 0.4.0 for Scala 2.11.12
+Installed scala kernel under /home/mslinn/.local/share/jupyter/kernels/scala2.11.12
+"
+  exit 1
+}
+
+while getopts "a:dfs:h\\?" opt; do
+   case "$opt" in
+     a) ALMOND_VERSION=$OPTARG ;;
+     d) set -xv ;;
+     f) OVERWRITE=--force ;;
+     s) SCALA_VERSION=$OPTARG ;;
+     *) help ;;
+   esac
+done
+shift $(($OPTIND-1))
+
+INSTALLER_NAME="$INSTALL_PATH/almondInstaller"
+
+echo "Building Almond $ALMOND_VERSION for Scala $SCALA_VERSION"
+
+coursier bootstrap \\
+  -r jitpack \\
+  -i user -I "user:sh.almond:scala-kernel-api_$SCALA_VERSION:$ALMOND_VERSION" \\
+  "sh.almond:scala-kernel_$SCALA_VERSION:$ALMOND_VERSION" \\
+  --sources \\
+  --default=true \\
+  -o "$INSTALLER_NAME"
+
+"$INSTALLER_NAME" $OVERWRITE \\
+  --install \\
+  --id "scala${SCALA_VERSION}" \\
+  --display-name "Scala ($SCALA_VERSION)"
+
+rm -f "$INSTALLER_NAME"
+
+jupyter kernelspec list
