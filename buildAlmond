@@ -2,7 +2,7 @@
 
 ALMOND_VERSION=0.4.0
 INSTALL_PATH=/tmp
-SCALA_VERSION=2.12.8 
+SCALA_VERSION=2.12.9
 unset OVERWRITE
 
 function help {
@@ -16,12 +16,18 @@ Options:
   -s  Specify Scala version (default is Scala $SCALA_VERSION)
   
 Examples:
+
 $ buildAlmond -f  # Overwrite any previous version of the same name
-Building Almond 0.4.0 for Scala 2.12.8
-Installed scala kernel under /home/mslinn/.local/share/jupyter/kernels/scala2.12.8
+Building Almond 0.4.0 for Scala 2.12.9
+Installed scala kernel under /home/mslinn/.local/share/jupyter/kernels/scala2.12.9
+
 $ buildAlmond -s 2.11.12 -a 0.4.0    
 Building Almond 0.4.0 for Scala 2.11.12
 Installed scala kernel under /home/mslinn/.local/share/jupyter/kernels/scala2.11.12
+
+$ buildAlmond -s 2.13.0 -a 0.7.0
+Building Almond 0.7.0 for Scala 2.13.0
+Installed scala kernel under /home/mslinn/.local/share/jupyter/kernels/scala2.13.0
 "
   exit 1
 }
@@ -41,17 +47,17 @@ INSTALLER_NAME="$INSTALL_PATH/almondInstaller"
 
 echo "Building Almond $ALMOND_VERSION for Scala $SCALA_VERSION"
 
-coursier bootstrap \\
-  -r jitpack \\
-  -i user -I "user:sh.almond:scala-kernel-api_$SCALA_VERSION:$ALMOND_VERSION" \\
-  "sh.almond:scala-kernel_$SCALA_VERSION:$ALMOND_VERSION" \\
-  --sources \\
-  --default=true \\
+coursier bootstrap \
+  -r jitpack \
+  -i user -I "user:sh.almond:scala-kernel-api_$SCALA_VERSION:$ALMOND_VERSION" \
+  "sh.almond:scala-kernel_$SCALA_VERSION:$ALMOND_VERSION" \
+  --sources \
+  --default=true \
   -o "$INSTALLER_NAME"
 
-"$INSTALLER_NAME" $OVERWRITE \\
-  --install \\
-  --id "scala${SCALA_VERSION}" \\
+"$INSTALLER_NAME" $OVERWRITE \
+  --install \
+  --id "scala${SCALA_VERSION}" \
   --display-name "Scala ($SCALA_VERSION)"
 
 rm -f "$INSTALLER_NAME"
