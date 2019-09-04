@@ -12,7 +12,7 @@ object JavaEnum extends App {
 
   if (isWeekDay(Day.WEDNESDAY)) println("Waiting for weekend")
 
-  val valueSet = collection.immutable.TreeSet(Day.values: _*)
+  val valueSet = collection.immutable.TreeSet(Day.values.toIndexedSeq)
   println(s"valueSet=$valueSet")
 
   def tellItLikeItIs(theDay: Day): Unit = {

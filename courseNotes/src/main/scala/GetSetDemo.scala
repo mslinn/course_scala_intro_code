@@ -4,7 +4,7 @@ class GetSetExample1 {
   def name = pn // getter
 
  // setter can be called three ways, shown in GetSetDemo1
- def name_=(n: String) { pn = n }
+ def name_=(n: String): Unit = { pn = n }
 }
 
 object GetSetDemo1 extends App {

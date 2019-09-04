@@ -96,7 +96,7 @@ object LazyEvalLevel1 extends App {
   println(s"timidPi2(Stateful.increment) = ${timidPi2(Stateful.increment)}")
   println(s"timidPi2(Stateful.increment) = ${timidPi2(Stateful.increment)}")
 
-  def timidPi2a(value: ⇒ Int): String =
+  def timidPi2a(value: => Int): String =
      if (!isWitchingHour) s"Lazy evaluation yields $value, yes $value" else "I am too scared to compute"
 
   println(s"timidPi2a(3) = ${timidPi2a(3)}")
@@ -110,7 +110,7 @@ object LazyEvalLevel1 extends App {
   println(s"timidPi3(() => Stateful.increment) = ${timidPi3(() => Stateful.increment)}")
   println(s"timidPi3(() => Stateful.increment) = ${timidPi3(() => Stateful.increment)}")
 
-  def timidPi3a(value: () ⇒ Int): String =
+  def timidPi3a(value: () => Int): String =
      if (!isWitchingHour) s"Evaluating function yields ${value()}, yes ${value()}" else "I am too scared to compute"
 
   println(s"timidPi3a(() => 3) = ${timidPi3a(() => 3)}")

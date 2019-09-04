@@ -61,7 +61,7 @@ object BoldlyGo extends App {
     def engage(): Unit = { speedUp(); speedUp(); speedUp() }
   }
 
-  trait Engine { def speedUp() }
+  trait Engine { def speedUp(): Unit }
 
   trait PulseEngine extends Engine {
     var currentPulse = 0
@@ -70,7 +70,7 @@ object BoldlyGo extends App {
   }
 
   trait ControlCabin {
-    def increaseSpeed()
+    def increaseSpeed(): Unit
     def engage() = increaseSpeed()
   }
 

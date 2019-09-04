@@ -63,8 +63,8 @@ class TestScalaTest extends WordSpec {
 
     "work for Right values" in {
       either.right.value shouldBe 3
-      either shouldBe 'right
-      either should not be 'left
+      either shouldBe Symbol("right")
+      either should not be Symbol("left")
     }
   }
 
