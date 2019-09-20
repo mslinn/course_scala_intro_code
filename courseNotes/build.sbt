@@ -2,8 +2,8 @@ organization := "com.micronautics"
 name := "intro-scala-course"
 description := "Core Scala - Introduction to Scala Course Notes"
 
-//scalaVersion := "2.12.9"     // Comment this line to use Scala 2.13
-scalaVersion := "2.13.0"   // Uncomment this line to use Scala 2.12
+//scalaVersion := "2.12.10"     // Comment this line to use Scala 2.13
+scalaVersion := "2.13.1"   // Uncomment this line to use Scala 2.12
 version := scalaVersion.value
 
 autoCompilerPlugins := true
@@ -42,6 +42,8 @@ libraryDependencies ++= Seq(
 )
 
 triggeredMessage in ThisBuild := Watched.clearWhenTriggered
+
+ThisBuild / turbo := true
 
 updateOptions := updateOptions.value.withCachedResolution(true)
 
