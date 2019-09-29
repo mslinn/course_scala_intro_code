@@ -44,20 +44,29 @@ object Fun3 extends App {
   trait Fn extends (Int => Int) {
       def apply(x: Int): Int
 
-      def ~(f: => Fn) = this andThen f
+      def ~(f: => Fn): Int => Int = this andThen f
   }
 
-  val addOne: Fn = new Fn { def apply(x: Int) = 1 + x }
+  val addOne: Fn = new Fn { def apply(x: Int): Int = 1 + x }
+  // This means the same thing:
+  val addOneB: Fn = (x: Int) => 1 + x
 
-  val multiplyTwo: Fn = new Fn { def apply(x: Int) = 2 * x }
+  val multiplyTwo: Fn = new Fn { def apply(x: Int): Int = 2 * x }
+  // This means the same thing (without explicitly writing "new Fn"):
+  val multiplyTwoB: Fn = (x: Int) => 2 * x
 
-  println(s"""addOne(2)=${addOne(2)}""")
-  println(s"""multiplyTwo(4)=${multiplyTwo(4)}""")
+  println(s"""addOne(2) = ${ addOne(2) }""")
+  println(s"""addOneB(2) = ${ addOneB(2) }""")
+  println(s"""multiplyTwo(4) = ${ multiplyTwo(4) }""")
+  println(s"""multiplyTwoB(4) = ${ multiplyTwoB(4) }""")
 
   val compute = multiplyTwo andThen addOne
-  println(s"compute(2)=${compute(2)}")
+  println(s"compute(2) = ${ compute(2) }")
 
-  println(s"(addOne ~ multiplyTwo)(6)=${(addOne ~ multiplyTwo)(6)}")
+  println(s"(addOne ~ multiplyTwo)(6)=${ (addOne ~ multiplyTwo)(6) }")
+
+  val addOneNG/*: Unit*/      = { def apply(x: Int) = 1 + x }  // broken, useless
+  val multiplyTwoNG/*: Unit*/ = { def apply(x: Int) = 2 * x }  // broken, useless
 }
 
 object LazyEvalLevel1 extends App {
@@ -66,7 +75,7 @@ object LazyEvalLevel1 extends App {
   object Stateful {
     var count = 0
 
-    def increment = {
+    def increment: Int = {
       count = count + 1
       count
     }
