@@ -1,4 +1,4 @@
-val dottyVersion = "0.20.0-RC1"
+val dottyVersion = "0.21.0-RC1"
 val scala212Version = "2.12.10"
 val scala213Version = "2.13.1"
 
@@ -6,10 +6,10 @@ lazy val root = project
   .in(file("."))
   .settings(
     name := "dotty-cross",
-    version := "0.1.1",
+    version := "0.1.2",
 
     libraryDependencies ++= Seq(
-      "com.micronautics" %% "awslib_scala"    % "1.1.13" withSources(),
+      "com.micronautics" %% "awslib_scala"    % "1.1.17" withSources(),
       "com.novocode"     %  "junit-interface" % "0.11"  % Test
     ).map(_.withDottyCompat(scalaVersion.value)),
 
