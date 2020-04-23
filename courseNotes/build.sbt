@@ -2,8 +2,8 @@ organization := "com.micronautics"
 name := "intro-scala-course"
 description := "Core Scala - Introduction to Scala Course Notes"
 
-//scalaVersion := "2.12.10"     // Comment this line to use Scala 2.13
-scalaVersion := "2.13.1"   // Uncomment this line to use Scala 2.12
+//scalaVersion := "2.12.11"     // Comment this line to use Scala 2.13
+scalaVersion := "2.13.2"   // Uncomment this line to use Scala 2.12
 version := scalaVersion.value
 
 autoCompilerPlugins := true
