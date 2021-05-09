@@ -56,5 +56,7 @@ initialCommands / console := """import java.io.File
                                 |""".stripMargin
 
 logLevel := Level.Info
-Test / logLevel := Level.Info // Level.Info is needed to see detailed output when running tests
-Compile / logLevel := Level.Info
+Test / logLevel := Level.Info    // Level.Info is needed to see detailed output when running tests
+Compile / logLevel := Level.Info // Redundant but provided so students can adjust separately
+
+Global / excludeLintKeys += Compile / logLevel
