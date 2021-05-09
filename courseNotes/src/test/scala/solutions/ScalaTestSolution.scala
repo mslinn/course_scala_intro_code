@@ -1,13 +1,15 @@
 package solutions
 
-import org.scalatest._
-import org.scalatest.Matchers._
+import org.scalatest.matchers.should.Matchers._
+import org.scalatest.wordspec._
+import scala.util.Using
 
-class ScalaTestSolution extends WordSpec {
+class ScalaTestSolution extends AnyWordSpec {
   "ScalaCourses.com" should {
     "contain the word scala" in {
-      val contents = io.Source.fromURL("http://scalacourses.com").getLines.mkString
-      contents.toLowerCase should include("scala")
+      Using(io.Source.fromURL("http://scalacourses.com")) { contents =>
+        contents.getLines().mkString.toLowerCase should include("scala")
+      }
     }
   }
 }

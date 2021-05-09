@@ -8,11 +8,11 @@ object Main extends App {
       weather
     }
 
-    def rain(): Weather = genericOp("raining")
+    def rain(): Weather = genericOp(newStatus = "raining")
 
-    def hail(): Weather = genericOp("hailing")
+    def hail(): Weather = genericOp(newStatus = "hailing")
 
-    def sunshine(): Weather = genericOp("shining")
+    def sunshine(): Weather = genericOp(newStatus = "shining")
   }
 
   val weather = Weather("shining")

@@ -16,9 +16,7 @@ Compile / doc / scalacOptions ++= baseDirectory.map {
     "-Ywarn-adapted-args",
     "-Ywarn-dead-code",
     "-Ywarn-numeric-widen",
-//    "-Ywarn-unused",
     "-Ywarn-value-discard",
-//    "-Xfuture",
     "-Xlint"
   )
 }.value
@@ -33,11 +31,11 @@ javacOptions ++= Seq(
   "-g:vars"
 )
 
-val specsVer = "4.5.1"
+val specsVer = "4.11.0"
 libraryDependencies ++= Seq(
   "org.specs2"    %% "specs2-core"  % specsVer % Test withSources(),
   "org.specs2"    %% "specs2-junit" % specsVer % Test withSources(),
-  "org.scalatest" %% "scalatest"    % "3.0.8"  % Test withSources(),
+  "org.scalatest" %% "scalatest"    % "3.2.7"  % Test withSources(),
   "junit"         %  "junit"        % "4.12"   % Test
 )
 
