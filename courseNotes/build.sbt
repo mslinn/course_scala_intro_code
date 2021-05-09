@@ -2,12 +2,12 @@ organization := "com.micronautics"
 name := "intro-scala-course"
 description := "Core Scala - Introduction to Scala Course Notes"
 
-//scalaVersion := "2.12.11"     // Comment this line to use Scala 2.13
-scalaVersion := "2.13.2"   // Uncomment this line to use Scala 2.12
+//scalaVersion := "2.12.13"     // Comment this line to use Scala 2.13
+scalaVersion := "2.13.5"   // Uncomment this line to use Scala 2.12
 version := scalaVersion.value
 
 autoCompilerPlugins := true
-scalacOptions in (Compile, doc) ++= baseDirectory.map {
+Compile / doc / scalacOptions ++= baseDirectory.map {
   bd: File => Seq[String](
     "-encoding", "UTF-8",
     "-feature",
@@ -22,7 +22,7 @@ scalacOptions in (Compile, doc) ++= baseDirectory.map {
     "-Xlint"
   )
 }.value
-scalacOptions in Test ++= Seq("-Yrangepos")
+Test / scalacOptions ++= Seq("-Yrangepos")
 scalacOptions += "-deprecation"
 
 javacOptions ++= Seq(
@@ -41,14 +41,14 @@ libraryDependencies ++= Seq(
   "junit"         %  "junit"        % "4.12"   % Test
 )
 
-triggeredMessage in ThisBuild := Watched.clearWhenTriggered
+ThisBuild  / watchBeforeCommand := Watch.clearScreen
 
 ThisBuild / turbo := true
 
 updateOptions := updateOptions.value.withCachedResolution(true)
 
 // set the initial commands when entering 'console' or 'consoleQuick', but not 'consoleProject'
-initialCommands in console := """import java.io.File
+initialCommands / console := """import java.io.File
                                 |import scala.language.postfixOps
                                 |import java.net.URL
                                 |import scala.util.control.NoStackTrace
@@ -56,5 +56,5 @@ initialCommands in console := """import java.io.File
                                 |""".stripMargin
 
 logLevel := Level.Info
-logLevel in test := Level.Info // Level.Info is needed to see detailed output when running tests
-logLevel in compile := Level.Info
+Test / logLevel := Level.Info // Level.Info is needed to see detailed output when running tests
+Compile / logLevel := Level.Info
