@@ -1,9 +1,10 @@
-organization := "com.micronautics"
+organization := "com.mslinn"
 name := "intro-scala-course"
 description := "Core Scala - Introduction to Scala Course Notes"
 
-//scalaVersion := "2.12.11"     // Comment this line to use Scala 2.13
-scalaVersion := "2.13.2"   // Uncomment this line to use Scala 2.12
+//scalaVersion := "2.12.11"
+scalaVersion := "2.13.5"
+//scalaVersion := "3.0.0-RC3"
 version := scalaVersion.value
 
 autoCompilerPlugins := true
@@ -16,9 +17,7 @@ scalacOptions in (Compile, doc) ++= baseDirectory.map {
     "-Ywarn-adapted-args",
     "-Ywarn-dead-code",
     "-Ywarn-numeric-widen",
-//    "-Ywarn-unused",
     "-Ywarn-value-discard",
-//    "-Xfuture",
     "-Xlint"
   )
 }.value
@@ -41,7 +40,7 @@ libraryDependencies ++= Seq(
   "junit"         %  "junit"        % "4.12"   % Test
 )
 
-triggeredMessage in ThisBuild := Watched.clearWhenTriggered
+ThisBuild / watchBeforeCommand := Watch.clearScreen
 
 ThisBuild / turbo := true
 
@@ -56,5 +55,5 @@ initialCommands in console := """import java.io.File
                                 |""".stripMargin
 
 logLevel := Level.Info
-logLevel in test := Level.Info // Level.Info is needed to see detailed output when running tests
-logLevel in compile := Level.Info
+Test / logLevel := Level.Info // Level.Info is needed to see detailed output when running tests
+Compile / logLevel := Level.Info

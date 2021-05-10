@@ -12,7 +12,7 @@ object Extractor extends App {
     def unapply(input: Array[String]): MaybeFrogTuple = parse(input)
 
     private def parse(input: Array[String]): MaybeFrogTuple =
-      if (input.size!=3)
+      if (input.length!=3)
          None
       else
         try {
