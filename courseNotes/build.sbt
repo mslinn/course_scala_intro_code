@@ -1,4 +1,3 @@
-
 organization := "com.mslinn"
 name := "intro-scala-course"
 description := "Core Scala - Introduction to Scala Course Notes"

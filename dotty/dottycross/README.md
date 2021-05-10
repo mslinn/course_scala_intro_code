@@ -1,4 +1,5 @@
-## sbt project cross-compiled with Dotty and Scala 2
+## sbt project cross-compiled with Scala 3 and Scala 2
+Warning: IntelliJ IDEA 2021.1 is not compatible with Scala 3.
 
 ### Usage
 

@@ -1,23 +1,25 @@
-val dottyVersion = "0.21.0-RC1"
-val scala212Version = "2.12.10"
-val scala213Version = "2.13.1"
+val dottyVersion = "3.0.0-RC3"
+val scala212Version = "2.12.13"
+val scala213Version = "2.13.5"
 
-lazy val root = project
-  .in(file("."))
-  .settings(
-    name := "dotty-cross",
-    version := "0.1.2",
+organization := "com.mslinn"
+name := "dotty-cross"
+version := dottyVersion
 
-    libraryDependencies ++= Seq(
-      "com.micronautics" %% "awslib_scala"    % "1.1.17" withSources(),
-      "com.novocode"     %  "junit-interface" % "0.11"  % Test
-    ).map(_.withDottyCompat(scalaVersion.value)),
+javacOptions ++= Seq(
+  "-Xlint:deprecation",
+  "-Xlint:unchecked",
+  "-source", "1.8",
+  "-target", "1.8",
+  "-g:vars"
+)
 
-    resolvers += "micronautics/scala on bintray" at "https://dl.bintray.com/micronautics/scala",
+libraryDependencies ++= Seq(
+  "com.novocode" % "junit-interface" % "0.11"  % Test
+)
 
-    // To make the default compiler and REPL use Dotty
-    scalaVersion := dottyVersion,
+// To make the default compiler and REPL use Dotty
+scalaVersion := dottyVersion
 
-    // To cross compile with Dotty and Scala 2
-    crossScalaVersions := Seq(dottyVersion, scala213Version, scala212Version)
-  )
+// To cross compile with Dotty and Scala 2
+crossScalaVersions := Seq(dottyVersion, scala213Version, scala212Version)
