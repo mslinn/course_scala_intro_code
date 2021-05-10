@@ -4,7 +4,7 @@ import animals.Animal
 
 class Bird2(val canFly: Boolean, val topSpeed: Double) extends Animal(2, true) {
 
-  def this(topSpeed: Double) {
+  def this(topSpeed: Double) = {
     this(true, Bird2.newTopSpeed(topSpeed))
   }
 
